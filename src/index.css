@@ -7,40 +7,40 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 15 37% 97%;
+    --foreground: 186 48% 19%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 15 37% 97%;
+    --card-foreground: 186 48% 19%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 15 37% 97%;
+    --popover-foreground: 186 48% 19%;
 
-    --primary: 84 81% 44%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 14 79% 49%;
+    --primary-foreground: 15 37% 97%;
 
-    --secondary: 142 71% 45%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 186 48% 19%;
+    --secondary-foreground: 15 37% 97%;
 
-    --muted: 84 20% 95%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 15 20% 95%;
+    --muted-foreground: 26 47% 40%;
 
-    --accent: 84 81% 44%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 26 47% 40%;
+    --accent-foreground: 15 37% 97%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 15 37% 97%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 84 81% 44%;
+    --border: 15 20% 90%;
+    --input: 15 20% 90%;
+    --ring: 14 79% 49%;
 
     --radius: 0.75rem;
 
     /* Custom gradients */
-    --primary-gradient: linear-gradient(135deg, #fef08a 0%, #10b981 100%);
-    --primary-gradient-soft: linear-gradient(135deg, #fef3c7 0%, #34d399 100%);
-    --primary-gradient-dark: linear-gradient(135deg, #facc15 0%, #059669 100%);
+    --primary-gradient: linear-gradient(135deg, #E35314 0%, #164147 100%);
+    --primary-gradient-soft: linear-gradient(135deg, #FBF1F0 0%, #966336 100%);
+    --primary-gradient-dark: linear-gradient(135deg, #966336 0%, #164147 100%);
   }
 
   .dark {
@@ -146,7 +146,7 @@
 }
 
 .gradient-animation {
-  background: linear-gradient(-45deg, #fef08a, #10b981, #fef3c7, #34d399);
+  background: linear-gradient(-45deg, #FBF1F0, #E35314, #966336, #164147);
   background-size: 400% 400%;
   animation: gradient-shift 8s ease infinite;
 }
