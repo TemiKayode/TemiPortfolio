@@ -17,13 +17,13 @@ const Hero = () => {
       description: "Building scalable applications with modern frameworks"
     },
     {
-      title: "Full Stack Solutions",
+      title: "Full Stack Solutions", 
       subtitle: "End-to-End Development",
       description: "From database design to user interface"
     },
     {
       title: "Product Management",
-      subtitle: "Strategy & Execution", 
+      subtitle: "Strategy & Execution",
       description: "Leading teams to deliver exceptional products"
     }
   ];
@@ -55,6 +55,23 @@ const Hero = () => {
 
       <div className="container mx-auto px-6 text-center relative z-20">
         <div className="max-w-4xl mx-auto space-y-6">
+          {/* Large Profile Image Placeholder */}
+          <div className="relative mx-auto w-48 h-48 mb-8">
+            <div className="w-full h-full rounded-full bg-gradient-to-br from-primary/20 to-secondary/20 border-4 border-primary/30 flex items-center justify-center group hover:scale-105 transition-all duration-300">
+              <div className="text-center">
+                <div className="w-20 h-20 mx-auto mb-2 rounded-full bg-primary/10 flex items-center justify-center">
+                  <span className="text-2xl">📸</span>
+                </div>
+                <p className="text-xs text-muted-foreground group-hover:text-primary transition-colors">
+                  Click to add photo
+                </p>
+              </div>
+            </div>
+            <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 bg-primary text-primary-foreground px-3 py-1 rounded-full text-xs font-semibold animate-bounce">
+              Available for hire
+            </div>
+          </div>
+
           {/* Profile Image Carousel */}
           <div className="relative mx-auto w-32 h-32 mb-6">
             <Carousel
@@ -87,9 +104,6 @@ const Hero = () => {
                 </CarouselItem>
               </CarouselContent>
             </Carousel>
-            <div className="absolute -top-2 -right-2 bg-primary text-primary-foreground px-2 py-1 rounded-full text-xs font-semibold animate-bounce">
-              Available
-            </div>
           </div>
 
           <div className="text-sm text-primary font-medium mb-4 animate-fade-in">
