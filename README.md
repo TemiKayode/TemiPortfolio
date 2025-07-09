@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Welcome to your Lovable project
 
 ## Project info
@@ -71,3 +72,23 @@ Yes, you can!
 To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
 
 Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+=======
+# TemiPortfolio
+
+A modern portfolio website for Temi Kayode, showcasing full-stack development expertise.
+
+## Features
+- Compact profile image with gradient border
+- Animated background video
+- Project carousel with React & TypeScript projects
+- WhatsApp contact and CV download
+- Responsive design with Tailwind CSS
+- Live project links: [Ordang](https://ordang.netlify.app/), [Wumikay](https://wumikay.netlify.app/), [Mars Place Hotel](https://marsplacehotel.com/)
+
+## Setup
+```bash
+git clone https://github.com/your-username/TemiPortfolio.git
+cd TemiPortfolio
+npm install
+npm run dev
+>>>>>>> 40aea008dd6d78f7cd1c0e4379c5cecab6db8145
