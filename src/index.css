@@ -169,7 +169,19 @@
     transform: translateY(0);
   }
 }
+  
+/* Video Background Utilities */
+.video-overlay {
+  @apply absolute inset-0 bg-gradient-to-br from-background/40 via-transparent to-primary/30;
+}
 
+.video-container {
+  @apply relative overflow-hidden;
+}
+
+.video-placeholder {
+  @apply bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center;
+}
 @keyframes gradient-shift {
   0%, 100% {
     background-position: 0% 50%;
