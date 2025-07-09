@@ -1,2 +1,18 @@
 # TemiPortfolio
-A modern portfolio for Temi Kayode, showcasing 5+ years as a Full Stack Developer with React &amp; Node.js. Features a compact profile, video background, project carousel, WhatsApp contact, and CV download. Built with React, TypeScript, Tailwind CSS, and Vite for a responsive, user-friendly experience.
+
+A modern portfolio website for Temi Kayode, showcasing full-stack development expertise.
+
+## Features
+- Compact profile image with gradient border
+- Animated background video
+- Project carousel with React & TypeScript projects
+- WhatsApp contact and CV download
+- Responsive design with Tailwind CSS
+- Live project links: [Ordang](https://ordang.netlify.app/), [Wumikay](https://wumikay.netlify.app/), [Mars Place Hotel](https://marsplacehotel.com/)
+
+## Setup
+```bash
+git clone https://github.com/your-username/TemiPortfolio.git
+cd TemiPortfolio
+npm install
+npm run dev
