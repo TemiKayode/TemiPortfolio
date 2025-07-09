@@ -16,16 +16,16 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 339 44% 50%;
+    --primary: 84 81% 44%;
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 195 45% 45%;
+    --secondary: 142 71% 45%;
     --secondary-foreground: 210 40% 98%;
 
-    --muted: 339 20% 95%;
+    --muted: 84 20% 95%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 339 44% 50%;
+    --accent: 84 81% 44%;
     --accent-foreground: 210 40% 98%;
 
     --destructive: 0 84.2% 60.2%;
@@ -33,14 +33,14 @@
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 339 44% 50%;
+    --ring: 84 81% 44%;
 
     --radius: 0.75rem;
 
     /* Custom gradients */
-    --primary-gradient: linear-gradient(135deg, #aa4b6b 0%, #3b8d99 100%);
-    --primary-gradient-soft: linear-gradient(135deg, #c478a0 0%, #5aa3b3 100%);
-    --primary-gradient-dark: linear-gradient(135deg, #8a3d55 0%, #2f7080 100%);
+    --primary-gradient: linear-gradient(135deg, #fef08a 0%, #10b981 100%);
+    --primary-gradient-soft: linear-gradient(135deg, #fef3c7 0%, #34d399 100%);
+    --primary-gradient-dark: linear-gradient(135deg, #facc15 0%, #059669 100%);
   }
 
   .dark {
@@ -146,7 +146,7 @@
 }
 
 .gradient-animation {
-  background: linear-gradient(-45deg, #aa4b6b, #3b8d99, #c478a0, #5aa3b3);
+  background: linear-gradient(-45deg, #fef08a, #10b981, #fef3c7, #34d399);
   background-size: 400% 400%;
   animation: gradient-shift 8s ease infinite;
 }
