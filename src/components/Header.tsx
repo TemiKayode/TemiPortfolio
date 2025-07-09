@@ -27,21 +27,43 @@ const Header = () => {
     }`}>
       <nav className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <div className="text-2xl font-bold primary-gradient-text">
-            TK
+          {/* Left Navigation - About & Experience */}
+          <div className="hidden md:flex items-center space-x-6">
+            <a
+              href="#about"
+              className="text-muted-foreground hover:text-primary transition-all duration-300 font-medium hover:scale-105"
+            >
+              About
+            </a>
+            <a
+              href="#experience"
+              className="text-muted-foreground hover:text-primary transition-all duration-300 font-medium hover:scale-105"
+            >
+              Experience
+            </a>
           </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className="text-muted-foreground hover:text-primary transition-all duration-300 font-medium hover:scale-105"
-              >
-                {item.label}
-              </a>
-            ))}
+          {/* Center Logo */}
+          <div className="flex-1 flex justify-center">
+            <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary/20 to-secondary/20 border-2 border-primary/30 flex items-center justify-center hover:scale-105 transition-all duration-300">
+              <span className="text-xl">📸</span>
+            </div>
+          </div>
+
+          {/* Right Navigation - Projects & Contact */}
+          <div className="hidden md:flex items-center space-x-6">
+            <a
+              href="#projects"
+              className="text-muted-foreground hover:text-primary transition-all duration-300 font-medium hover:scale-105"
+            >
+              Projects
+            </a>
+            <a
+              href="#contact"
+              className="text-muted-foreground hover:text-primary transition-all duration-300 font-medium hover:scale-105"
+            >
+              Contact
+            </a>
             
             <div className="flex items-center space-x-4 ml-8">
               <a
