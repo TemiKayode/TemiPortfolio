@@ -45,9 +45,9 @@ const Header = () => {
 
           {/* Center Logo */}
           <div className="flex-1 flex justify-center">
-            <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary/20 to-secondary/20 border-2 border-primary/30 flex items-center justify-center hover:scale-105 transition-all duration-300">
+            <a href="#" className="w-12 h-12 rounded-full bg-gradient-to-br from-primary/20 to-secondary/20 border-2 border-primary/30 flex items-center justify-center hover:scale-105 transition-all duration-300 cursor-pointer">
               <span className="text-xl">📸</span>
-            </div>
+            </a>
           </div>
 
           {/* Right Navigation - Projects & Contact */}
