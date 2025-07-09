@@ -37,12 +37,22 @@ const Hero = () => {
           muted 
           loop 
           playsInline
-          className="w-full h-full object-cover opacity-20"
+          className="w-full h-full object-cover opacity-40"
         >
+          {/* Placeholder for video - can be easily updated */}
           <source src="https://assets.mixkit.co/videos/preview/mixkit-set-of-plateaus-seen-from-the-heights-in-a-desert-26070-large.mp4" type="video/mp4" />
+          <source src="https://assets.mixkit.co/videos/preview/mixkit-rotating-around-the-earth-29351-large.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
-        <div className="absolute inset-0 primary-gradient opacity-30"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-background/60 via-transparent to-primary/20"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent"></div>
+      </div>
+
+      {/* Video Overlay Effects */}
+      <div className="absolute inset-0 z-5">
+        <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-primary/60 rounded-full animate-ping"></div>
+        <div className="absolute top-3/4 right-1/3 w-1 h-1 bg-secondary/60 rounded-full animate-ping" style={{animationDelay: '1s'}}></div>
+        <div className="absolute bottom-1/4 left-1/2 w-1.5 h-1.5 bg-primary/40 rounded-full animate-ping" style={{animationDelay: '2s'}}></div>
       </div>
 
       {/* Animated Background Elements */}
