@@ -12,6 +12,7 @@ const Projects = () => {
       title: 'Pheran – Clothing Website',
       description: 'A full-featured e-commerce fashion store with shopping cart, Paystack payments, inventory tracking, and backend CMS.',
       image: pheranLogo,
+      isLogo: true,
       technologies: ['React', 'Next.js', 'Node.js', 'PostgreSQL', 'Firebase', 'Paystack'],
       status: 'Completed',
       role: 'Full Stack Developer',
@@ -22,10 +23,26 @@ const Projects = () => {
       demo: '#'
     },
     {
+      id: 'orda-delivery',
+      title: 'Orda – Local Food Delivery',
+      description: 'Local food delivery platform connecting restaurants with customers, featuring order tracking and payment integration.',
+      image: ordaLogo,
+      isLogo: true,
+      technologies: ['React Native', 'Node.js', 'MongoDB', 'Stripe', 'Google Maps API'],
+      status: 'Completed',
+      role: 'Mobile & Backend Developer',
+      icon: Truck,
+      challenges: 'Real-time order tracking and driver coordination',
+      outcomes: 'Facilitated 1000+ successful food deliveries',
+      github: '#',
+      demo: '#'
+    },
+    {
       id: 'tenant-screening',
       title: 'Tenant Screening & Rent Management',
       description: 'Web platform to screen tenants, collect rent, and manage the complete tenancy lifecycle with KYC integration.',
-      image: 'https://images.unsplash.com/photo-1560520653-9e0e4c89eb11?w=800&h=400&fit=crop',
+      image: null,
+      placeholder: '🏢 Tenant Management',
       technologies: ['Next.js', 'Tailwind CSS', 'Supabase', 'Firebase Auth', 'Flutterwave', 'VerifyMe'],
       status: 'In Progress',
       role: 'Full Stack Developer & Product Owner',
@@ -39,7 +56,8 @@ const Projects = () => {
       id: 'tuition-manager',
       title: 'Tuition & School Fee Manager',
       description: 'Platform used by low-cost schools for fee tracking, debt management, receipt generation, and parent notifications.',
-      image: 'https://images.unsplash.com/photo-1497486751825-1233686d5d80?w=800&h=400&fit=crop',
+      image: null,
+      placeholder: '🎓 School Fee Manager',
       technologies: ['React', 'Vue.js', 'Firebase', 'Supabase', 'Remita', 'Paystack'],
       status: 'Completed',
       role: 'Lead Developer',
@@ -53,7 +71,8 @@ const Projects = () => {
       id: 'property-listing',
       title: 'Property Listing Platform',
       description: 'Zoopla-inspired property platform with advanced search, mapping integration, and agent management system.',
-      image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=400&fit=crop',
+      image: null,
+      placeholder: '🏠 Property Platform',
       technologies: ['React', 'Node.js', 'MongoDB', 'Mapbox', 'AWS S3'],
       status: 'Completed',
       role: 'Full Stack Developer',
@@ -67,27 +86,14 @@ const Projects = () => {
       id: 'task-manager',
       title: 'Real-time Task Manager',
       description: 'Collaborative task management platform with real-time updates, team collaboration, and project tracking.',
-      image: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=400&fit=crop',
+      image: null,
+      placeholder: '⚡ Real-time Tasks',
       technologies: ['React', 'Socket.io', 'Node.js', 'PostgreSQL', 'Redis'],
       status: 'Completed',
       role: 'Full Stack Developer',
       icon: Clock,
       challenges: 'Real-time synchronization across multiple users',
       outcomes: 'Improved team productivity by 35% for client organizations',
-      github: '#',
-      demo: '#'
-    },
-    {
-      id: 'orda-delivery',
-      title: 'Orda – Local Food Delivery',
-      description: 'Local food delivery platform connecting restaurants with customers, featuring order tracking and payment integration.',
-      image: ordaLogo,
-      technologies: ['React Native', 'Node.js', 'MongoDB', 'Stripe', 'Google Maps API'],
-      status: 'Completed',
-      role: 'Mobile & Backend Developer',
-      icon: Truck,
-      challenges: 'Real-time order tracking and driver coordination',
-      outcomes: 'Facilitated 1000+ successful food deliveries',
       github: '#',
       demo: '#'
     }
@@ -106,13 +112,28 @@ const Projects = () => {
         <div className="grid lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
           {projects.map((project, index) => (
             <div key={project.id} className="project-card group">
-              <div className="relative overflow-hidden rounded-xl mb-6">
-                <img 
-                  src={project.image} 
-                  alt={project.title}
-                  className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="relative overflow-hidden rounded-xl mb-6 h-48 bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center">
+                {project.image ? (
+                  project.isLogo ? (
+                    <img 
+                      src={project.image} 
+                      alt={project.title}
+                      className="h-20 w-auto object-contain hover:scale-110 transition-transform duration-300"
+                    />
+                  ) : (
+                    <img 
+                      src={project.image} 
+                      alt={project.title}
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                    />
+                  )
+                ) : (
+                  <div className="text-center">
+                    <span className="text-4xl mb-2 block">{project.placeholder?.split(' ')[0]}</span>
+                    <span className="text-sm text-muted-foreground">{project.placeholder?.split(' ').slice(1).join(' ')}</span>
+                  </div>
+                )}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <div className="absolute top-4 right-4">
                   <span className={`px-3 py-1 rounded-full text-xs font-medium ${
                     project.status === 'Completed' 
