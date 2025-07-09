@@ -2,6 +2,8 @@
 import React from 'react';
 import { ExternalLink, Github, ShoppingCart, Home, GraduationCap, Users, Clock, Truck } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import pheranLogo from '../assets/pheran-logo.png';
+import ordaLogo from '../assets/orda-logo.png';
 
 const Projects = () => {
   const projects = [
@@ -9,7 +11,7 @@ const Projects = () => {
       id: 'pheran-clothing',
       title: 'Pheran – Clothing Website',
       description: 'A full-featured e-commerce fashion store with shopping cart, Paystack payments, inventory tracking, and backend CMS.',
-      image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&h=400&fit=crop',
+      image: pheranLogo,
       technologies: ['React', 'Next.js', 'Node.js', 'PostgreSQL', 'Firebase', 'Paystack'],
       status: 'Completed',
       role: 'Full Stack Developer',
@@ -79,7 +81,7 @@ const Projects = () => {
       id: 'orda-delivery',
       title: 'Orda – Local Food Delivery',
       description: 'Local food delivery platform connecting restaurants with customers, featuring order tracking and payment integration.',
-      image: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=800&h=400&fit=crop',
+      image: ordaLogo,
       technologies: ['React Native', 'Node.js', 'MongoDB', 'Stripe', 'Google Maps API'],
       status: 'Completed',
       role: 'Mobile & Backend Developer',
@@ -96,7 +98,7 @@ const Projects = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="section-title">Featured Projects</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             A showcase of my recent work, from e-commerce platforms to management systems.
           </p>
         </div>
@@ -124,28 +126,28 @@ const Projects = () => {
 
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
-                  <div className="lime-gradient w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <project.icon size={20} className="text-gray-800" />
+                  <div className="primary-gradient w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <project.icon size={20} className="text-white" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-gray-800 mb-1">{project.title}</h3>
-                    <p className="text-sm text-lime-600 font-medium">{project.role}</p>
+                    <h3 className="text-xl font-bold text-foreground mb-1">{project.title}</h3>
+                    <p className="text-sm text-primary font-medium">{project.role}</p>
                   </div>
                 </div>
 
-                <p className="text-gray-700 leading-relaxed">
+                <p className="text-muted-foreground leading-relaxed">
                   {project.description}
                 </p>
 
                 <div className="space-y-3">
                   <div>
-                    <h4 className="text-sm font-semibold text-gray-800 mb-2">Key Challenges</h4>
-                    <p className="text-sm text-gray-600">{project.challenges}</p>
+                    <h4 className="text-sm font-semibold text-foreground mb-2">Key Challenges</h4>
+                    <p className="text-sm text-muted-foreground">{project.challenges}</p>
                   </div>
                   
                   <div>
-                    <h4 className="text-sm font-semibold text-gray-800 mb-2">Outcomes</h4>
-                    <p className="text-sm text-gray-600">{project.outcomes}</p>
+                    <h4 className="text-sm font-semibold text-foreground mb-2">Outcomes</h4>
+                    <p className="text-sm text-muted-foreground">{project.outcomes}</p>
                   </div>
                 </div>
 
@@ -161,14 +163,14 @@ const Projects = () => {
                   <Button
                     variant="outline"
                     size="sm"
-                    className="flex-1 border-lime-400 text-lime-700 hover:bg-lime-50"
+                    className="flex-1 border-primary text-primary hover:bg-primary/10"
                   >
                     <Github className="mr-2" size={16} />
                     Code
                   </Button>
                   <Button
                     size="sm"
-                    className="flex-1 lime-gradient text-gray-900 hover:scale-105 transition-transform duration-200"
+                    className="flex-1 primary-gradient text-white hover:scale-105 transition-transform duration-200"
                   >
                     <ExternalLink className="mr-2" size={16} />
                     Demo
