@@ -1,170 +1,99 @@
 
 import React from 'react';
-import { ArrowDown, Download, MessageCircle, Play } from 'lucide-react';
+import { ArrowDown, Download, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
-import Autoplay from 'embla-carousel-autoplay';
 
 const Hero = () => {
-  const plugin = React.useRef(
-    Autoplay({ delay: 4000, stopOnInteraction: true })
-  );
-
-  const videos = [
-    {
-      title: "Modern Web Development",
-      subtitle: "React & TypeScript",
-      description: "Building scalable applications with modern frameworks"
-    },
-    {
-      title: "Full Stack Solutions", 
-      subtitle: "End-to-End Development",
-      description: "From database design to user interface"
-    },
-    {
-      title: "Product Management",
-      subtitle: "Strategy & Execution",
-      description: "Leading teams to deliver exceptional products"
-    }
-  ];
-
-  return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      {/* Video Background */}
-      <div className="absolute inset-0 z-0">
-        <video 
-          autoPlay 
-          muted 
-          loop 
-          playsInline
-          className="w-full h-full object-cover opacity-40"
-        >
-          {/* Placeholder for video - can be easily updated */}
-          <source src="https://assets.mixkit.co/videos/preview/mixkit-set-of-plateaus-seen-from-the-heights-in-a-desert-26070-large.mp4" type="video/mp4" />
-          <source src="https://assets.mixkit.co/videos/preview/mixkit-rotating-around-the-earth-29351-large.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-        <div className="absolute inset-0 bg-gradient-to-br from-background/60 via-transparent to-primary/20"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent"></div>
-      </div>
-
-      {/* Video Overlay Effects */}
-      <div className="absolute inset-0 z-5">
-        <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-primary/60 rounded-full animate-ping"></div>
-        <div className="absolute top-3/4 right-1/3 w-1 h-1 bg-secondary/60 rounded-full animate-ping" style={{animationDelay: '1s'}}></div>
-        <div className="absolute bottom-1/4 left-1/2 w-1.5 h-1.5 bg-primary/40 rounded-full animate-ping" style={{animationDelay: '2s'}}></div>
-      </div>
-
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0 overflow-hidden z-10">
-        <div className="absolute top-10 left-5 w-32 h-32 bg-primary/20 rounded-full animate-float blur-xl"></div>
-        <div className="absolute top-20 right-10 w-48 h-48 bg-secondary/30 rounded-full animate-float blur-xl" style={{animationDelay: '2s'}}></div>
-        <div className="absolute bottom-20 left-1/4 w-64 h-64 bg-primary/10 rounded-full animate-float blur-2xl" style={{animationDelay: '4s'}}></div>
-        <div className="absolute top-1/3 right-1/4 w-40 h-40 bg-secondary/20 rounded-full animate-float blur-xl" style={{animationDelay: '1s'}}></div>
-      </div>
-
-      <div className="container mx-auto px-6 text-center relative z-20">
-        <div className="max-w-4xl mx-auto space-y-6">
-          {/* Center Profile Image */}
-          <div className="relative mx-auto w-32 h-32 mb-6">
-            <a href="#" className="block">
-              <div className="w-full h-full rounded-full bg-gradient-to-br from-primary to-secondary p-1 animate-pulse-slow hover:scale-105 transition-all duration-300 cursor-pointer">
-                <div className="w-full h-full rounded-full bg-background flex items-center justify-center">
-                  <span className="text-2xl">📸</span>
-                </div>
-              </div>
-            </a>
-          </div>
-
-          <div className="text-sm text-primary font-medium mb-4 animate-fade-in">
-            Full Stack Developer & Product Owner
-          </div>
-
-          <h1 className="text-3xl md:text-5xl font-bold mb-4 leading-tight animate-fade-in">
-            <span className="primary-gradient-text">Temi Kayode</span>
-          </h1>
-          
-          <p className="text-base md:text-lg text-muted-foreground mb-6 max-w-2xl mx-auto leading-relaxed animate-fade-in">
-            5+ years Full Stack Developer specializing in React, Node.js and modern web technologies. 
-            Building scalable solutions with focus on user experience and performance.
-          </p>
-
-          {/* Achievement Badges */}
-          <div className="flex flex-wrap justify-center gap-2 mb-6 animate-fade-in">
-            <div className="bg-primary/10 text-primary px-3 py-2 rounded-full text-sm font-medium border border-primary/20 hover:scale-105 transition-transform">
-              ⚡ 5+ Years Experience
+    return (
+        <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
+            {/* Floating colored circles */}
+            <div className="absolute inset-0 overflow-hidden">
+                <div className="absolute top-32 left-16 w-16 h-16 bg-blue-500/20 rounded-full animate-float blur-sm"></div>
+                <div className="absolute top-64 right-20 w-12 h-12 bg-purple-500/20 rounded-full animate-float blur-sm" style={{ animationDelay: '2s' }}></div>
+                <div className="absolute bottom-32 left-1/4 w-20 h-20 bg-green-500/20 rounded-full animate-float blur-sm" style={{ animationDelay: '4s' }}></div>
+                <div className="absolute top-1/2 right-16 w-14 h-14 bg-pink-500/20 rounded-full animate-float blur-sm" style={{ animationDelay: '1s' }}></div>
+                <div className="absolute bottom-48 right-1/3 w-10 h-10 bg-cyan-500/20 rounded-full animate-float blur-sm" style={{ animationDelay: '3s' }}></div>
+                <div className="absolute top-48 left-1/3 w-8 h-8 bg-yellow-500/20 rounded-full animate-float blur-sm" style={{ animationDelay: '5s' }}></div>
             </div>
-            <div className="bg-secondary/10 text-secondary px-3 py-2 rounded-full text-sm font-medium border border-secondary/20 hover:scale-105 transition-transform">
-              🚀 React & Node.js
-            </div>
-            <div className="bg-primary/10 text-primary px-3 py-2 rounded-full text-sm font-medium border border-primary/20 hover:scale-105 transition-transform">
-              💼 Product Owner
-            </div>
-            <div className="bg-secondary/10 text-secondary px-3 py-2 rounded-full text-sm font-medium border border-secondary/20 hover:scale-105 transition-transform">
-              🎯 10+ Projects
-            </div>
-          </div>
 
-          {/* Video Carousel */}
-          <div className="mb-6">
-            <Carousel
-              plugins={[plugin.current]}
-              className="w-full max-w-2xl mx-auto"
-              onMouseEnter={plugin.current.stop}
-              onMouseLeave={plugin.current.reset}
-            >
-              <CarouselContent>
-                {videos.map((video, index) => (
-                  <CarouselItem key={index}>
-                    <div className="relative">
-                      <div className="aspect-[16/9] bg-gradient-to-br from-primary/10 to-secondary/10 rounded-xl border border-primary/20 flex items-center justify-center backdrop-blur-sm hover:scale-105 transition-transform duration-300">
-                        <div className="text-center p-4">
-                          <div className="w-12 h-12 mx-auto mb-3 primary-gradient rounded-full flex items-center justify-center">
-                            <Play className="w-5 h-5 text-white" />
-                          </div>
-                          <h3 className="text-lg md:text-xl font-bold mb-2 text-foreground">{video.title}</h3>
-                          <p className="text-primary font-semibold mb-2 text-sm">{video.subtitle}</p>
-                          <p className="text-muted-foreground text-xs max-w-xs mx-auto">{video.description}</p>
+            <div className="container mx-auto px-6 text-center relative z-20">
+                <div className="max-w-4xl mx-auto space-y-4">
+                    {/* Profile Images/}
+                    <div className="flex flex-col items-center">
+                        <div className="relative w-32 h-32">
+                            <a href="#" className="block" aria-label="Profile link">
+                                <div className="w-full h-full rounded-full bg-[var(--profile-gradient)] p-1 hover:scale-105 transition-all duration-300">
+                                    <img
+                                        src="/images/profile.jpg"
+                                        alt="Temi Kayode Profile"
+                                        className="w-full h-full rounded-full object-cover"
+                                    />
+                                </div>
+                            </a>
                         </div>
-                      </div>
                     </div>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              <CarouselPrevious className="hidden md:flex" />
-              <CarouselNext className="hidden md:flex" />
-            </Carousel>
-          </div>
 
-          <div className="flex flex-col sm:flex-row gap-3 justify-center items-center mb-8">
-            <Button 
-              size="lg" 
-              className="primary-gradient hover:scale-105 transition-all duration-300 text-white font-semibold px-6 py-3 rounded-full shadow-lg"
-            >
-              <Download className="mr-2" size={16} />
-              Download CV
-            </Button>
-            
-            <Button 
-              variant="outline" 
-              size="lg"
-              className="border-2 border-primary bg-primary/5 text-primary hover:bg-primary/15 hover:scale-105 transition-all duration-300 px-6 py-3 rounded-full font-semibold"
-            >
-              <MessageCircle className="mr-2" size={16} />
-              WhatsApp Contact
-            </Button>
-          </div>
+                    </div>
+                    {/* Name */}
+                    <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight text-white animate-fade-in">
+                        Temi
+                    </h1>
 
-          <div className="animate-bounce">
-            <a href="#about" className="inline-flex flex-col items-center text-muted-foreground hover:text-primary transition-colors">
-              <ArrowDown size={20} />
-              <span className="text-xs mt-1">Discover More</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
+                    {/* Description */}
+                    <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
+                        5+ years Full Stack Developer specializing in React, Node.js and modern web technologies.
+                        Building scalable solutions with focus on user experience and performance.
+                    </p>
+
+                    {/* Achievement Badges */}
+                    <div className="flex flex-wrap justify-center gap-4 mb-8">
+                        <div className="bg-gradient-to-r from-yellow-500/20 to-orange-500/20 text-yellow-400 px-6 py-3 rounded-full text-sm font-medium border border-yellow-500/30 hover:scale-105 transition-transform backdrop-blur-sm">
+                            ⭐ 5+ Years Experience
+                        </div>
+                        <div className="bg-gradient-to-r from-blue-500/20 to-purple-500/20 text-blue-400 px-6 py-3 rounded-full text-sm font-medium border border-blue-500/30 hover:scale-105 transition-transform backdrop-blur-sm">
+                            ⚡ React & Node.js
+                        </div>
+                        <div className="bg-gradient-to-r from-green-500/20 to-cyan-500/20 text-green-400 px-6 py-3 rounded-full text-sm font-medium border border-green-500/30 hover:scale-105 transition-transform backdrop-blur-sm">
+                            🤖 AI Automation
+                        </div>
+                        <div className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 text-purple-400 px-6 py-3 rounded-full text-sm font-medium border border-purple-500/30 hover:scale-105 transition-transform backdrop-blur-sm">
+                            👥 Full Stack Expert
+                        </div>
+                    </div>
+
+                    {/* Action Buttons */}
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12 animate-fade-in">
+                        <a
+                            href="https://wa.me/2347035401659"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center bg-[var(--whatsapp-gradient)] hover:scale-105 transition-all duration-300 text-white font-semibold px-8 py-4 rounded-full shadow-lg border-0 text-base h-12"
+                            aria-label="Contact Temi Kayode via WhatsApp"
+                        >
+                            <MessageCircle className="mr-2" size={18} />
+                            WhatsApp Contact
+                        </a>
+                        <a
+                            href="/images/TemiCV.pdf"
+                            download
+                            className="inline-flex items-center bg-[var(--cv-gradient)] hover:scale-105 transition-all duration-300 text-white font-semibold px-8 py-4 rounded-full shadow-lg border-0 text-base h-12"
+                            aria-label="Download Temi Kayode's CV"
+                        >
+                            <Download className="mr-2" size={18} />
+                            Download CV
+                        </a>
+                    </div>
+                    {/* Discover More */}
+                    <div className="animate-bounce">
+                        <a href="#about" className="inline-flex flex-col items-center text-gray-400 hover:text-cyan-400 transition-colors">
+                            <ArrowDown size={24} />
+                            <span className="text-sm mt-2">Discover More</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    );
 };
 
 export default Hero;
