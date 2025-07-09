@@ -16,31 +16,31 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 84 100% 51%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 339 44% 50%;
+    --primary-foreground: 210 40% 98%;
 
-    --secondary: 82 85% 67%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 195 45% 45%;
+    --secondary-foreground: 210 40% 98%;
 
-    --muted: 84 20% 96%;
+    --muted: 339 20% 95%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 84 100% 51%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 339 44% 50%;
+    --accent-foreground: 210 40% 98%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 84 100% 51%;
+    --ring: 339 44% 50%;
 
     --radius: 0.75rem;
 
-    /* Custom lime-lemon gradients */
-    --lime-gradient: linear-gradient(135deg, #d9ff00 0%, #aaff33 100%);
-    --lime-gradient-soft: linear-gradient(135deg, #f0ff66 0%, #ccff66 100%);
-    --lime-gradient-dark: linear-gradient(135deg, #c4e600 0%, #99e600 100%);
+    /* Custom gradients */
+    --primary-gradient: linear-gradient(135deg, #aa4b6b 0%, #3b8d99 100%);
+    --primary-gradient-soft: linear-gradient(135deg, #c478a0 0%, #5aa3b3 100%);
+    --primary-gradient-dark: linear-gradient(135deg, #8a3d55 0%, #2f7080 100%);
   }
 
   .dark {
@@ -50,19 +50,19 @@
     --card-foreground: 210 40% 98%;
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
-    --primary: 84 100% 51%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 339 44% 50%;
+    --primary-foreground: 210 40% 98%;
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
-    --accent: 84 100% 51%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 339 44% 50%;
+    --accent-foreground: 210 40% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
-    --ring: 84 100% 51%;
+    --ring: 339 44% 50%;
   }
 }
 
@@ -81,16 +81,16 @@
 }
 
 @layer components {
-  .lime-gradient {
-    background: var(--lime-gradient);
+  .primary-gradient {
+    background: var(--primary-gradient);
   }
   
-  .lime-gradient-soft {
-    background: var(--lime-gradient-soft);
+  .primary-gradient-soft {
+    background: var(--primary-gradient-soft);
   }
   
-  .lime-gradient-text {
-    background: var(--lime-gradient);
+  .primary-gradient-text {
+    background: var(--primary-gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -103,19 +103,19 @@
   }
   
   .project-card {
-    @apply bg-white/80 backdrop-blur-sm border border-lime-200 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 hover:scale-[1.02];
+    @apply bg-white/80 backdrop-blur-sm border border-primary/20 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 hover:scale-[1.02];
   }
   
   .experience-card {
-    @apply bg-white/90 backdrop-blur-sm border-l-4 border-lime-400 rounded-lg p-6 shadow-md hover:shadow-lg transition-all duration-300;
+    @apply bg-white/90 backdrop-blur-sm border-l-4 border-primary rounded-lg p-6 shadow-md hover:shadow-lg transition-all duration-300;
   }
   
   .tech-tag {
-    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-lime-100 text-lime-800 border border-lime-200;
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/20;
   }
   
   .section-title {
-    @apply text-4xl md:text-5xl font-bold mb-8 lime-gradient-text;
+    @apply text-4xl md:text-5xl font-bold mb-8 primary-gradient-text;
   }
   
   .animate-float {
@@ -146,7 +146,7 @@
 }
 
 .gradient-animation {
-  background: linear-gradient(-45deg, #d9ff00, #aaff33, #ccff66, #e6ff80);
+  background: linear-gradient(-45deg, #aa4b6b, #3b8d99, #c478a0, #5aa3b3);
   background-size: 400% 400%;
   animation: gradient-shift 8s ease infinite;
 }
