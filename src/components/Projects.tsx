@@ -111,7 +111,7 @@ const Projects = () => {
 
         <div className="grid lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
           {projects.map((project, index) => (
-            <div key={project.id} className="project-card group">
+            <div key={project.id} className="interactive-card group bg-card/80 backdrop-blur-sm border border-primary/20 rounded-2xl p-6 shadow-lg">
               <div className="relative overflow-hidden rounded-xl mb-6 h-48 bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center">
                 {project.image ? (
                   project.isLogo ? (
