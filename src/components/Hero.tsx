@@ -84,21 +84,21 @@ const Hero = () => {
                 <CarouselItem>
                   <div className="w-full h-full rounded-full bg-gradient-to-br from-primary to-secondary p-1 animate-pulse-slow">
                     <div className="w-full h-full rounded-full bg-background flex items-center justify-center">
-                      <span className="text-3xl font-bold primary-gradient-text">TK</span>
+                      <span className="text-2xl">📸</span>
                     </div>
                   </div>
                 </CarouselItem>
                 <CarouselItem>
                   <div className="w-full h-full rounded-full bg-gradient-to-br from-secondary to-primary p-1 animate-pulse-slow">
                     <div className="w-full h-full rounded-full bg-background/90 flex items-center justify-center backdrop-blur-sm">
-                      <span className="text-2xl font-bold primary-gradient-text">TEMI</span>
+                      <span className="text-2xl">🎯</span>
                     </div>
                   </div>
                 </CarouselItem>
                 <CarouselItem>
                   <div className="w-full h-full rounded-full bg-gradient-to-br from-primary to-secondary p-1 animate-pulse-slow">
                     <div className="w-full h-full rounded-full bg-background flex items-center justify-center">
-                      <span className="text-xl font-bold primary-gradient-text">KAYODE</span>
+                      <span className="text-2xl">⚡</span>
                     </div>
                   </div>
                 </CarouselItem>
