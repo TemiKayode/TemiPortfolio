@@ -2,6 +2,7 @@
 import React from 'react';
 import { ArrowDown, Download, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import Typewriter from 'typewriter-effect';
 
 const Hero = () => {
     return (
@@ -40,10 +41,18 @@ const Hero = () => {
                     </h1>
 
                     {/* Description */}
-                    <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
-                        5+ years Full Stack Developer specializing in React, Node.js and modern web technologies.
-                        Building scalable solutions with focus on user experience and performance.
-                    </p>
+                    <div className="text-lg md:text-xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
+                        <Typewriter
+                            options={{
+                                strings: [
+                                    '5+ years Full Stack Developer specializing in React, Node.js and modern web technologies.',
+                                    'Building scalable solutions with focus on user experience and performance.'
+                                ],
+                                autoStart: true,
+                                loop: true,
+                            }}
+                        />
+                    </div>
 
                     {/* Achievement Badges */}
                     <div className="flex flex-wrap justify-center gap-4 mb-8">

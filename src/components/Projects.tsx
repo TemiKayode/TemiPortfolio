@@ -1,12 +1,14 @@
 
-import React from 'react';
-import { ExternalLink, Github, ShoppingCart, Home, GraduationCap, Users, Clock, Truck } from 'lucide-react';
+import React, { useState, useMemo } from 'react';
+import { ExternalLink, Github, ShoppingCart, Home, GraduationCap, Users, Clock, Truck, Search } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 import pheranLogo from '../assets/pheran-logo.png';
 import ordaLogo from '../assets/orda-logo.png';
 
+
 const Projects = () => {
-  const projects = [
+  const allProjects = [
     {
       id: 'pheran-clothing',
       title: 'Pheran – Clothing Website',
@@ -105,12 +107,27 @@ const Projects = () => {
     }
   ];
 
-  const categories = ['All', 'Full Stack', 'Frontend', 'Backend'];
-  const [selectedCategory, setSelectedCategory] = React.useState('All');
+  const categories = useMemo(() => ['All', 'Full Stack', 'Frontend', 'Backend'], []);
+  const [selectedCategory, setSelectedCategory] = useState('All');
+  const [searchTerm, setSearchTerm] = useState('');
+  const [visibleProjects, setVisibleProjects] = useState(4);
 
-  const filteredProjects = selectedCategory === 'All' 
-    ? projects 
-    : projects.filter(project => project.category === selectedCategory);
+  const filteredProjects = useMemo(() => {
+    return allProjects
+      .filter(project => {
+        const categoryMatch = selectedCategory === 'All' || project.category === selectedCategory;
+        const searchMatch = searchTerm === '' || 
+          project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          project.description.toLowerCase().includes(searchTerm.toLowerCase());
+        return categoryMatch && searchMatch;
+      });
+  }, [allProjects, selectedCategory, searchTerm]);
+
+  const projectsToShow = useMemo(() => filteredProjects.slice(0, visibleProjects), [filteredProjects, visibleProjects]);
+
+  const handleLoadMore = () => {
+    setVisibleProjects(prev => prev + 4);
+  };
 
   return (
     <section id="projects" className="py-20 bg-white/30 backdrop-blur-sm">
@@ -121,126 +138,109 @@ const Projects = () => {
             A showcase of my recent work, from e-commerce platforms to management systems.
           </p>
           
-          {/* Category Filter */}
-          <div className="flex flex-wrap justify-center gap-3 mb-8">
-            {categories.map((category) => (
-              <button
-                key={category}
-                onClick={() => setSelectedCategory(category)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-                  selectedCategory === category
-                    ? 'primary-gradient text-white shadow-lg'
-                    : 'bg-primary/10 text-primary border border-primary/20 hover:bg-primary/20'
-                }`}
-              >
-                {category}
-              </button>
-            ))}
+          <div className="flex flex-col md:flex-row justify-center items-center gap-4 mb-8">
+            {/* Category Filter */}
+            <div className="flex flex-wrap justify-center gap-3">
+              {categories.map((category) => (
+                <button
+                  key={category}
+                  onClick={() => setSelectedCategory(category)}
+                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                    selectedCategory === category
+                      ? 'primary-gradient text-white shadow-lg'
+                      : 'bg-primary/10 text-primary border border-primary/20 hover:bg-primary/20'
+                  }`}
+                >
+                  {category}
+                </button>
+              ))}
+            </div>
+
+            {/* Search Input */}
+            <div className="relative w-full max-w-sm">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" size={20} />
+              <Input 
+                type="text"
+                placeholder="Search projects..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="pl-10 w-full border-primary/20 focus:border-primary"
+              />
+            </div>
           </div>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
-          {filteredProjects.map((project, index) => (
-            <div key={project.id} className="interactive-card group bg-card/80 backdrop-blur-sm border border-primary/20 rounded-2xl p-6 shadow-lg">
-              <div className="relative overflow-hidden rounded-xl mb-6 h-48 bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center">
-                {project.image ? (
-                  project.isLogo ? (
-                    <img 
-                      src={project.image} 
-                      alt={project.title}
-                      className="h-20 w-auto object-contain hover:scale-110 transition-transform duration-300"
-                    />
+          {projectsToShow.map((project, index) => (
+            <div key={project.id} className="interactive-card group bg-card/80 backdrop-blur-sm border border-primary/20 rounded-2xl p-6 shadow-lg transition-all duration-300 hover:shadow-xl flex flex-col justify-between">
+              <div>
+                <div className="flex items-center space-x-4 mb-4">
+                  {project.image ? (
+                    project.isLogo ? (
+                      <img src={project.image} alt={project.title} className="w-10 h-10 object-contain rounded-full" />
+                    ) : (
+                      <img src={project.image} alt={project.title} className="w-20 h-auto object-cover rounded-lg" />
+                    )
+                  ) : project.placeholder ? (
+                    <div className="w-10 h-10 flex items-center justify-center text-2xl bg-primary/10 rounded-full">{project.placeholder}</div>
                   ) : (
-                    <img 
-                      src={project.image} 
-                      alt={project.title}
-                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                    />
-                  )
-                ) : (
-                  <div className="text-center p-4">
-                    <div className="w-16 h-16 mx-auto mb-3 rounded-lg bg-primary/20 flex items-center justify-center">
-                      <span className="text-2xl">{project.placeholder?.split(' ')[0]}</span>
+                    <div className="w-10 h-10 flex items-center justify-center text-primary bg-primary/10 rounded-full">
+                      {project.icon && <project.icon size={24} />}
                     </div>
-                    <span className="text-sm text-muted-foreground">{project.placeholder?.split(' ').slice(1).join(' ')}</span>
-                    <div className="mt-2 text-xs text-primary/60">Click to add image</div>
-                  </div>
-                )}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <div className="absolute top-4 left-4">
-                  <span className="px-2 py-1 rounded-full text-xs font-medium bg-secondary/20 text-secondary border border-secondary/30">
-                    {project.category}
-                  </span>
-                </div>
-                <div className="absolute top-4 right-4">
-                  <span className={`px-3 py-1 rounded-full text-xs font-medium ${
-                    project.status === 'Completed' 
-                      ? 'bg-green-100 text-green-800 border border-green-200' 
-                      : 'bg-yellow-100 text-yellow-800 border border-yellow-200'
-                  }`}>
-                    {project.status}
-                  </span>
-                </div>
-              </div>
-
-              <div className="space-y-4">
-                <div className="flex items-start gap-3">
-                  <div className="primary-gradient w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <project.icon size={20} className="text-white" />
-                  </div>
+                  )}
                   <div>
-                    <h3 className="text-xl font-bold text-foreground mb-1">{project.title}</h3>
-                    <p className="text-sm text-primary font-medium">{project.role}</p>
+                    <h3 className="text-xl font-semibold text-foreground">{project.title}</h3>
+                    <p className={`text-sm ${project.status === 'Completed' ? 'text-green-600' : 'text-yellow-600'}`}>
+                      {project.status} - {project.role}
+                    </p>
                   </div>
                 </div>
-
-                <p className="text-muted-foreground leading-relaxed">
-                  {project.description}
-                </p>
-
-                <div className="space-y-3">
-                  <div>
-                    <h4 className="text-sm font-semibold text-foreground mb-2">Key Challenges</h4>
-                    <p className="text-sm text-muted-foreground">{project.challenges}</p>
-                  </div>
-                  
-                  <div>
-                    <h4 className="text-sm font-semibold text-foreground mb-2">Outcomes</h4>
-                    <p className="text-sm text-muted-foreground">{project.outcomes}</p>
-                  </div>
-                </div>
-
-                <div className="flex flex-wrap gap-2">
-                  {project.technologies.map((tech) => (
-                    <span key={tech} className="tech-tag text-xs">
+                <p className="text-muted-foreground mb-4 text-sm">{project.description}</p>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {project.technologies.map(tech => (
+                    <span key={tech} className="px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-medium">
                       {tech}
                     </span>
                   ))}
                 </div>
-
-                <div className="flex gap-3 pt-4">
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    className="flex-1 border-primary text-primary hover:bg-primary/10"
-                    onClick={() => window.open(project.github, '_blank')}
-                  >
-                    <Github className="mr-2" size={16} />
-                    Code
+                {project.challenges && (
+                  <p className="text-sm text-foreground mb-2 italic">Challenges: {project.challenges}</p>
+                )}
+                {project.outcomes && (
+                  <p className="text-sm text-foreground italic">Outcomes: {project.outcomes}</p>
+                )}
+              </div>
+              <div className="flex justify-end gap-3 mt-6">
+                {project.github && (
+                  <Button asChild variant="outline" size="sm" className="rounded-full border-primary/20 text-primary hover:bg-primary/10">
+                    <a href={project.github} target="_blank" rel="noopener noreferrer" aria-label={`View ${project.title} on GitHub`}>
+                      <Github size={16} className="mr-1" /> GitHub
+                    </a>
                   </Button>
-                  <Button
-                    size="sm"
-                    className="flex-1 primary-gradient text-white hover:scale-105 transition-transform duration-200"
-                    onClick={() => window.open(project.demo, '_blank')}
-                  >
-                    <ExternalLink className="mr-2" size={16} />
-                    Demo
+                )}
+                {project.demo && (
+                  <Button asChild size="sm" className="rounded-full primary-gradient text-white hover:scale-105 transition-transform duration-200">
+                    <a href={project.demo} target="_blank" rel="noopener noreferrer" aria-label={`View live demo of ${project.title}`}>View Live <ExternalLink size={16} className="ml-1" /></a>
                   </Button>
-                </div>
+                )}
               </div>
             </div>
           ))}
         </div>
+
+        {visibleProjects < filteredProjects.length && (
+          <div className="text-center mt-12">
+            <Button onClick={handleLoadMore} size="lg" className="primary-gradient text-white hover:scale-105 transition-transform duration-200">
+              Load More Projects
+            </Button>
+          </div>
+        )}
+
+        {projectsToShow.length === 0 && (
+          <div className="text-center mt-12 text-muted-foreground">
+            <p>No projects found. Try adjusting your filters.</p>
+          </div>
+        )}
       </div>
     </section>
   );
