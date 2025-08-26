@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Github, Linkedin, Mail } from 'lucide-react';
+import { ModeToggle } from "./mode-toggle";
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -59,7 +60,7 @@ const Header = () => {
                         >
                             Contact
                         </a>
-
+                        <ModeToggle/>
                         <div className="flex items-center space-x-4 ml-8">
                             <a
                                 href="https://github.com/TemiKayode"
