@@ -1,94 +1,82 @@
-<<<<<<< HEAD
-# Welcome to your Lovable project
+# My Portfolio Website
 
-## Project info
+This is a responsive portfolio website built with React, Vite, and Shadcn UI. It showcases my projects, skills, and experience in a clean and modern design. The website is designed to be easily customizable and extensible.
 
-**URL**: https://lovable.dev/projects/7e995b7d-2542-440b-a42d-3f39937dbee6
+## Technologies Used
 
-## How can I edit this code?
+- [React](https://react.dev/)
+- [Vite](https://vitejs.dev/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Shadcn UI](https://ui.shadcn.com/)
+- [React Router](https://reactrouter.com/en/main)
+- [Framer Motion](https://www.framer.com/motion/)
+- [TypeScript](https://www.typescriptlang.org/)
 
-There are several ways of editing your application.
+## Getting Started
 
-**Use Lovable**
+To get a local copy up and running, follow these simple steps.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/7e995b7d-2542-440b-a42d-3f39937dbee6) and start prompting.
+### Prerequisites
 
-Changes made via Lovable will be committed automatically to this repo.
+- [Node.js](https://nodejs.org/en) (v18.x or later)
+- [pnpm](https://pnpm.io/) (optional, but recommended)
 
-**Use your preferred IDE**
+### Installation
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+1. Clone the repo
+   ```sh
+   git clone https://github.com/TemiKayode/TemiPortfolio.git
+   ```
+2. Install NPM packages
+   ```sh
+   pnpm install
+   ```
+3. Run the development server
+   ```sh
+   pnpm run dev
+   ```
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+This will start the development server at `http://localhost:5173`.
 
-Follow these steps:
+### Building for Production
+
+To create a production build, run:
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+pnpm run build
 ```
 
-**Edit a file directly in GitHub**
+This will create a `dist` folder with the optimized production build.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Scripts
 
-**Use GitHub Codespaces**
+- `dev`: Starts the development server.
+- `build`: Creates a production build.
+- `lint`: Lints the code using ESLint.
+- `preview`: Serves the production build locally for preview.
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Project Structure
 
-## What technologies are used for this project?
+The project is structured as follows:
 
-This project is built with:
+```
+src
+├── assets
+├── components
+│   ├── ui
+│   ├── Footer.tsx
+│   ├── Header.tsx
+│   ├── Hero.tsx
+│   ├── Projects.tsx
+│   └── Skills.tsx
+├── pages
+│   ├── Home.tsx
+│   └── NotFound.tsx
+├── App.tsx
+├── index.css
+└── main.tsx
+```
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## License
 
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/7e995b7d-2542-440b-a42d-3f39937dbee6) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
-=======
-# TemiPortfolio
-
-A modern portfolio website for Temi Kayode, showcasing full-stack development expertise.
-
-## Features
-- Compact profile image with gradient border
-- Animated background video
-- Project carousel with React & TypeScript projects
-- WhatsApp contact and CV download
-- Responsive design with Tailwind CSS
-- Live project links: [Ordang](https://ordang.netlify.app/), [Wumikay](https://wumikay.netlify.app/), [Mars Place Hotel](https://marsplacehotel.com/)
-
-## Setup
-```bash
-git clone https://github.com/your-username/TemiPortfolio.git
-cd TemiPortfolio
-npm install
-npm run dev
->>>>>>> 40aea008dd6d78f7cd1c0e4379c5cecab6db8145
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
