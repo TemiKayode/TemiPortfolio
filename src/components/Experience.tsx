@@ -1,9 +1,19 @@
 
 import React from 'react';
-import { Code, UserCheck, Settings, Calendar } from 'lucide-react';
+import { Code, UserCheck, Settings, Calendar, Briefcase } from 'lucide-react';
 
 const Experience = () => {
   const experiences = [
+    {
+      id: "ceo-orda",
+      title: "Chief Executive Officer (CEO)",
+      company: "Orda Enterprise",
+      period: "September 2025 - Present",
+      description: "Leading Orda Enterprise, a logistics business company, overseeing strategic direction, business operations, and growth initiatives. OrdaDelivery is a key platform within the enterprise ecosystem.",
+      technologies: ["Business Strategy", "Leadership", "Logistics Management", "Team Management", "Product Vision"],
+      icon: Briefcase,
+      color: "purple"
+    },
     {
       id: "fullstack-dev",
       title: "Full Stack Developer",
