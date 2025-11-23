@@ -37,51 +37,62 @@ const Experience = () => {
   ];
 
   return (
-    <section id="experience" className="py-20">
-      <div className="container mx-auto px-6">
+    <section id="experience" className="py-20 bg-black relative overflow-hidden">
+      <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
+          <div className="terminal-window max-w-2xl mx-auto mb-8">
+            <div className="terminal-prompt text-left">
+              <span className="text-green-500">temi@portfolio</span>:<span className="text-blue-400">~</span>$ <span className="terminal-command">tail -f experience.log</span>
+            </div>
+          </div>
           <h2 className="section-title">Professional Experience</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            My journey from engineering to tech leadership, building products that matter.
+          <p className="text-xl text-green-300 max-w-3xl mx-auto font-mono">
+            $ My journey from engineering to tech leadership, building products that matter.
           </p>
         </div>
 
         <div className="max-w-4xl mx-auto">
           <div className="relative">
             {/* Timeline line */}
-            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-lime-400 to-lime-600 hidden md:block"></div>
+            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-green-400 to-green-600 hidden md:block" style={{
+              boxShadow: '0 0 10px rgba(0, 255, 65, 0.5)'
+            }}></div>
 
             <div className="space-y-8">
               {experiences.map((exp, index) => (
                 <div key={exp.id} className="relative">
                   {/* Timeline dot */}
-                  <div className="absolute left-6 top-8 w-4 h-4 bg-lime-400 rounded-full border-4 border-white shadow-lg hidden md:block"></div>
+                  <div className="absolute left-6 top-8 w-4 h-4 bg-green-400 rounded-full border-4 border-black shadow-lg hidden md:block" style={{
+                    boxShadow: '0 0 15px rgba(0, 255, 65, 0.8)'
+                  }}></div>
                   
-                  <div className="experience-card md:ml-20">
+                  <div className="experience-card md:ml-20 three-d-card">
                     <div className="flex items-start gap-4">
-                      <div className="lime-gradient w-16 h-16 rounded-xl flex items-center justify-center flex-shrink-0">
-                        <exp.icon size={28} className="text-gray-800" />
+                      <div className="w-16 h-16 rounded-xl border border-green-500/50 bg-green-500/10 flex items-center justify-center flex-shrink-0" style={{
+                        boxShadow: '0 0 20px rgba(0, 255, 65, 0.3)'
+                      }}>
+                        <exp.icon size={28} className="text-green-400" />
                       </div>
                       
                       <div className="flex-1">
                         <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
                           <div>
-                            <h3 className="text-xl font-bold text-gray-800">{exp.title}</h3>
-                            <p className="text-lime-600 font-semibold">{exp.company}</p>
+                            <h3 className="text-xl font-mono font-bold text-green-400">{exp.title}</h3>
+                            <p className="text-green-500 font-mono font-semibold">$ {exp.company}</p>
                           </div>
-                          <div className="flex items-center text-gray-500 text-sm mt-1 md:mt-0">
+                          <div className="flex items-center text-green-300 text-sm mt-1 md:mt-0 font-mono">
                             <Calendar size={16} className="mr-1" />
                             {exp.period}
                           </div>
                         </div>
                         
-                        <p className="text-gray-700 mb-4 leading-relaxed">
-                          {exp.description}
+                        <p className="text-green-300 mb-4 leading-relaxed font-mono">
+                          $ {exp.description}
                         </p>
                         
                         <div className="flex flex-wrap gap-2">
                           {exp.technologies.map((tech) => (
-                            <span key={tech} className="tech-tag">
+                            <span key={tech} className="tech-tag font-mono">
                               {tech}
                             </span>
                           ))}
