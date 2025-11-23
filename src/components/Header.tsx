@@ -23,23 +23,25 @@ const Header = () => {
     ];
 
     return (
-        <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'glass-effect shadow-lg' : 'bg-transparent'
-            }`}>
+        <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-black/90 border-b border-green-500/30 shadow-lg' : 'bg-transparent'
+            }`} style={{
+            boxShadow: isScrolled ? '0 0 30px rgba(0, 255, 65, 0.2)' : undefined
+        }}>
             <nav className="container mx-auto px-6 py-4">
                 <div className="flex items-center justify-between">
                     {/* Left Navigation - About & Experience */}
                     <div className="hidden md:flex items-center space-x-6">
                         <a
                             href="#about"
-                            className="text-muted-foreground hover:text-primary transition-all duration-300 font-medium hover:scale-105"
+                            className="text-green-300 hover:text-green-400 transition-all duration-300 font-mono hover:scale-105"
                         >
-                            About
+                            $ ./about
                         </a>
                         <a
                             href="#experience"
-                            className="text-muted-foreground hover:text-primary transition-all duration-300 font-medium hover:scale-105"
+                            className="text-green-300 hover:text-green-400 transition-all duration-300 font-mono hover:scale-105"
                         >
-                            Experience
+                            $ ./experience
                         </a>
                     </div>
 
@@ -50,15 +52,15 @@ const Header = () => {
                     <div className="hidden md:flex items-center space-x-6">
                         <a
                             href="#projects"
-                            className="text-muted-foreground hover:text-primary transition-all duration-300 font-medium hover:scale-105"
+                            className="text-green-300 hover:text-green-400 transition-all duration-300 font-mono hover:scale-105"
                         >
-                            Projects
+                            $ ./projects
                         </a>
                         <a
                             href="#contact"
-                            className="text-muted-foreground hover:text-primary transition-all duration-300 font-medium hover:scale-105"
+                            className="text-green-300 hover:text-green-400 transition-all duration-300 font-mono hover:scale-105"
                         >
-                            Contact
+                            $ ./contact
                         </a>
                         <ModeToggle/>
                         <div className="flex items-center space-x-4 ml-8">
@@ -66,7 +68,7 @@ const Header = () => {
                                 href="https://github.com/TemiKayode"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-gray-700 hover:text-lime-600 transition-colors"
+                                className="text-green-400 hover:text-green-300 transition-colors border border-green-500/30 rounded p-2 hover:bg-green-500/10"
                             >
                                 <Github size={20} />
                             </a>
@@ -74,13 +76,13 @@ const Header = () => {
                                 href="https://www.linkedin.com/in/temitayo-kayode/"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-gray-700 hover:text-lime-600 transition-colors"
+                                className="text-green-400 hover:text-green-300 transition-colors border border-green-500/30 rounded p-2 hover:bg-green-500/10"
                             >
                                 <Linkedin size={20} />
                             </a>
                             <a
                                 href="mailto:temitayokayode5@gmail.com"
-                                className="text-gray-700 hover:text-lime-600 transition-colors"
+                                className="text-green-400 hover:text-green-300 transition-colors border border-green-500/30 rounded p-2 hover:bg-green-500/10"
                             >
                                 <Mail size={20} />
                             </a>
@@ -89,7 +91,7 @@ const Header = () => {
 
                     {/* Mobile Menu Button */}
                     <button
-                        className="md:hidden text-gray-700 hover:text-lime-600"
+                        className="md:hidden text-green-400 hover:text-green-300 border border-green-500/30 rounded p-2"
                         onClick={() => setIsMenuOpen(!isMenuOpen)}
                     >
                         {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -98,25 +100,25 @@ const Header = () => {
 
                 {/* Mobile Navigation */}
                 {isMenuOpen && (
-                    <div className="md:hidden absolute top-full left-0 w-full glass-effect border-t border-lime-200 shadow-lg">
+                    <div className="md:hidden absolute top-full left-0 w-full bg-black/95 border-t border-green-500/30 shadow-lg">
                         <div className="px-6 py-4 space-y-4">
                             {navItems.map((item) => (
                                 <a
                                     key={item.href}
                                     href={item.href}
-                                    className="block text-gray-700 hover:text-lime-600 transition-colors font-medium"
+                                    className="block text-green-300 hover:text-green-400 transition-colors font-mono"
                                     onClick={() => setIsMenuOpen(false)}
                                 >
-                                    {item.label}
+                                    $ ./{item.label.toLowerCase()}
                                 </a>
                             ))}
 
-                            <div className="flex items-center space-x-4 pt-4 border-t border-lime-200">
+                            <div className="flex items-center space-x-4 pt-4 border-t border-green-500/30">
                                 <a
                                     href="https://github.com/TemiKayode"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="text-gray-700 hover:text-lime-600 transition-colors"
+                                    className="text-green-400 hover:text-green-300 transition-colors border border-green-500/30 rounded p-2"
                                 >
                                     <Github size={20} />
                                 </a>
@@ -124,13 +126,13 @@ const Header = () => {
                                     href="https://www.linkedin.com/in/temitayo-kayode/"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="text-gray-700 hover:text-lime-600 transition-colors"
+                                    className="text-green-400 hover:text-green-300 transition-colors border border-green-500/30 rounded p-2"
                                 >
                                     <Linkedin size={20} />
                                 </a>
                                 <a
                                     href="mailto:temitayokayode5@gmail.com"
-                                    className="text-gray-700 hover:text-lime-600 transition-colors"
+                                    className="text-green-400 hover:text-green-300 transition-colors border border-green-500/30 rounded p-2"
                                 >
                                     <Mail size={20} />
                                 </a>

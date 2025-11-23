@@ -67,22 +67,27 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-20">
-      <div className="container mx-auto px-6">
+    <section id="contact" className="py-20 bg-black relative overflow-hidden">
+      <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
+          <div className="terminal-window max-w-2xl mx-auto mb-8">
+            <div className="terminal-prompt text-left">
+              <span className="text-green-500">temi@portfolio</span>:<span className="text-blue-400">~</span>$ <span className="terminal-command">./contact.sh</span>
+            </div>
+          </div>
           <h2 className="section-title">Let's Work Together</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Ready to bring your ideas to life? Let's discuss your next project.
+          <p className="text-xl text-green-300 max-w-3xl mx-auto font-mono">
+            $ Ready to bring your ideas to life? Let's discuss your next project.
           </p>
         </div>
 
         <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12">
           {/* Contact Information */}
           <div className="space-y-8">
-            <div>
-              <h3 className="text-2xl font-bold mb-6 text-gray-800">Get in Touch</h3>
-              <p className="text-gray-700 leading-relaxed mb-8">
-                I'm always interested in hearing about new opportunities, 
+            <div className="terminal-window p-6">
+              <h3 className="text-2xl font-mono font-bold mb-6 text-green-400">$ Get in Touch</h3>
+              <p className="text-green-300 leading-relaxed mb-8 font-mono">
+                $ I'm always interested in hearing about new opportunities, 
                 whether it's a full-time position, consulting work, or 
                 collaborative projects. Let's create something amazing together!
               </p>
@@ -95,35 +100,37 @@ const Contact = () => {
                   href={info.href}
                   target={info.href.startsWith('http') ? '_blank' : undefined}
                   rel={info.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                  className="flex items-center gap-4 p-4 bg-white/80 backdrop-blur-sm rounded-xl border border-lime-200 hover:shadow-lg transition-all duration-300 group"
+                  className="terminal-window p-4 flex items-center gap-4 hover:border-green-500/60 transition-all duration-300 group three-d-card"
                 >
-                  <div className="lime-gradient w-12 h-12 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
-                    <info.icon size={20} className="text-gray-800" />
+                  <div className="w-12 h-12 rounded-lg border border-green-500/50 bg-green-500/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-200" style={{
+                    boxShadow: '0 0 15px rgba(0, 255, 65, 0.2)'
+                  }}>
+                    <info.icon size={20} className="text-green-400" />
                   </div>
                   <div>
-                    <p className="font-semibold text-gray-800">{info.label}</p>
-                    <p className="text-gray-600">{info.value}</p>
+                    <p className="font-mono font-semibold text-green-400">{info.label}</p>
+                    <p className="text-green-300 font-mono">{info.value}</p>
                   </div>
                 </a>
               ))}
             </div>
 
-            <div className="bg-gradient-to-br from-lime-100 to-yellow-100 rounded-2xl p-6 border border-lime-200">
-              <h4 className="font-semibold text-gray-800 mb-3">Quick Response</h4>
-              <p className="text-gray-700 text-sm">
-                I typically respond to messages within 24 hours. 
+            <div className="terminal-window p-6 border-green-500/40">
+              <h4 className="font-mono font-semibold text-green-400 mb-3">$ Quick Response</h4>
+              <p className="text-green-300 text-sm font-mono">
+                $ I typically respond to messages within 24 hours. 
                 For urgent inquiries, feel free to reach out directly via email or LinkedIn.
               </p>
             </div>
           </div>
 
           {/* Contact Form */}
-          <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 border border-lime-200 shadow-lg">
+          <div className="terminal-window p-8">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                    Name
+                  <label htmlFor="name" className="block text-sm font-mono font-medium text-green-400 mb-2">
+                    $ Name
                   </label>
                   <Input
                     id="name"
@@ -132,13 +139,13 @@ const Contact = () => {
                     required
                     value={formData.name}
                     onChange={handleInputChange}
-                    className="border-lime-200 focus:border-lime-400 focus:ring-lime-400"
-                    placeholder="Your name"
+                    className="bg-black/50 border-green-500/30 text-green-300 font-mono focus:border-green-500 focus:ring-green-500/20 placeholder:text-green-500/50"
+                    placeholder="your_name"
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                    Email
+                  <label htmlFor="email" className="block text-sm font-mono font-medium text-green-400 mb-2">
+                    $ Email
                   </label>
                   <Input
                     id="email"
@@ -147,15 +154,15 @@ const Contact = () => {
                     required
                     value={formData.email}
                     onChange={handleInputChange}
-                    className="border-lime-200 focus:border-lime-400 focus:ring-lime-400"
+                    className="bg-black/50 border-green-500/30 text-green-300 font-mono focus:border-green-500 focus:ring-green-500/20 placeholder:text-green-500/50"
                     placeholder="your@email.com"
                   />
                 </div>
               </div>
 
               <div>
-                <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
-                  Subject
+                <label htmlFor="subject" className="block text-sm font-mono font-medium text-green-400 mb-2">
+                  $ Subject
                 </label>
                 <Input
                   id="subject"
@@ -164,14 +171,14 @@ const Contact = () => {
                   required
                   value={formData.subject}
                   onChange={handleInputChange}
-                  className="border-lime-200 focus:border-lime-400 focus:ring-lime-400"
+                  className="bg-black/50 border-green-500/30 text-green-300 font-mono focus:border-green-500 focus:ring-green-500/20 placeholder:text-green-500/50"
                   placeholder="Project inquiry, collaboration, etc."
                 />
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                  Message
+                <label htmlFor="message" className="block text-sm font-mono font-medium text-green-400 mb-2">
+                  $ Message
                 </label>
                 <Textarea
                   id="message"
@@ -180,7 +187,7 @@ const Contact = () => {
                   rows={6}
                   value={formData.message}
                   onChange={handleInputChange}
-                  className="border-lime-200 focus:border-lime-400 focus:ring-lime-400 resize-none"
+                  className="bg-black/50 border-green-500/30 text-green-300 font-mono focus:border-green-500 focus:ring-green-500/20 placeholder:text-green-500/50 resize-none"
                   placeholder="Tell me about your project or what you have in mind..."
                 />
               </div>
@@ -188,10 +195,10 @@ const Contact = () => {
               <Button
                 type="submit"
                 size="lg"
-                className="w-full lime-gradient text-gray-900 font-semibold hover:scale-105 transition-transform duration-200"
+                className="w-full bg-green-500/20 text-green-400 hover:bg-green-500/30 border border-green-500/50 font-mono hover:scale-105 transition-transform duration-200 three-d-card"
                 disabled={isSubmitting}
               >
-                {isSubmitting ? 'Sending...' : <><Send className="mr-2" size={20} />Send Message</>}
+                {isSubmitting ? '$ Sending...' : <><Send className="mr-2" size={20} />$ ./send_message</>}
               </Button>
             </form>
           </div>
