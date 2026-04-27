@@ -1,6 +1,6 @@
 
 import React, { useState, useMemo } from 'react';
-import { ExternalLink, Github, ShoppingCart, Home, GraduationCap, Users, Clock, Truck, Search, Zap, Wallet, Package, MessageSquare, Server } from 'lucide-react';
+import { ExternalLink, Github, ShoppingCart, Home, GraduationCap, Users, Clock, Truck, Search, Zap, Wallet, Package, MessageSquare, Server, School, Trophy, Bot, Hotel, TrendingUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import pheranLogo from '../assets/pheran-logo.png';
@@ -9,6 +9,86 @@ import ordaLogo from '../assets/logoo.png';
 
 const Projects = () => {
   const allProjects = [
+    {
+      id: 'school-management-system',
+      title: 'SchoolMS – School Management System',
+      description: 'Full-stack school management platform with role-based dashboards for Admin, Teacher, Student, and Parent. Features attendance tracking, grade management, fee payments, timetables, and real-time notifications.',
+      image: null,
+      firstLetter: 'S',
+      technologies: ['Next.js', 'Node.js', 'TypeScript', 'PostgreSQL', 'Redis', 'Prisma', 'Docker', 'Kubernetes', 'Sentry', 'Netlify', 'Render'],
+      status: 'Completed',
+      role: 'Full Stack & DevOps Engineer',
+      category: 'Full Stack',
+      icon: School,
+      challenges: 'Multi-role JWT auth, Neon serverless Postgres, Redis caching, K8s container orchestration and Sentry error monitoring',
+      outcomes: 'Production-deployed with 4 role dashboards, CI/CD pipeline, and full observability stack',
+      github: 'https://github.com/TemiKayode/school-management-system',
+      demo: 'https://schoolmsgit.netlify.app'
+    },
+    {
+      id: 'football-pro',
+      title: 'Football Pro – Match Prediction Dashboard',
+      description: 'Advanced football analytics and match prediction dashboard using xG models, Poisson distribution, and real-time odds data. Includes automated betting insights and historical performance analysis.',
+      image: null,
+      firstLetter: 'F',
+      technologies: ['Python', 'Streamlit', 'Pandas', 'NumPy', 'Odds API', 'Machine Learning'],
+      status: 'Completed',
+      role: 'Data Engineer & ML Developer',
+      category: 'Backend',
+      icon: Trophy,
+      challenges: 'Building accurate Poisson distribution models with live odds API integration',
+      outcomes: 'Prediction accuracy above market baseline with automated insight generation',
+      github: 'https://github.com/TemiKayode/football-pro',
+      demo: null
+    },
+    {
+      id: 'ceo-finder',
+      title: 'CEO Finder – AI-Powered Lead Tool',
+      description: 'Automated CSV pipeline that enriches company lists with CEO names and contact information using Tavily AI search. Streamlines B2B lead generation and executive outreach.',
+      image: null,
+      firstLetter: 'C',
+      technologies: ['Python', 'Tavily AI', 'CSV Processing', 'REST APIs', 'Automation'],
+      status: 'Completed',
+      role: 'Backend Developer & Automation Engineer',
+      category: 'Backend',
+      icon: Bot,
+      challenges: 'Reliable AI-driven data extraction at scale with deduplication and rate limiting',
+      outcomes: 'Reduced manual research time by 90% for executive lead discovery workflows',
+      github: 'https://github.com/TemiKayode/ceo-finder',
+      demo: null
+    },
+    {
+      id: 'mars-place-hotel',
+      title: 'Mars Place Hotel – Booking Platform',
+      description: 'Full-featured hotel booking and management platform with room listings, availability calendar, reservation system, and admin dashboard for property management.',
+      image: null,
+      firstLetter: 'M',
+      technologies: ['React', 'Node.js', 'PostgreSQL', 'Stripe', 'Tailwind CSS'],
+      status: 'Completed',
+      role: 'Full Stack Developer',
+      category: 'Full Stack',
+      icon: Hotel,
+      challenges: 'Real-time availability management and conflict-free reservation scheduling',
+      outcomes: 'Live production platform powering hotel bookings at marsplacehotel.com',
+      github: 'https://github.com/TemiKayode/mars-place-hotel',
+      demo: 'https://marsplacehotel.com'
+    },
+    {
+      id: 'crypto-prediction-tool',
+      title: 'Crypto Prediction Tool – Automated Trading Bot',
+      description: 'Streamlit-based crypto analytics dashboard with an integrated automated trading/betting bot. Uses technical indicators and price action models to generate trade signals.',
+      image: null,
+      firstLetter: 'C',
+      technologies: ['Python', 'Streamlit', 'Pandas', 'TA-Lib', 'Crypto APIs', 'Automation'],
+      status: 'Completed',
+      role: 'Quant Developer',
+      category: 'Backend',
+      icon: TrendingUp,
+      challenges: 'Accurate signal generation under volatile market conditions with live data feeds',
+      outcomes: 'Automated signal pipeline with real-time dashboard monitoring and trade execution',
+      github: 'https://github.com/TemiKayode/crypto-prediction-tool',
+      demo: null
+    },
     {
       id: 'pheran-clothing',
       title: 'Pheran – Clothing Website',

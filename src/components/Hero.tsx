@@ -101,6 +101,16 @@ const Hero = () => {
                         }}>
                             $ Full Stack Expert
                         </div>
+                        <div className="bg-black/80 border border-green-500/30 text-green-400 px-6 py-3 rounded text-sm font-mono hover:scale-105 transition-transform three-d-card" style={{
+                            boxShadow: '0 0 15px rgba(0, 255, 65, 0.2)'
+                        }}>
+                            $ Docker & K8s
+                        </div>
+                        <div className="bg-black/80 border border-green-500/30 text-green-400 px-6 py-3 rounded text-sm font-mono hover:scale-105 transition-transform three-d-card" style={{
+                            boxShadow: '0 0 15px rgba(0, 255, 65, 0.2)'
+                        }}>
+                            $ Python & Data
+                        </div>
                     </div>
 
                     {/* Action Buttons - Terminal Style */}
