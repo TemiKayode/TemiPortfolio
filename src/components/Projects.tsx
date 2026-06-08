@@ -1,6 +1,6 @@
 
 import React, { useState, useMemo } from 'react';
-import { ExternalLink, Github, ShoppingCart, Home, GraduationCap, Users, Clock, Truck, Search, Zap, Wallet, Package, MessageSquare, Server, School, Trophy, Bot, Hotel, TrendingUp } from 'lucide-react';
+import { ExternalLink, Github, ShoppingCart, Home, GraduationCap, Clock, Truck, Search, Zap, Wallet, Package, MessageSquare, School, Trophy, Bot, Hotel, TrendingUp, Shield, Globe, Activity, Lock, Fingerprint } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import pheranLogo from '../assets/pheran-logo.png';
@@ -9,6 +9,86 @@ import ordaLogo from '../assets/logoo.png';
 
 const Projects = () => {
   const allProjects = [
+    {
+      id: 'face-sentinel',
+      title: 'FaceSentinel – Biometric Auth Pipeline',
+      description: 'Kafka-native consent-based face verification for high-security environments. ArcFace 1:1 verification, Qdrant vector search, three security tiers (STANDARD/ENHANCED/CRITICAL), HMAC-signed audit trail, GDPR right-to-be-forgotten, anomaly detection, and OpenTelemetry observability.',
+      image: null,
+      firstLetter: 'F',
+      technologies: ['Python', 'Kafka', 'ArcFace', 'InsightFace', 'Qdrant', 'Docker', 'Kubernetes', 'OpenTelemetry', 'GDPR'],
+      status: 'Completed',
+      role: 'AI Security Engineer',
+      category: 'Security',
+      icon: Fingerprint,
+      challenges: 'Twin-risk disambiguation, HMAC audit signing, per-tenant Qdrant isolation, inference timeout guarding',
+      outcomes: 'Intelligence-grade pipeline: GRANTED/DENIED in <350ms with full consent lifecycle and tamper-evident audit trail',
+      github: 'https://github.com/TemiKayode/FaceSentinel',
+      demo: null
+    },
+    {
+      id: 'harbinger',
+      title: 'Harbinger – OSS Supply Chain Intelligence',
+      description: 'Detects software supply chain attacks at the maintainer identity layer before malicious code reaches your CI pipeline. Monitors OSS maintainer trust signals across GitHub, npm, and PyPI to surface compromised or hijacked packages early.',
+      image: null,
+      firstLetter: 'H',
+      technologies: ['Python', 'Security', 'Supply Chain', 'GitHub API', 'npm', 'PyPI', 'CI/CD'],
+      status: 'Completed',
+      role: 'Security Engineer',
+      category: 'Security',
+      icon: Shield,
+      challenges: 'Mapping maintainer identity across multiple registries and detecting subtle takeover signals without false positives',
+      outcomes: 'Catches compromised maintainer accounts before malicious releases propagate downstream',
+      github: 'https://github.com/TemiKayode/harbinger',
+      demo: null
+    },
+    {
+      id: 'live-system-intelligence-graph',
+      title: 'Live System Intelligence Graph',
+      description: 'Maps production execution traces to AST nodes in real-time. Generates a signed Change Impact Certificate in under 60 seconds on every PR, bridging runtime behaviour and source code to catch breaking changes before they ship.',
+      image: null,
+      firstLetter: 'L',
+      technologies: ['Python', 'AST', 'Distributed Tracing', 'CI/CD', 'OpenTelemetry', 'Code Intelligence'],
+      status: 'Completed',
+      role: 'Platform Engineer',
+      category: 'Security',
+      icon: Activity,
+      challenges: 'Real-time AST-to-trace mapping at production scale with sub-60s certificate generation',
+      outcomes: 'Signed Change Impact Certificate on every PR, reducing undetected breaking changes in production',
+      github: 'https://github.com/TemiKayode/live-system-intelligence-graph',
+      demo: null
+    },
+    {
+      id: 'paranoid-edition',
+      title: 'Paranoid Edition – Windows Privacy Toolkit',
+      description: 'One-command Windows privacy tool for total anonymity. Bulletproof telemetry blocking, identity hardening, and network privacy — everything locked down from a single script for security-conscious users and researchers.',
+      image: null,
+      firstLetter: 'P',
+      technologies: ['Python', 'Windows', 'Privacy', 'Security', 'Automation', 'PowerShell'],
+      status: 'Completed',
+      role: 'Security Tools Developer',
+      category: 'Security',
+      icon: Lock,
+      challenges: 'Comprehensive telemetry removal without breaking Windows Update and core system functionality',
+      outcomes: 'Full Windows anonymisation in a single command with reversible rollback',
+      github: 'https://github.com/TemiKayode/paranoid-edition',
+      demo: null
+    },
+    {
+      id: 'global-football-scouting',
+      title: 'Global Football Scouting Analytics Platform',
+      description: 'Full-stack football intelligence tool covering 36 leagues and 20,000+ players with FBref-style per-90 statistics. Uses machine learning to rank transfer targets, surface hidden gems from lower leagues, and model squad health — all in a single dashboard.',
+      image: null,
+      firstLetter: 'G',
+      technologies: ['Python', 'Streamlit', 'Machine Learning', 'Pandas', 'NumPy', 'FBref', 'Data Analytics'],
+      status: 'Completed',
+      role: 'Data Engineer & ML Developer',
+      category: 'Backend',
+      icon: Globe,
+      challenges: 'Normalising per-90 statistics across 36 leagues with varying data quality and coverage',
+      outcomes: 'Scouts 20,000+ players across men\'s and women\'s football with ML-ranked transfer recommendations',
+      github: 'https://github.com/TemiKayode/Global-Football-Scouting-Analytics-Platform',
+      demo: null
+    },
     {
       id: 'school-management-system',
       title: 'SchoolMS – School Management System',
@@ -22,13 +102,13 @@ const Projects = () => {
       icon: School,
       challenges: 'Multi-role JWT auth, Neon serverless Postgres, Redis caching, K8s container orchestration and Sentry error monitoring',
       outcomes: 'Production-deployed with 4 role dashboards, CI/CD pipeline, and full observability stack',
-      github: 'https://github.com/TemiKayode/school-management-system',
+      github: 'https://github.com/TemiKayode/School-Management-System',
       demo: 'https://schoolmsgit.netlify.app'
     },
     {
       id: 'football-pro',
       title: 'Football Pro – Match Prediction Dashboard',
-      description: 'Advanced football analytics and match prediction dashboard using xG models, Poisson distribution, and real-time odds data. Includes automated betting insights and historical performance analysis.',
+      description: 'Advanced football analytics and match prediction dashboard using xG models, Poisson distribution, and real-time odds data. Live odds, Kelly staking, accumulator builder, and automated value-bet insights.',
       image: null,
       firstLetter: 'F',
       technologies: ['Python', 'Streamlit', 'Pandas', 'NumPy', 'Odds API', 'Machine Learning'],
@@ -38,13 +118,13 @@ const Projects = () => {
       icon: Trophy,
       challenges: 'Building accurate Poisson distribution models with live odds API integration',
       outcomes: 'Prediction accuracy above market baseline with automated insight generation',
-      github: 'https://github.com/TemiKayode/football-pro',
+      github: 'https://github.com/TemiKayode/football_pro',
       demo: null
     },
     {
       id: 'ceo-finder',
       title: 'CEO Finder – AI-Powered Lead Tool',
-      description: 'Automated CSV pipeline that enriches company lists with CEO names and contact information using Tavily AI search. Streamlines B2B lead generation and executive outreach.',
+      description: 'Automated CSV pipeline that enriches company lists with CEO names and contact information using Tavily AI search. One search per domain with resumable caching, deduplication, and strict name-cleaning.',
       image: null,
       firstLetter: 'C',
       technologies: ['Python', 'Tavily AI', 'CSV Processing', 'REST APIs', 'Automation'],
@@ -54,7 +134,7 @@ const Projects = () => {
       icon: Bot,
       challenges: 'Reliable AI-driven data extraction at scale with deduplication and rate limiting',
       outcomes: 'Reduced manual research time by 90% for executive lead discovery workflows',
-      github: 'https://github.com/TemiKayode/ceo-finder',
+      github: 'https://github.com/TemiKayode/CEO-finder',
       demo: null
     },
     {
@@ -70,13 +150,13 @@ const Projects = () => {
       icon: Hotel,
       challenges: 'Real-time availability management and conflict-free reservation scheduling',
       outcomes: 'Live production platform powering hotel bookings at marsplacehotel.com',
-      github: 'https://github.com/TemiKayode/mars-place-hotel',
+      github: 'https://github.com/TemiKayode/MarsPlaceHotel',
       demo: 'https://marsplacehotel.com'
     },
     {
       id: 'crypto-prediction-tool',
       title: 'Crypto Prediction Tool – Automated Trading Bot',
-      description: 'Streamlit-based crypto analytics dashboard with an integrated automated trading/betting bot. Uses technical indicators and price action models to generate trade signals.',
+      description: 'Streamlit-based crypto analytics dashboard with an integrated automated trading bot. Uses technical indicators and price action models to generate trade signals with real-time dashboard monitoring.',
       image: null,
       firstLetter: 'C',
       technologies: ['Python', 'Streamlit', 'Pandas', 'TA-Lib', 'Crypto APIs', 'Automation'],
@@ -86,7 +166,7 @@ const Projects = () => {
       icon: TrendingUp,
       challenges: 'Accurate signal generation under volatile market conditions with live data feeds',
       outcomes: 'Automated signal pipeline with real-time dashboard monitoring and trade execution',
-      github: 'https://github.com/TemiKayode/crypto-prediction-tool',
+      github: 'https://github.com/TemiKayode/Crypto',
       demo: null
     },
     {
@@ -118,7 +198,7 @@ const Projects = () => {
       icon: Truck,
       challenges: 'Real-time order tracking and driver coordination',
       outcomes: 'Facilitated 1000+ successful food deliveries',
-      github: 'https://github.com/TemiKayode/OrdaDelivery',
+      github: 'https://github.com/TemiKayode/Orda',
       demo: 'https://ordadelivery.com'
     },
     {
@@ -134,7 +214,7 @@ const Projects = () => {
       icon: Zap,
       challenges: 'Building scalable SaaS infrastructure with payment integration',
       outcomes: 'Delivered production-ready SaaS platform with subscription management',
-      github: 'https://github.com/TemiKayode/turbo-sofware',
+      github: 'https://github.com/TemiKayode/Turbo-sofware',
       demo: 'https://turbo-software.netlify.app'
     },
     {
@@ -150,7 +230,7 @@ const Projects = () => {
       icon: MessageSquare,
       challenges: 'High-performance backend concurrency and microservices architecture',
       outcomes: 'Scalable real-time platform with containerized deployment',
-      github: 'https://github.com/TemiKayode/turbo',
+      github: 'https://github.com/TemiKayode/Turbo',
       demo: 'https://turbochaty.netlify.app'
     },
     {
@@ -199,7 +279,7 @@ const Projects = () => {
       challenges: 'Complex KYC integration and multi-tenant architecture',
       outcomes: 'Streamlined property management for 50+ landlords',
       github: 'https://github.com/TemiKayode/tenant-screening',
-      demo: 'https://tenant-screening.demo.app'
+      demo: null
     },
     {
       id: 'tuition-manager',
@@ -215,23 +295,7 @@ const Projects = () => {
       challenges: 'Handling complex fee structures and payment schedules',
       outcomes: 'Reduced administrative overhead by 60% for partner schools',
       github: 'https://github.com/TemiKayode/tuition-manager',
-      demo: 'https://tuition-manager.app'
-    },
-    {
-      id: 'property-listing',
-      title: 'Property Listing Platform',
-      description: 'Zoopla-inspired property platform with advanced search, mapping integration, and agent management system.',
-      image: null,
-      firstLetter: 'P',
-      technologies: ['React', 'Node.js', 'MongoDB', 'Mapbox', 'AWS S3'],
-      status: 'Completed',
-      role: 'Full Stack Developer',
-      category: 'Frontend',
-      icon: Home,
-      challenges: 'Real-time property updates and geolocation features',
-      outcomes: 'Connected 200+ agents with thousands of property seekers',
-      github: 'https://github.com/TemiKayode/property-listing',
-      demo: 'https://property-platform.demo.app'
+      demo: null
     },
     {
       id: 'task-manager',
@@ -247,11 +311,11 @@ const Projects = () => {
       challenges: 'Real-time synchronization across multiple users',
       outcomes: 'Improved team productivity by 35% for client organizations',
       github: 'https://github.com/TemiKayode/task-manager',
-      demo: 'https://task-manager.demo.app'
+      demo: null
     }
   ];
 
-  const categories = useMemo(() => ['All', 'Full Stack', 'Frontend', 'Backend'], []);
+  const categories = useMemo(() => ['All', 'Full Stack', 'Backend', 'Security', 'Frontend'], []);
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [searchTerm, setSearchTerm] = useState('');
   const [visibleProjects, setVisibleProjects] = useState(4);
@@ -260,7 +324,7 @@ const Projects = () => {
     return allProjects
       .filter(project => {
         const categoryMatch = selectedCategory === 'All' || project.category === selectedCategory;
-        const searchMatch = searchTerm === '' || 
+        const searchMatch = searchTerm === '' ||
           project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
           project.description.toLowerCase().includes(searchTerm.toLowerCase());
         return categoryMatch && searchMatch;
@@ -284,9 +348,9 @@ const Projects = () => {
           </div>
           <h2 className="section-title">Featured Projects</h2>
           <p className="text-xl text-green-300 max-w-3xl mx-auto mb-8 font-mono">
-            $ A showcase of my recent work, from e-commerce platforms to management systems.
+            $ A showcase of my recent work, from biometric security pipelines to e-commerce platforms.
           </p>
-          
+
           <div className="flex flex-col md:flex-row justify-center items-center gap-4 mb-8">
             {/* Category Filter */}
             <div className="flex flex-wrap justify-center gap-3">
@@ -311,7 +375,7 @@ const Projects = () => {
             {/* Search Input */}
             <div className="relative w-full max-w-sm">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-green-400" size={20} />
-              <Input 
+              <Input
                 type="text"
                 placeholder="grep projects..."
                 value={searchTerm}
@@ -324,8 +388,8 @@ const Projects = () => {
 
         <div className="grid lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
           {projectsToShow.map((project, index) => (
-            <div 
-              key={project.id} 
+            <div
+              key={project.id}
               className="terminal-window group p-6 transition-all duration-300 flex flex-col justify-between three-d-card hover:scale-[1.02]"
               style={{
                 transform: `perspective(1000px) translateZ(${index * 5}px)`
@@ -339,10 +403,10 @@ const Projects = () => {
                       <div className="w-40 h-40 mx-auto mb-4 rounded-lg border-2 border-green-500/50 bg-black/50 p-5 hover:border-green-500 hover:scale-105 transition-all duration-300" style={{
                         boxShadow: '0 0 25px rgba(0, 255, 65, 0.3), inset 0 0 25px rgba(0, 255, 65, 0.05)'
                       }}>
-                        <img 
-                          src={project.image} 
-                          alt={project.title} 
-                          className="w-full h-full object-contain rounded transition-transform duration-300 hover:scale-110" 
+                        <img
+                          src={project.image}
+                          alt={project.title}
+                          className="w-full h-full object-contain rounded transition-transform duration-300 hover:scale-110"
                           onError={(e) => {
                             console.error(`Failed to load image for ${project.title}:`, project.image);
                             e.currentTarget.style.display = 'none';
@@ -362,12 +426,6 @@ const Projects = () => {
                       textShadow: '0 0 15px rgba(0, 255, 65, 0.5)'
                     }}>
                       {project.firstLetter}
-                    </div>
-                  ) : project.placeholder ? (
-                    <div className="w-32 h-32 mx-auto mb-4 flex items-center justify-center text-5xl bg-green-500/10 rounded-lg border-2 border-green-500/50 hover:border-green-500 hover:scale-105 transition-all duration-300" style={{
-                      boxShadow: '0 0 20px rgba(0, 255, 65, 0.2)'
-                    }}>
-                      {project.placeholder}
                     </div>
                   ) : (
                     <div className="w-32 h-32 mx-auto mb-4 flex items-center justify-center text-green-400 bg-green-500/10 rounded-lg border-2 border-green-500/50 hover:border-green-500 hover:scale-105 transition-all duration-300" style={{
