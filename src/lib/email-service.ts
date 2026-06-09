@@ -17,17 +17,17 @@ export const sendEmail = async (formData: {
   // Send every likely variable name so the template works regardless
   // of how {{variables}} are named in the EmailJS dashboard
   const templateParams = {
-    // Standard EmailJS names
+    // Template uses {{title}} for subject, {{name}} for sender, {{email}} for reply-to
+    title:      formData.subject,   // matches {{title}} in EmailJS template subject line
+    name:       formData.name,      // matches {{name}} in From Name
+    email:      formData.email,     // matches {{email}} in Reply To
+    message:    formData.message,
+    // Standard aliases sent alongside so the body can use any naming
+    subject:    formData.subject,
     from_name:  formData.name,
     from_email: formData.email,
     reply_to:   formData.email,
     to_email:   TO_EMAIL,
-    to_name:    'Temitayo',
-    subject:    formData.subject,
-    message:    formData.message,
-    // Original field names (fallback if template uses these)
-    name:       formData.name,
-    email:      formData.email,
   };
 
   const response = await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams);
