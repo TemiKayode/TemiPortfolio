@@ -5,10 +5,27 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import pheranLogo from '../assets/pheran-logo.png';
 import ordaLogo from '../assets/logoo.png';
+import africaLiveEyeImg from '../assets/africa-live-eye.png';
 
 
 const Projects = () => {
   const allProjects = [
+    {
+      id: 'africa-live-eye',
+      title: 'Africa Live Eye — Real-Time Satellite Monitor',
+      description: 'Command-centre satellite monitoring platform for the African continent. Streams live fire hotspots (NASA FIRMS), real-time lightning strikes (Blitzortung WebSocket), M2.5+ earthquakes (USGS), cyclones (GDACS), aircraft positions (OpenSky), and GPM precipitation — all on an interactive Leaflet map with time animation, split-screen date comparison, analytics charts, polygon alert zones with browser notifications, and one-click PDF situation reports.',
+      image: africaLiveEyeImg,
+      isLogo: false,
+      technologies: ['Node.js', 'Express', 'Socket.IO', 'Leaflet.js', 'NASA FIRMS', 'NASA GIBS', 'Chart.js', 'jsPDF', 'WebSocket', 'JavaScript'],
+      status: 'Completed',
+      role: 'Full Stack Developer',
+      category: 'Full Stack',
+      icon: Globe,
+      challenges: 'Merging 6 simultaneous real-time data streams (lightning, aircraft, fire, earthquakes, cyclones, precipitation) without UI blocking; pixel-exact dual-map split-screen sync; PDF generation from live map canvas state; synthetic lightning fallback when Blitzortung rate-limits server connections',
+      outcomes: 'Monitors 24,000+ active fire hotspots and live events across Africa in real-time; PDF export adopted for NGO/journalist field reporting; full feature suite works in demo mode without any API keys',
+      github: 'https://github.com/TemiKayode/Africa-Live-Eye',
+      demo: null
+    },
     {
       id: 'face-sentinel',
       title: 'FaceSentinel – Biometric Auth Pipeline',
