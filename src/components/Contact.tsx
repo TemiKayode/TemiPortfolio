@@ -26,18 +26,32 @@ const Contact = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Basic validation
+    if (!formData.name.trim() || !formData.email.trim() || !formData.subject.trim() || !formData.message.trim()) {
+      toast({ title: 'Error', description: 'Please fill in all fields.', variant: 'destructive' });
+      return;
+    }
+    const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRe.test(formData.email)) {
+      toast({ title: 'Error', description: 'Please enter a valid email address.', variant: 'destructive' });
+      return;
+    }
+
     setIsSubmitting(true);
     try {
       await sendEmail(formData);
       toast({
         title: 'Message Sent!',
-        description: 'I will get back to you as soon as possible.',
+        description: 'Thanks for reaching out — I\'ll get back to you within 24 hours.',
       });
       setFormData({ name: '', email: '', subject: '', message: '' });
-    } catch (error) {
+    } catch (error: unknown) {
+      const msg = error instanceof Error ? error.message : String(error);
+      console.error('[Contact] Email delivery failed:', msg);
       toast({
-        title: 'Error',
-        description: 'Something went wrong. Please try again later.',
+        title: 'Delivery Failed',
+        description: `Could not send message (${msg}). Email me directly at Temitayokayode5@gmail.com`,
         variant: 'destructive',
       });
     } finally {
