@@ -65,6 +65,30 @@
     --input: 120 50% 12%;
     --ring: 120 100% 50%;
   }
+
+  /* ── Light terminal theme ─────────────────────────────────────── */
+  .light {
+    --background: 120 30% 97%;
+    --foreground: 120 60% 18%;
+    --card: 0 0% 100%;
+    --card-foreground: 120 60% 18%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 120 60% 18%;
+    --primary: 120 60% 25%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 120 20% 92%;
+    --secondary-foreground: 120 60% 20%;
+    --muted: 120 15% 93%;
+    --muted-foreground: 120 30% 40%;
+    --accent: 120 55% 28%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 72% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 120 25% 80%;
+    --input: 120 20% 90%;
+    --ring: 120 60% 30%;
+    --primary-gradient: linear-gradient(135deg, #166416 0%, #1a7a1a 100%);
+  }
 }
 
 @layer base {
@@ -307,3 +331,119 @@
   background-size: 400% 400%;
   animation: gradient-shift 8s ease infinite;
 }
+
+/* ══════════════════════════════════════════════════════════════════
+   LIGHT MODE — overrides hardcoded dark Tailwind utilities
+   ThemeProvider adds class="light" to <html> when Light is selected
+   ══════════════════════════════════════════════════════════════════ */
+
+html.light {
+  background: #f2f8f2 !important;
+  color-scheme: light;
+}
+
+html.light body {
+  background-color: #f2f8f2;
+  color: #1a4d1a;
+}
+
+/* Sections & layout */
+html.light section,
+html.light .min-h-screen {
+  background-color: #f2f8f2 !important;
+}
+
+/* Header */
+html.light header {
+  background-color: rgba(242, 248, 242, 0.95) !important;
+  border-bottom-color: rgba(26, 77, 26, 0.25) !important;
+}
+
+/* All hardcoded black backgrounds */
+html.light .bg-black,
+html.light [class*="bg-black\/"] {
+  background-color: #ffffff !important;
+}
+
+/* Terminal windows */
+html.light .terminal-window {
+  background-color: #ffffff !important;
+  border-color: rgba(26, 77, 26, 0.25) !important;
+  box-shadow: 0 0 20px rgba(0, 80, 0, 0.08), inset 0 0 20px rgba(0, 80, 0, 0.02) !important;
+}
+
+/* Experience cards */
+html.light .experience-card {
+  background-color: #ffffff !important;
+  border-left-color: #1a7a1a !important;
+  box-shadow: 0 0 10px rgba(0, 80, 0, 0.06) !important;
+}
+
+/* Section title glow → softer in light mode */
+html.light .section-title {
+  color: #166416 !important;
+  text-shadow: 0 0 8px rgba(0, 100, 0, 0.2) !important;
+}
+
+/* Text colours */
+html.light .text-green-400 { color: #1a7a1a !important; }
+html.light .text-green-300 { color: #1f6b1f !important; }
+html.light .text-green-500 { color: #158015 !important; }
+html.light .text-green-600 { color: #116611 !important; }
+
+/* Nav links */
+html.light a.text-green-300,
+html.light a.text-green-400 {
+  color: #1a6b1a !important;
+}
+html.light a.text-green-300:hover,
+html.light a.text-green-400:hover {
+  color: #0d500d !important;
+}
+
+/* Borders */
+html.light [class*="border-green-500"] {
+  border-color: rgba(26, 77, 26, 0.3) !important;
+}
+
+/* Tech tags */
+html.light .tech-tag {
+  background-color: #e6f4e6 !important;
+  color: #1a5c1a !important;
+  border-color: rgba(26, 77, 26, 0.3) !important;
+  box-shadow: none !important;
+}
+
+/* Terminal prompt / command */
+html.light .terminal-prompt { color: #1a7a1a !important; text-shadow: none !important; }
+html.light .terminal-command { color: #2d8c2d !important; }
+html.light .terminal-cursor { background-color: #1a7a1a !important; }
+
+/* Buttons */
+html.light .bg-green-500\/20 { background-color: rgba(26, 100, 26, 0.12) !important; }
+html.light .bg-green-500\/10 { background-color: rgba(26, 100, 26, 0.07) !important; }
+html.light .hover\:bg-green-500\/10:hover { background-color: rgba(26, 100, 26, 0.1) !important; }
+html.light .hover\:bg-green-500\/30:hover { background-color: rgba(26, 100, 26, 0.18) !important; }
+
+/* Filter/category buttons active state */
+html.light .bg-green-500\/20.text-green-400 {
+  background-color: rgba(26, 100, 26, 0.14) !important;
+}
+
+/* Grid background pattern */
+html.light .fixed.inset-0 { opacity: 0.04 !important; }
+
+/* Name glow → lighter */
+html.light h1.text-green-400 {
+  text-shadow: 0 0 12px rgba(0, 100, 0, 0.3), 0 0 24px rgba(0, 100, 0, 0.15) !important;
+}
+
+/* Search input */
+html.light input[type="text"] {
+  background-color: #f5faf5 !important;
+  color: #1a4d1a !important;
+  border-color: rgba(26, 77, 26, 0.3) !important;
+}
+
+/* Scroll indicator */
+html.light .animate-bounce a { color: #1a7a1a !important; }
