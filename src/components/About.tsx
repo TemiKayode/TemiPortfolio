@@ -1,33 +1,37 @@
 
 import React from 'react';
-import { Code, Users, Lightbulb, Target } from 'lucide-react';
+import { Shield, Brain, Server, Code } from 'lucide-react';
 
 const About = () => {
-  const skills = [
-    'React & Next.js', 'Node.js', 'TypeScript', 'PostgreSQL', 'MongoDB',
-    'Tailwind CSS', 'Product Management', 'Agile/Scrum', 'Firebase', 'Supabase'
+  const coreSkills = [
+    'Python', 'Kafka', 'Qdrant', 'Docker', 'Kubernetes',
+    'ArcFace / InsightFace', 'Machine Learning', 'OpenTelemetry',
+    'Security Engineering', 'Go', 'Rust', 'PostgreSQL',
+    'Redis', 'Node.js', 'TypeScript', 'React / Next.js',
+    'FastAPI', 'Streamlit', 'Pandas / NumPy', 'AWS / GCP',
+    'CI/CD (GitLab · GitHub Actions)', 'Avro / Schema Registry',
   ];
 
   const highlights = [
     {
+      icon: Brain,
+      title: 'ML & Data Pipelines',
+      description: 'End-to-end ML systems: vector search, embeddings, real-time inference, and analytics at scale'
+    },
+    {
+      icon: Shield,
+      title: 'Security Engineering',
+      description: 'Biometric auth, supply chain attack detection, HMAC audit trails, and privacy tooling'
+    },
+    {
+      icon: Server,
+      title: 'Backend & DevOps',
+      description: 'Kafka streaming, Kubernetes orchestration, KEDA autoscaling, and distributed systems'
+    },
+    {
       icon: Code,
-      title: 'Full Stack Development',
-      description: 'Building end-to-end solutions with modern web technologies'
-    },
-    {
-      icon: Users,
-      title: 'Product Ownership',
-      description: 'Leading cross-functional teams and product strategy'
-    },
-    {
-      icon: Lightbulb,
-      title: 'Problem Solving',
-      description: 'Creative solutions from engineering background'
-    },
-    {
-      icon: Target,
-      title: 'User-Focused',
-      description: 'Prioritizing user experience and business value'
+      title: 'Full Stack',
+      description: 'Production web apps with React, Next.js, Node.js, and modern databases — shipped and live'
     }
   ];
 
@@ -42,8 +46,8 @@ const About = () => {
           </div>
           <h2 className="section-title">About Me</h2>
           <p className="text-xl text-green-300 max-w-3xl mx-auto font-mono">
-            $ A passionate developer who transitioned from mechanical engineering to create 
-            digital solutions that make a difference.
+            $ Python Backend &amp; ML Engineer building intelligence-grade systems — from biometric
+            pipelines to supply chain security tooling.
           </p>
         </div>
 
@@ -52,32 +56,35 @@ const About = () => {
             <div className="space-y-6">
               <div className="terminal-window p-6 text-left">
                 <p className="text-lg text-green-300 leading-relaxed font-mono">
-                  $ My journey began in mechanical engineering, where I developed strong 
-                  problem-solving skills and attention to detail. This foundation has been 
-                  invaluable in my transition to software development.
+                  $ I build production-grade Python backend systems that sit at the intersection
+                  of machine learning, security, and distributed data pipelines. My work spans
+                  Kafka-native biometric authentication, OSS supply chain attack detection,
+                  and real-time ML analytics platforms.
                 </p>
               </div>
-              
+
               <div className="terminal-window p-6 text-left">
                 <p className="text-lg text-green-300 leading-relaxed font-mono">
-                  $ Today, I specialize in building scalable web applications and leading 
-                  product development teams. I'm passionate about creating solutions that 
-                  combine technical excellence with outstanding user experience.
+                  $ My background in mechanical engineering gave me a systems-first mindset —
+                  I think in constraints, failure modes, and observability before I think in
+                  frameworks. That translates into software that is reliable under pressure,
+                  not just in demos.
                 </p>
               </div>
-              
+
               <div className="terminal-window p-6 text-left">
                 <p className="text-lg text-green-300 leading-relaxed font-mono">
-                  $ When I'm not coding, you'll find me exploring new technologies, 
-                  contributing to open source projects, or mentoring aspiring developers.
+                  $ I am available for remote roles worldwide and open to relocation.
+                  I have shipped full products end-to-end — from Kafka consumers and vector
+                  databases to React frontends and Kubernetes deployments.
                 </p>
               </div>
             </div>
 
             <div className="mt-8 terminal-window p-6">
-              <h3 className="text-xl font-mono font-semibold mb-4 text-green-400">$ Core Skills</h3>
+              <h3 className="text-xl font-mono font-semibold mb-4 text-green-400">$ Technical Skills</h3>
               <div className="flex flex-wrap gap-2">
-                {skills.map((skill) => (
+                {coreSkills.map((skill) => (
                   <span key={skill} className="tech-tag">
                     {skill}
                   </span>
@@ -87,8 +94,8 @@ const About = () => {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {highlights.map((highlight, index) => (
-              <div 
+            {highlights.map((highlight) => (
+              <div
                 key={highlight.title}
                 className="terminal-window p-6 three-d-card transition-all duration-300"
               >

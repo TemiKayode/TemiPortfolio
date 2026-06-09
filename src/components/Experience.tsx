@@ -1,27 +1,27 @@
 
 import React from 'react';
-import { Code, UserCheck, Settings, Calendar, Briefcase } from 'lucide-react';
+import { Code, UserCheck, Settings, Calendar, Cpu } from 'lucide-react';
 
 const Experience = () => {
   const experiences = [
     {
-      id: "ceo-orda",
-      title: "Chief Executive Officer (CEO)",
+      id: "founder-dev",
+      title: "Full Stack Developer & Founder",
       company: "Orda Enterprise",
       period: "September 2025 - Present",
-      description: "Leading Orda Enterprise, a logistics business company, overseeing strategic direction, business operations, and growth initiatives. OrdaDelivery is a key platform within the enterprise ecosystem.",
-      technologies: ["Business Strategy", "Leadership", "Logistics Management", "Team Management", "Product Vision"],
-      icon: Briefcase,
-      color: "purple"
+      description: "Founded and built OrdaDelivery — a food delivery platform connecting local restaurants with customers. Designed the full system architecture, built the React/TypeScript frontend, Node.js backend, real-time order tracking with Socket.io, and MongoDB data layer. Owns the entire technical stack end-to-end.",
+      technologies: ["Python", "TypeScript", "React", "Node.js", "MongoDB", "Socket.io", "Docker", "Google Maps API", "Stripe"],
+      icon: Code,
+      color: "green"
     },
     {
-      id: "fullstack-dev",
-      title: "Full Stack Developer",
-      company: "Freelance & Client Projects",
+      id: "python-ml-engineer",
+      title: "Python Backend & ML Engineer",
+      company: "Freelance — Client & Open Source Projects",
       period: "2022 - Present",
-      description: "Developing full-stack applications with a focus on scalable local solutions using modern technologies.",
-      technologies: ["React", "Node.js", "PostgreSQL", "Next.js"],
-      icon: Code,
+      description: "Designed and shipped production Python systems across multiple domains: a Kafka-native biometric authentication pipeline (ArcFace + Qdrant), an OSS supply chain attack detection platform (Harbinger), a live system intelligence graph with signed Change Impact Certificates, and ML-powered football scouting analytics covering 36 leagues and 20,000+ players.",
+      technologies: ["Python", "Kafka", "ArcFace / InsightFace", "Qdrant", "Docker", "Kubernetes", "OpenTelemetry", "Machine Learning", "Streamlit", "FastAPI", "Go", "Rust"],
+      icon: Cpu,
       color: "blue"
     },
     {
@@ -29,18 +29,18 @@ const Experience = () => {
       title: "Product Owner",
       company: "Woods Air Movement",
       period: "2024 - 2025",
-      description: "Led product strategy and backlog grooming for HVAC-focused software teams in Agile environments.",
-      technologies: ["Product Management", "Agile", "Scrum", "Stakeholder Management"],
+      description: "Led product strategy and backlog management for HVAC-focused software teams. Worked directly with engineering leads to define sprint goals, acceptance criteria, and release roadmaps in Agile environments. Bridged business requirements and technical delivery.",
+      technologies: ["Product Management", "Agile", "Scrum", "Stakeholder Management", "Roadmapping"],
       icon: UserCheck,
-      color: "green"
+      color: "purple"
     },
     {
       id: "engineering",
       title: "Mechanical Engineer",
       company: "Loladeji & Sons",
       period: "2020 - 2022",
-      description: "Applied engineering knowledge in HVAC systems while transitioning to software product development.",
-      technologies: ["HVAC Systems", "Industrial Design", "Engineering"],
+      description: "Applied engineering principles to HVAC system design and maintenance. Developed a systems-first, failure-mode-aware approach to problem solving that directly shapes how I design software architecture and distributed systems today.",
+      technologies: ["HVAC Systems", "Engineering Design", "Systems Thinking"],
       icon: Settings,
       color: "yellow"
     }
@@ -57,7 +57,8 @@ const Experience = () => {
           </div>
           <h2 className="section-title">Professional Experience</h2>
           <p className="text-xl text-green-300 max-w-3xl mx-auto font-mono">
-            $ My journey from engineering to tech leadership, building products that matter.
+            $ From mechanical engineering to Python ML systems — building production-grade
+            software at every layer of the stack.
           </p>
         </div>
 
@@ -69,13 +70,13 @@ const Experience = () => {
             }}></div>
 
             <div className="space-y-8">
-              {experiences.map((exp, index) => (
+              {experiences.map((exp) => (
                 <div key={exp.id} className="relative">
                   {/* Timeline dot */}
                   <div className="absolute left-6 top-8 w-4 h-4 bg-green-400 rounded-full border-4 border-black shadow-lg hidden md:block" style={{
                     boxShadow: '0 0 15px rgba(0, 255, 65, 0.8)'
                   }}></div>
-                  
+
                   <div className="experience-card md:ml-20 three-d-card">
                     <div className="flex items-start gap-4">
                       <div className="w-16 h-16 rounded-xl border border-green-500/50 bg-green-500/10 flex items-center justify-center flex-shrink-0" style={{
@@ -83,7 +84,7 @@ const Experience = () => {
                       }}>
                         <exp.icon size={28} className="text-green-400" />
                       </div>
-                      
+
                       <div className="flex-1">
                         <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
                           <div>
@@ -95,11 +96,11 @@ const Experience = () => {
                             {exp.period}
                           </div>
                         </div>
-                        
+
                         <p className="text-green-300 mb-4 leading-relaxed font-mono">
                           $ {exp.description}
                         </p>
-                        
+
                         <div className="flex flex-wrap gap-2">
                           {exp.technologies.map((tech) => (
                             <span key={tech} className="tech-tag font-mono">

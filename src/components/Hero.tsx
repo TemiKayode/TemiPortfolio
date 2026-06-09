@@ -18,7 +18,6 @@ const Hero = () => {
                     transform: 'perspective(1000px) rotateX(60deg) translateZ(-200px)',
                     transformOrigin: 'center center'
                 }}></div>
-                {/* Floating terminal windows */}
                 <div className="absolute top-32 left-16 w-64 h-48 border border-green-500/20 rounded bg-black/30 blur-sm animate-float" style={{ transform: 'perspective(1000px) rotateY(-15deg) translateZ(-100px)' }}></div>
                 <div className="absolute bottom-32 right-20 w-72 h-56 border border-green-500/20 rounded bg-black/30 blur-sm animate-float" style={{ animationDelay: '2s', transform: 'perspective(1000px) rotateY(15deg) translateZ(-100px)' }}></div>
                 <div className="absolute top-1/2 left-1/4 w-48 h-36 border border-green-500/20 rounded bg-black/30 blur-sm animate-float" style={{ animationDelay: '4s', transform: 'perspective(1000px) rotateX(-10deg) translateZ(-150px)' }}></div>
@@ -36,13 +35,15 @@ const Hero = () => {
                                 <Typewriter
                                     options={{
                                         strings: [
-                                            'Full Stack Developer specializing in React, Node.js and modern web technologies.',
-                                            'Building scalable solutions with focus on user experience and performance.'
+                                            'Python Backend Engineer — Kafka · ArcFace · Qdrant · Docker · Kubernetes.',
+                                            'Building intelligence-grade systems: biometric pipelines, ML platforms, security tooling.',
+                                            'Supply chain security, anomaly detection, and real-time data pipelines at production scale.',
+                                            'Open to remote roles worldwide and relocation opportunities.',
                                         ],
                                         autoStart: true,
                                         loop: true,
-                                        deleteSpeed: 50,
-                                        delay: 75,
+                                        deleteSpeed: 30,
+                                        delay: 60,
                                     }}
                                 />
                                 <span className="terminal-cursor"></span>
@@ -53,7 +54,7 @@ const Hero = () => {
                         </div>
                     </div>
 
-                    {/* Profile Image with 3D effect */}
+                    {/* Profile Image */}
                     <div className="flex flex-col items-center mb-8">
                         <div className="relative w-32 h-32 three-d-card">
                             <a href="#" className="block" aria-label="Profile link">
@@ -71,7 +72,7 @@ const Hero = () => {
                         </div>
                     </div>
 
-                    {/* Name with terminal glow */}
+                    {/* Name */}
                     <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight text-green-400 animate-glow font-mono" style={{
                         textShadow: '0 0 20px rgba(0, 255, 65, 0.8), 0 0 40px rgba(0, 255, 65, 0.5)',
                         transform: 'perspective(1000px) rotateX(5deg)'
@@ -79,50 +80,46 @@ const Hero = () => {
                         &gt; TEMI
                     </h1>
 
-                    {/* Achievement Badges - Terminal Style */}
-                    <div className="flex flex-wrap justify-center gap-4 mb-8">
-                        <div className="bg-black/80 border border-green-500/30 text-green-400 px-6 py-3 rounded text-sm font-mono hover:scale-105 transition-transform three-d-card" style={{
-                            boxShadow: '0 0 15px rgba(0, 255, 65, 0.2)'
-                        }}>
-                            $ 5+ Years Experience
-                        </div>
-                        <div className="bg-black/80 border border-green-500/30 text-green-400 px-6 py-3 rounded text-sm font-mono hover:scale-105 transition-transform three-d-card" style={{
-                            boxShadow: '0 0 15px rgba(0, 255, 65, 0.2)'
-                        }}>
-                            $ React & Node.js
-                        </div>
-                        <div className="bg-black/80 border border-green-500/30 text-green-400 px-6 py-3 rounded text-sm font-mono hover:scale-105 transition-transform three-d-card" style={{
-                            boxShadow: '0 0 15px rgba(0, 255, 65, 0.2)'
-                        }}>
-                            $ AI Automation
-                        </div>
-                        <div className="bg-black/80 border border-green-500/30 text-green-400 px-6 py-3 rounded text-sm font-mono hover:scale-105 transition-transform three-d-card" style={{
-                            boxShadow: '0 0 15px rgba(0, 255, 65, 0.2)'
-                        }}>
-                            $ Full Stack Expert
-                        </div>
-                        <div className="bg-black/80 border border-green-500/30 text-green-400 px-6 py-3 rounded text-sm font-mono hover:scale-105 transition-transform three-d-card" style={{
-                            boxShadow: '0 0 15px rgba(0, 255, 65, 0.2)'
-                        }}>
-                            $ Docker & K8s
-                        </div>
-                        <div className="bg-black/80 border border-green-500/30 text-green-400 px-6 py-3 rounded text-sm font-mono hover:scale-105 transition-transform three-d-card" style={{
-                            boxShadow: '0 0 15px rgba(0, 255, 65, 0.2)'
-                        }}>
-                            $ Python & Data
-                        </div>
+                    {/* Role title */}
+                    <p className="text-xl md:text-2xl text-green-300 font-mono mb-2" style={{
+                        textShadow: '0 0 10px rgba(0, 255, 65, 0.4)'
+                    }}>
+                        Python Backend &amp; ML Engineer
+                    </p>
+                    <p className="text-sm text-green-500 font-mono mb-6">
+                        Remote · Open to relocation · 5+ years building production systems
+                    </p>
+
+                    {/* Skill Badges */}
+                    <div className="flex flex-wrap justify-center gap-3 mb-8">
+                        {[
+                            '$ Python',
+                            '$ Kafka',
+                            '$ Machine Learning',
+                            '$ Security Engineering',
+                            '$ Docker & K8s',
+                            '$ Qdrant / Vector DB',
+                            '$ Go & Rust',
+                            '$ Full Stack (React / Node.js)',
+                        ].map((badge) => (
+                            <div
+                                key={badge}
+                                className="bg-black/80 border border-green-500/30 text-green-400 px-5 py-2 rounded text-sm font-mono hover:scale-105 transition-transform three-d-card"
+                                style={{ boxShadow: '0 0 15px rgba(0, 255, 65, 0.2)' }}
+                            >
+                                {badge}
+                            </div>
+                        ))}
                     </div>
 
-                    {/* Action Buttons - Terminal Style */}
+                    {/* Action Buttons */}
                     <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12 animate-fade-in">
                         <a
                             href="https://wa.me/2347035401659"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="inline-flex items-center bg-black/80 border-2 border-green-500/50 text-green-400 hover:bg-green-500/10 hover:border-green-500 hover:text-green-300 font-mono px-8 py-4 rounded transition-all duration-300 three-d-card"
-                            style={{
-                                boxShadow: '0 0 20px rgba(0, 255, 65, 0.3)'
-                            }}
+                            style={{ boxShadow: '0 0 20px rgba(0, 255, 65, 0.3)' }}
                             aria-label="Contact Temi Kayode via WhatsApp"
                         >
                             <MessageCircle className="mr-2" size={18} />
@@ -132,17 +129,14 @@ const Hero = () => {
                             href="/images/TemiCV.pdf"
                             download
                             className="inline-flex items-center bg-black/80 border-2 border-green-500/50 text-green-400 hover:bg-green-500/10 hover:border-green-500 hover:text-green-300 font-mono px-8 py-4 rounded transition-all duration-300 three-d-card"
-                            style={{
-                                boxShadow: '0 0 20px rgba(0, 255, 65, 0.3)'
-                            }}
+                            style={{ boxShadow: '0 0 20px rgba(0, 255, 65, 0.3)' }}
                             aria-label="Download Temi Kayode's CV"
                         >
                             <Download className="mr-2" size={18} />
                             ./download --cv
                         </a>
                     </div>
-                    
-                    {/* Discover More - Terminal Scroll */}
+
                     <div className="animate-bounce">
                         <a href="#about" className="inline-flex flex-col items-center text-green-400 hover:text-green-300 transition-colors font-mono">
                             <ArrowDown size={24} />
