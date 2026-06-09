@@ -3,7 +3,7 @@ import emailjs from '@emailjs/browser';
 const PUBLIC_KEY          = import.meta.env.VITE_EMAILJS_PUBLIC_KEY          || 'i3l8d41Bu8gwcy_IW';
 const SERVICE_ID          = import.meta.env.VITE_EMAILJS_SERVICE_ID          || 'service_vgrezd4';
 const TEMPLATE_ID         = import.meta.env.VITE_EMAILJS_TEMPLATE_ID         || 'template_955lfs5';
-const AUTOREPLY_TEMPLATE  = import.meta.env.VITE_EMAILJS_AUTOREPLY_TEMPLATE  || '';
+const AUTOREPLY_TEMPLATE  = import.meta.env.VITE_EMAILJS_AUTOREPLY_TEMPLATE  || 'template_kvcjdis';
 const TO_EMAIL            = 'Temitayokayode5@gmail.com';
 
 // Initialise once so every send() call is authenticated
