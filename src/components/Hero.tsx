@@ -177,7 +177,7 @@ const Hero = () => {
               whiteSpace: 'nowrap',
             }}
           >
-            BUILD
+            TEMI
           </span>
         </div>
 

@@ -1,23 +1,52 @@
 <svg width="300" height="500" viewBox="0 0 300 500" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <ellipse cx="150" cy="478" rx="70" ry="11" fill="rgba(0,0,0,0.16)"/>
+  <defs>
+    <clipPath id="fa-win-clip">
+      <rect x="55" y="70" width="190" height="180" rx="20"/>
+    </clipPath>
+    <filter id="fa-shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.22"/>
+    </filter>
+    <filter id="fa-badge-shadow" x="-80%" y="-80%" width="260%" height="260%">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#000000" flood-opacity="0.28"/>
+    </filter>
+    <filter id="fa-glow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="22"/>
+    </filter>
+  </defs>
 
-  <circle cx="150" cy="192" r="80" fill="#FFFFFF" stroke="#2F6690" stroke-width="5"/>
+  <ellipse cx="150" cy="478" rx="72" ry="11" fill="rgba(0,0,0,0.16)"/>
 
-  <!-- bar chart -->
-  <rect x="118" y="205" width="14" height="34" rx="3" fill="#2F6690" opacity="0.55"/>
-  <rect x="140" y="188" width="14" height="51" rx="3" fill="#2F6690" opacity="0.8"/>
-  <rect x="162" y="168" width="14" height="71" rx="3" fill="#2F6690"/>
+  <ellipse cx="150" cy="160" rx="132" ry="108" fill="#2F6690" opacity="0.28" filter="url(#fa-glow)"/>
 
-  <!-- ball / globe -->
-  <circle cx="169" cy="150" r="16" fill="#FFFFFF" stroke="#2F6690" stroke-width="4"/>
-  <path d="M155 150 h28 M169 136 q-8 14 0 28 M169 136 q8 14 0 28" stroke="#2F6690" stroke-width="2" fill="none"/>
+  <g filter="url(#fa-shadow)">
+    <g clip-path="url(#fa-win-clip)">
+      <rect x="55" y="70" width="190" height="180" fill="#FFFFFF"/>
+      <rect x="55" y="70" width="190" height="28" fill="#EFEFEF"/>
+      <circle cx="72" cy="84" r="3.4" fill="#F2705C"/>
+      <circle cx="84" cy="84" r="3.4" fill="#F4B740"/>
+      <circle cx="96" cy="84" r="3.4" fill="#4CAF6D"/>
 
-  <!-- label plaque -->
-  <rect x="90" y="336" width="120" height="10" rx="5" fill="#FFFFFF" opacity="0.55"/>
-  <rect x="90" y="360" width="92" height="8" rx="4" fill="#FFFFFF" opacity="0.4"/>
-  <rect x="90" y="380" width="70" height="8" rx="4" fill="#FFFFFF" opacity="0.3"/>
+      <!-- bar chart -->
+      <rect x="108" y="176" width="18" height="46" rx="3" fill="#2F6690" opacity="0.5"/>
+      <rect x="134" y="152" width="18" height="70" rx="3" fill="#2F6690" opacity="0.75"/>
+      <rect x="160" y="126" width="18" height="96" rx="3" fill="#2F6690"/>
 
-  <rect x="90" y="410" width="66" height="24" rx="12" fill="#2F6690"/>
-  <circle cx="105" cy="422" r="5" fill="#FFFFFF"/>
-  <path d="M115 422 l4 4 l7 -9" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <!-- trend line over bars -->
+      <path d="M117 168 L143 144 L169 118" stroke="#C0623F" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="117" cy="168" r="4" fill="#C0623F"/>
+      <circle cx="143" cy="144" r="4" fill="#C0623F"/>
+      <circle cx="169" cy="118" r="4" fill="#C0623F"/>
+
+      <!-- ball / globe -->
+      <circle cx="205" cy="104" r="17" fill="#FFFFFF" stroke="#2F6690" stroke-width="4"/>
+      <path d="M188 104 h34 M205 87 q-9 17 0 34 M205 87 q9 17 0 34" stroke="#2F6690" stroke-width="2" fill="none"/>
+    </g>
+    <rect x="55" y="70" width="190" height="180" rx="20" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="1"/>
+  </g>
+
+  <g filter="url(#fa-badge-shadow)">
+    <circle cx="223" cy="228" r="22" fill="#2F6690"/>
+    <path d="M214 232 l8 -12 l6 7 l9 -13" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M231 212 h6 v6" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  </g>
 </svg>

@@ -1,31 +1,53 @@
 <svg width="300" height="500" viewBox="0 0 300 500" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <ellipse cx="150" cy="478" rx="70" ry="11" fill="rgba(0,0,0,0.16)"/>
+  <defs>
+    <clipPath id="lg-win-clip">
+      <rect x="55" y="70" width="190" height="180" rx="20"/>
+    </clipPath>
+    <filter id="lg-shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.22"/>
+    </filter>
+    <filter id="lg-badge-shadow" x="-80%" y="-80%" width="260%" height="260%">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#000000" flood-opacity="0.28"/>
+    </filter>
+    <filter id="lg-glow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="22"/>
+    </filter>
+  </defs>
 
-  <circle cx="150" cy="192" r="80" fill="#FFFFFF" stroke="#4C4FB0" stroke-width="5"/>
+  <ellipse cx="150" cy="478" rx="72" ry="11" fill="rgba(0,0,0,0.16)"/>
 
-  <!-- branching trace graph -->
-  <line x1="150" y1="152" x2="124" y2="186" stroke="#4C4FB0" stroke-width="4"/>
-  <line x1="150" y1="152" x2="176" y2="186" stroke="#4C4FB0" stroke-width="4"/>
-  <line x1="124" y1="186" x2="110" y2="222" stroke="#4C4FB0" stroke-width="4"/>
-  <line x1="124" y1="186" x2="138" y2="222" stroke="#4C4FB0" stroke-width="4"/>
-  <line x1="176" y1="186" x2="190" y2="222" stroke="#4C4FB0" stroke-width="4"/>
+  <ellipse cx="150" cy="160" rx="132" ry="108" fill="#4C4FB0" opacity="0.28" filter="url(#lg-glow)"/>
 
-  <circle cx="150" cy="152" r="10" fill="#4C4FB0"/>
-  <circle cx="124" cy="186" r="9" fill="#4C4FB0"/>
-  <circle cx="176" cy="186" r="9" fill="#FFFFFF" stroke="#4C4FB0" stroke-width="4"/>
-  <circle cx="110" cy="222" r="7" fill="#4C4FB0"/>
-  <circle cx="138" cy="222" r="7" fill="#4C4FB0"/>
-  <circle cx="190" cy="222" r="7" fill="#4C4FB0"/>
+  <g filter="url(#lg-shadow)">
+    <g clip-path="url(#lg-win-clip)">
+      <rect x="55" y="70" width="190" height="180" fill="#FFFFFF"/>
+      <rect x="55" y="70" width="190" height="28" fill="#EFEFEF"/>
+      <circle cx="72" cy="84" r="3.4" fill="#F2705C"/>
+      <circle cx="84" cy="84" r="3.4" fill="#F4B740"/>
+      <circle cx="96" cy="84" r="3.4" fill="#4CAF6D"/>
 
-  <!-- pulse trace overlay -->
-  <path d="M96 236 h20 l8 -18 l10 24 l8 -14 l10 10 h32" stroke="#C0623F" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.85"/>
+      <!-- branching trace graph -->
+      <line x1="150" y1="112" x2="120" y2="150" stroke="#4C4FB0" stroke-width="4.5"/>
+      <line x1="150" y1="112" x2="180" y2="150" stroke="#4C4FB0" stroke-width="4.5"/>
+      <line x1="120" y1="150" x2="103" y2="192" stroke="#4C4FB0" stroke-width="4.5"/>
+      <line x1="120" y1="150" x2="137" y2="192" stroke="#4C4FB0" stroke-width="4.5"/>
+      <line x1="180" y1="150" x2="197" y2="192" stroke="#4C4FB0" stroke-width="4.5"/>
 
-  <!-- label plaque -->
-  <rect x="90" y="336" width="120" height="10" rx="5" fill="#FFFFFF" opacity="0.55"/>
-  <rect x="90" y="360" width="92" height="8" rx="4" fill="#FFFFFF" opacity="0.4"/>
-  <rect x="90" y="380" width="70" height="8" rx="4" fill="#FFFFFF" opacity="0.3"/>
+      <circle cx="150" cy="112" r="11" fill="#4C4FB0"/>
+      <circle cx="120" cy="150" r="10" fill="#4C4FB0"/>
+      <circle cx="180" cy="150" r="10" fill="#FFFFFF" stroke="#4C4FB0" stroke-width="4.5"/>
+      <circle cx="103" cy="192" r="8" fill="#4C4FB0"/>
+      <circle cx="137" cy="192" r="8" fill="#4C4FB0"/>
+      <circle cx="197" cy="192" r="8" fill="#4C4FB0"/>
 
-  <rect x="90" y="410" width="66" height="24" rx="12" fill="#4C4FB0"/>
-  <circle cx="105" cy="422" r="5" fill="#FFFFFF"/>
-  <path d="M115 422 l4 4 l7 -9" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <path d="M88 210 h18 l9 -20 l11 26 l9 -16 l11 12 h30" stroke="#C0623F" stroke-width="3.4" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+    </g>
+    <rect x="55" y="70" width="190" height="180" rx="20" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="1"/>
+  </g>
+
+  <g filter="url(#lg-badge-shadow)">
+    <circle cx="223" cy="228" r="22" fill="#4C4FB0"/>
+    <rect x="215" y="217" width="16" height="20" rx="2.5" fill="none" stroke="#FFFFFF" stroke-width="2.2"/>
+    <path d="M218.5 227 l2.8 3 l6 -7" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  </g>
 </svg>

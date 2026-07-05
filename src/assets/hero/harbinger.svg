@@ -1,28 +1,49 @@
 <svg width="300" height="500" viewBox="0 0 300 500" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <ellipse cx="150" cy="478" rx="70" ry="11" fill="rgba(0,0,0,0.16)"/>
+  <defs>
+    <clipPath id="hb-win-clip">
+      <rect x="55" y="70" width="190" height="180" rx="20"/>
+    </clipPath>
+    <filter id="hb-shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000000" flood-opacity="0.22"/>
+    </filter>
+    <filter id="hb-badge-shadow" x="-80%" y="-80%" width="260%" height="260%">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#000000" flood-opacity="0.28"/>
+    </filter>
+    <filter id="hb-glow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="22"/>
+    </filter>
+  </defs>
 
-  <circle cx="150" cy="192" r="80" fill="#FFFFFF" stroke="#3E7A5D" stroke-width="5"/>
+  <ellipse cx="150" cy="478" rx="72" ry="11" fill="rgba(0,0,0,0.16)"/>
 
-  <!-- network graph -->
-  <line x1="150" y1="160" x2="116" y2="216" stroke="#3E7A5D" stroke-width="4"/>
-  <line x1="150" y1="160" x2="184" y2="216" stroke="#3E7A5D" stroke-width="4"/>
-  <line x1="116" y1="216" x2="184" y2="216" stroke="#3E7A5D" stroke-width="4"/>
+  <ellipse cx="150" cy="160" rx="132" ry="108" fill="#3E7A5D" opacity="0.28" filter="url(#hb-glow)"/>
 
-  <circle cx="150" cy="160" r="12" fill="#3E7A5D"/>
-  <circle cx="116" cy="216" r="12" fill="#3E7A5D"/>
-  <circle cx="184" cy="216" r="14" fill="#FFFFFF" stroke="#3E7A5D" stroke-width="4"/>
+  <g filter="url(#hb-shadow)">
+    <g clip-path="url(#hb-win-clip)">
+      <rect x="55" y="70" width="190" height="180" fill="#FFFFFF"/>
+      <rect x="55" y="70" width="190" height="28" fill="#EFEFEF"/>
+      <circle cx="72" cy="84" r="3.4" fill="#F2705C"/>
+      <circle cx="84" cy="84" r="3.4" fill="#F4B740"/>
+      <circle cx="96" cy="84" r="3.4" fill="#4CAF6D"/>
 
-  <!-- alert marker on compromised node -->
-  <path d="M184 196 l9 16 h-18 z" fill="#C0623F"/>
-  <rect x="182.5" y="203" width="3" height="6" rx="1.5" fill="#FFFFFF"/>
-  <circle cx="184" cy="211.5" r="1.6" fill="#FFFFFF"/>
+      <!-- network graph -->
+      <line x1="150" y1="122" x2="112" y2="188" stroke="#3E7A5D" stroke-width="4.5"/>
+      <line x1="150" y1="122" x2="188" y2="188" stroke="#3E7A5D" stroke-width="4.5"/>
+      <line x1="112" y1="188" x2="188" y2="188" stroke="#3E7A5D" stroke-width="4.5"/>
 
-  <!-- label plaque -->
-  <rect x="90" y="336" width="120" height="10" rx="5" fill="#FFFFFF" opacity="0.55"/>
-  <rect x="90" y="360" width="92" height="8" rx="4" fill="#FFFFFF" opacity="0.4"/>
-  <rect x="90" y="380" width="70" height="8" rx="4" fill="#FFFFFF" opacity="0.3"/>
+      <circle cx="150" cy="122" r="13" fill="#3E7A5D"/>
+      <circle cx="112" cy="188" r="13" fill="#3E7A5D"/>
+      <circle cx="188" cy="188" r="15" fill="#FFFFFF" stroke="#3E7A5D" stroke-width="4.5"/>
 
-  <rect x="90" y="410" width="66" height="24" rx="12" fill="#3E7A5D"/>
-  <circle cx="105" cy="422" r="5" fill="#FFFFFF"/>
-  <path d="M115 422 l4 4 l7 -9" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <path d="M188 164 l10.5 19 h-21 z" fill="#C0623F"/>
+      <rect x="186.3" y="172" width="3.4" height="7" rx="1.7" fill="#FFFFFF"/>
+      <circle cx="188" cy="182.5" r="1.8" fill="#FFFFFF"/>
+    </g>
+    <rect x="55" y="70" width="190" height="180" rx="20" fill="none" stroke="rgba(0,0,0,0.08)" stroke-width="1"/>
+  </g>
+
+  <g filter="url(#hb-badge-shadow)">
+    <circle cx="223" cy="228" r="22" fill="#3E7A5D"/>
+    <path d="M223 214 l10 4 v9 c0 7 -4.5 11 -10 13 c-5.5 -2 -10 -6 -10 -13 v-9 z" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linejoin="round"/>
+  </g>
 </svg>
