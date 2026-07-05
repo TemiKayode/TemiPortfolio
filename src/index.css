@@ -3,91 +3,73 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Lime-Lemon Portfolio Design System */
+/* ══════════════════════════════════════════════════════════════════
+   Modern portfolio design system — dark-first, warm amber accent,
+   Anton for display headlines, Inter for everything else.
+   ══════════════════════════════════════════════════════════════════ */
 
 @layer base {
-  :root {
-    /* Linux Terminal Theme - Dark Green on Black */
-    --background: 120 100% 3%;
-    --foreground: 120 100% 50%;
-
-    --card: 120 100% 5%;
-    --card-foreground: 120 100% 55%;
-
-    --popover: 120 100% 5%;
-    --popover-foreground: 120 100% 50%;
-
-    --primary: 120 100% 45%;
-    --primary-foreground: 120 100% 3%;
-
-    --secondary: 120 50% 15%;
-    --secondary-foreground: 120 100% 60%;
-
-    --muted: 120 30% 10%;
-    --muted-foreground: 120 60% 40%;
-
-    --accent: 120 100% 40%;
-    --accent-foreground: 120 100% 3%;
-
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 120 100% 3%;
-
-    --border: 120 50% 15%;
-    --input: 120 50% 12%;
-    --ring: 120 100% 50%;
-
-    --radius: 0.5rem;
-
-    /* Terminal-style gradients */
-    --primary-gradient: linear-gradient(135deg, #00ff41 0%, #00cc33 100%);
-    --primary-gradient-soft: linear-gradient(135deg, #00ff4177 0%, #00cc3377 100%);
-    --primary-gradient-dark: linear-gradient(135deg, #00cc33 0%, #008822 100%);
-  }
-
+  :root,
   .dark {
-    --background: 120 100% 3%;
-    --foreground: 120 100% 50%;
-    --card: 120 100% 5%;
-    --card-foreground: 120 100% 55%;
-    --popover: 120 100% 5%;
-    --popover-foreground: 120 100% 50%;
-    --primary: 120 100% 45%;
-    --primary-foreground: 120 100% 3%;
-    --secondary: 120 50% 15%;
-    --secondary-foreground: 120 100% 60%;
-    --muted: 120 30% 10%;
-    --muted-foreground: 120 60% 40%;
-    --accent: 120 100% 40%;
-    --accent-foreground: 120 100% 3%;
-    --destructive: 0 62% 30%;
-    --destructive-foreground: 120 100% 3%;
-    --border: 120 50% 15%;
-    --input: 120 50% 12%;
-    --ring: 120 100% 50%;
+    --background: 240 6% 6%;
+    --foreground: 40 20% 96%;
+
+    --card: 240 6% 9%;
+    --card-foreground: 40 20% 96%;
+
+    --popover: 240 6% 9%;
+    --popover-foreground: 40 20% 96%;
+
+    --primary: 24 90% 55%;
+    --primary-foreground: 20 40% 8%;
+
+    --secondary: 240 5% 14%;
+    --secondary-foreground: 40 15% 92%;
+
+    --muted: 240 5% 14%;
+    --muted-foreground: 240 5% 64%;
+
+    --accent: 24 90% 55%;
+    --accent-foreground: 20 40% 8%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 240 6% 18%;
+    --input: 240 6% 16%;
+    --ring: 24 90% 55%;
+
+    --radius: 0.9rem;
   }
 
-  /* ── Light terminal theme ─────────────────────────────────────── */
   .light {
-    --background: 120 30% 97%;
-    --foreground: 120 60% 18%;
+    --background: 40 33% 98%;
+    --foreground: 240 8% 10%;
+
     --card: 0 0% 100%;
-    --card-foreground: 120 60% 18%;
+    --card-foreground: 240 8% 10%;
+
     --popover: 0 0% 100%;
-    --popover-foreground: 120 60% 18%;
-    --primary: 120 60% 25%;
+    --popover-foreground: 240 8% 10%;
+
+    --primary: 24 85% 48%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 120 20% 92%;
-    --secondary-foreground: 120 60% 20%;
-    --muted: 120 15% 93%;
-    --muted-foreground: 120 30% 40%;
-    --accent: 120 55% 28%;
+
+    --secondary: 240 5% 95%;
+    --secondary-foreground: 240 8% 15%;
+
+    --muted: 240 5% 95%;
+    --muted-foreground: 240 5% 40%;
+
+    --accent: 24 85% 48%;
     --accent-foreground: 0 0% 100%;
-    --destructive: 0 72% 50%;
+
+    --destructive: 0 72% 45%;
     --destructive-foreground: 0 0% 100%;
-    --border: 120 25% 80%;
-    --input: 120 20% 90%;
-    --ring: 120 60% 30%;
-    --primary-gradient: linear-gradient(135deg, #166416 0%, #1a7a1a 100%);
+
+    --border: 240 10% 88%;
+    --input: 240 10% 90%;
+    --ring: 24 85% 48%;
   }
 }
 
@@ -97,353 +79,54 @@
   }
 
   body {
-    @apply bg-background text-foreground font-mono antialiased;
-    font-family: 'Courier New', 'Fira Code', 'Consolas', 'Monaco', monospace;
-    perspective: 1000px;
+    @apply bg-background text-foreground font-sans antialiased;
   }
 
   html {
     scroll-behavior: smooth;
-    background: #000000;
   }
 }
 
 @layer components {
-  .primary-gradient {
-    background: var(--primary-gradient);
-  }
-  
-  .primary-gradient-soft {
-    background: var(--primary-gradient-soft);
-  }
-  
-  .primary-gradient-text {
-    background: var(--primary-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
-  }
-  
-  .glass-effect {
-    backdrop-filter: blur(10px);
-    background: rgba(0, 255, 65, 0.05);
-    border: 1px solid rgba(0, 255, 65, 0.2);
-  }
-  
-  .project-card {
-    @apply bg-black/80 backdrop-blur-sm border border-green-500/30 rounded-lg p-6 transition-all duration-300;
-    transform-style: preserve-3d;
-    box-shadow: 0 0 20px rgba(0, 255, 65, 0.1), inset 0 0 20px rgba(0, 255, 65, 0.05);
-  }
-  
-  .project-card:hover {
-    transform: translateY(-8px) rotateX(5deg) rotateY(-2deg);
-    box-shadow: 0 10px 40px rgba(0, 255, 65, 0.3), inset 0 0 30px rgba(0, 255, 65, 0.1);
-    border-color: rgba(0, 255, 65, 0.6);
-  }
-  
-  .experience-card {
-    @apply bg-black/90 backdrop-blur-sm border-l-4 border-green-500 rounded-lg p-6 transition-all duration-300;
-    transform-style: preserve-3d;
-    box-shadow: 0 0 15px rgba(0, 255, 65, 0.1);
-  }
-  
-  .experience-card:hover {
-    transform: translateX(8px) rotateY(-2deg);
-    box-shadow: 0 5px 25px rgba(0, 255, 65, 0.2);
-  }
-  
-  .tech-tag {
-    @apply inline-flex items-center px-3 py-1 rounded text-xs font-medium bg-green-500/10 text-green-400 border border-green-500/30;
-    box-shadow: 0 0 5px rgba(0, 255, 65, 0.2);
-  }
-  
   .section-title {
-    @apply text-4xl md:text-5xl font-bold mb-8;
-    color: #00ff41;
-    text-shadow: 0 0 10px rgba(0, 255, 65, 0.5), 0 0 20px rgba(0, 255, 65, 0.3);
-    transform-style: preserve-3d;
-    transform: perspective(1000px) rotateX(5deg);
+    @apply font-display uppercase tracking-tight text-foreground;
+    font-size: clamp(2.25rem, 5vw, 3.75rem);
+    line-height: 1.05;
   }
-  
-  .terminal-window {
-    @apply bg-black border border-green-500/30 rounded-lg p-4 shadow-lg;
-    box-shadow: 0 0 30px rgba(0, 255, 65, 0.2), inset 0 0 30px rgba(0, 255, 65, 0.05);
-    transform-style: preserve-3d;
+
+  .section-eyebrow {
+    @apply inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-primary mb-4;
   }
-  
-  .terminal-prompt {
-    @apply text-green-400 font-mono;
-    text-shadow: 0 0 5px rgba(0, 255, 65, 0.5);
+
+  .card-surface {
+    @apply bg-card border border-border rounded-2xl transition-colors duration-300;
   }
-  
-  .terminal-command {
-    @apply text-green-300 font-mono;
+
+  .card-surface-hover {
+    @apply card-surface hover:border-primary/40;
   }
-  
-  .animate-float {
-    animation: float 6s ease-in-out infinite;
+
+  .tech-tag {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-muted text-muted-foreground border border-border;
   }
-  
-  .animate-pulse-slow {
-    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+
+  .grain-overlay {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.08 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 200px 200px;
   }
 
   .animate-fade-in {
     animation: fadeIn 0.8s ease-out forwards;
-  }
-  
-  .animate-glow {
-    animation: glow 2s ease-in-out infinite alternate;
-  }
-  
-  .animate-typewriter {
-    animation: typewriter 3s steps(40) infinite;
-  }
-
-  .hover-lift {
-    transition: all 0.3s ease;
-    transform-style: preserve-3d;
-  }
-
-  .hover-lift:hover {
-    transform: translateY(-5px) rotateX(2deg);
-    box-shadow: 0 20px 40px rgba(0, 255, 65, 0.2);
-  }
-
-  .interactive-card {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    will-change: transform;
-    transform-style: preserve-3d;
-  }
-
-  .interactive-card:hover {
-    transform: translateY(-8px) rotateX(3deg) rotateY(-2deg) scale(1.02);
-    box-shadow: 0 25px 50px rgba(0, 255, 65, 0.3), inset 0 0 30px rgba(0, 255, 65, 0.1);
-  }
-  
-  .three-d-container {
-    perspective: 1000px;
-    transform-style: preserve-3d;
-  }
-  
-  .three-d-card {
-    transform-style: preserve-3d;
-    transition: transform 0.3s ease;
-  }
-  
-  .three-d-card:hover {
-    transform: rotateY(5deg) rotateX(-5deg);
-  }
-  
-  .ascii-art {
-    @apply text-green-400 font-mono text-xs whitespace-pre;
-    text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
-    line-height: 1.2;
-  }
-  
-  .terminal-cursor {
-    @apply inline-block w-2 h-4 bg-green-400 ml-1;
-    animation: blink 1s infinite;
-  }
-}
-
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0px) translateZ(0);
-  }
-  50% {
-    transform: translateY(-20px) translateZ(20px);
   }
 }
 
 @keyframes fadeIn {
   0% {
     opacity: 0;
-    transform: translateY(20px) translateZ(-50px);
+    transform: translateY(16px);
   }
   100% {
     opacity: 1;
-    transform: translateY(0) translateZ(0);
+    transform: translateY(0);
   }
 }
-
-@keyframes glow {
-  0% {
-    text-shadow: 0 0 10px rgba(0, 255, 65, 0.5), 0 0 20px rgba(0, 255, 65, 0.3);
-  }
-  100% {
-    text-shadow: 0 0 20px rgba(0, 255, 65, 0.8), 0 0 30px rgba(0, 255, 65, 0.5), 0 0 40px rgba(0, 255, 65, 0.3);
-  }
-}
-
-@keyframes blink {
-  0%, 50% {
-    opacity: 1;
-  }
-  51%, 100% {
-    opacity: 0;
-  }
-}
-
-@keyframes typewriter {
-  0% {
-    width: 0;
-  }
-  100% {
-    width: 100%;
-  }
-}
-
-@keyframes terminal-flicker {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.8;
-  }
-}
-  
-/* Video Background Utilities */
-.video-overlay {
-  @apply absolute inset-0 bg-gradient-to-br from-background/40 via-transparent to-primary/30;
-}
-
-.video-container {
-  @apply relative overflow-hidden;
-}
-
-.video-placeholder {
-  @apply bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center;
-}
-@keyframes gradient-shift {
-  0%, 100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-}
-
-.gradient-animation {
-  background: linear-gradient(-45deg, #FBF1F0, #E35314, #966336, #164147);
-  background-size: 400% 400%;
-  animation: gradient-shift 8s ease infinite;
-}
-
-/* ══════════════════════════════════════════════════════════════════
-   LIGHT MODE — overrides hardcoded dark Tailwind utilities
-   ThemeProvider adds class="light" to <html> when Light is selected
-   ══════════════════════════════════════════════════════════════════ */
-
-html.light {
-  background: #f2f8f2 !important;
-  color-scheme: light;
-}
-
-html.light body {
-  background-color: #f2f8f2;
-  color: #1a4d1a;
-}
-
-/* Sections & layout */
-html.light section,
-html.light .min-h-screen {
-  background-color: #f2f8f2 !important;
-}
-
-/* Header */
-html.light header {
-  background-color: rgba(242, 248, 242, 0.95) !important;
-  border-bottom-color: rgba(26, 77, 26, 0.25) !important;
-}
-
-/* All hardcoded black backgrounds */
-html.light .bg-black,
-html.light [class*="bg-black\/"] {
-  background-color: #ffffff !important;
-}
-
-/* Terminal windows */
-html.light .terminal-window {
-  background-color: #ffffff !important;
-  border-color: rgba(26, 77, 26, 0.25) !important;
-  box-shadow: 0 0 20px rgba(0, 80, 0, 0.08), inset 0 0 20px rgba(0, 80, 0, 0.02) !important;
-}
-
-/* Experience cards */
-html.light .experience-card {
-  background-color: #ffffff !important;
-  border-left-color: #1a7a1a !important;
-  box-shadow: 0 0 10px rgba(0, 80, 0, 0.06) !important;
-}
-
-/* Section title glow → softer in light mode */
-html.light .section-title {
-  color: #166416 !important;
-  text-shadow: 0 0 8px rgba(0, 100, 0, 0.2) !important;
-}
-
-/* Text colours */
-html.light .text-green-400 { color: #1a7a1a !important; }
-html.light .text-green-300 { color: #1f6b1f !important; }
-html.light .text-green-500 { color: #158015 !important; }
-html.light .text-green-600 { color: #116611 !important; }
-
-/* Nav links */
-html.light a.text-green-300,
-html.light a.text-green-400 {
-  color: #1a6b1a !important;
-}
-html.light a.text-green-300:hover,
-html.light a.text-green-400:hover {
-  color: #0d500d !important;
-}
-
-/* Borders */
-html.light [class*="border-green-500"] {
-  border-color: rgba(26, 77, 26, 0.3) !important;
-}
-
-/* Tech tags */
-html.light .tech-tag {
-  background-color: #e6f4e6 !important;
-  color: #1a5c1a !important;
-  border-color: rgba(26, 77, 26, 0.3) !important;
-  box-shadow: none !important;
-}
-
-/* Terminal prompt / command */
-html.light .terminal-prompt { color: #1a7a1a !important; text-shadow: none !important; }
-html.light .terminal-command { color: #2d8c2d !important; }
-html.light .terminal-cursor { background-color: #1a7a1a !important; }
-
-/* Buttons */
-html.light .bg-green-500\/20 { background-color: rgba(26, 100, 26, 0.12) !important; }
-html.light .bg-green-500\/10 { background-color: rgba(26, 100, 26, 0.07) !important; }
-html.light .hover\:bg-green-500\/10:hover { background-color: rgba(26, 100, 26, 0.1) !important; }
-html.light .hover\:bg-green-500\/30:hover { background-color: rgba(26, 100, 26, 0.18) !important; }
-
-/* Filter/category buttons active state */
-html.light .bg-green-500\/20.text-green-400 {
-  background-color: rgba(26, 100, 26, 0.14) !important;
-}
-
-/* Grid background pattern */
-html.light .fixed.inset-0 { opacity: 0.04 !important; }
-
-/* Name glow → lighter */
-html.light h1.text-green-400 {
-  text-shadow: 0 0 12px rgba(0, 100, 0, 0.3), 0 0 24px rgba(0, 100, 0, 0.15) !important;
-}
-
-/* Search input */
-html.light input[type="text"] {
-  background-color: #f5faf5 !important;
-  color: #1a4d1a !important;
-  border-color: rgba(26, 77, 26, 0.3) !important;
-}
-
-/* Scroll indicator */
-html.light .animate-bounce a { color: #1a7a1a !important; }

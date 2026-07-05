@@ -1,15 +1,110 @@
 
 import React, { useState, useMemo } from 'react';
-import { ExternalLink, Github, ShoppingCart, Home, GraduationCap, Clock, Truck, Search, Zap, Wallet, Package, MessageSquare, School, Trophy, Bot, Hotel, TrendingUp, Shield, Globe, Activity, Lock, Fingerprint } from 'lucide-react';
+import { ExternalLink, Github, Truck, Search, Zap, Wallet, Package, MessageSquare, School, Trophy, Bot, Hotel, TrendingUp, Shield, Globe, Activity, Lock, Fingerprint, Box, MessageCircle, ShieldCheck, Gauge, FileSearch, Gamepad2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import pheranLogo from '../assets/pheran-logo.png';
 import ordaLogo from '../assets/logoo.png';
 import africaLiveEyeImg from '../assets/africa-live-eye.png';
 
 
 const Projects = () => {
   const allProjects = [
+    {
+      id: 'cad',
+      title: 'CAD — Collaborative Browser CAD Engine',
+      description: 'A pure-Python, browser-based CAD engine that models geometry as CRDTs for real-time, offline-first collaboration. Peers can edit simultaneously — even fully disconnected — and merge conflict-free on reconnect, with a Time-Travel Merge panel that visualises exactly what changed on every branch.',
+      image: null,
+      firstLetter: 'C',
+      technologies: ['Python', 'CRDTs', 'WebAssembly', 'Distributed Systems', 'Geometry Engine'],
+      status: 'Completed',
+      role: 'Systems Engineer',
+      category: 'Backend',
+      icon: Box,
+      challenges: 'Modelling arbitrary CAD geometry as conflict-free replicated data types while preserving deterministic merge semantics across concurrent edits',
+      outcomes: 'Fully offline-capable collaborative CAD editing with guaranteed conflict-free merges and a visual diff of every branch',
+      github: 'https://github.com/TemiKayode/cad',
+      demo: null
+    },
+    {
+      id: 'unichat',
+      title: 'Unichat — Unified Messaging Platform',
+      description: 'Production-ready customer messaging platform unifying Facebook Messenger, Instagram DMs, WhatsApp Business, and TikTok messages into a single real-time dashboard, with encrypted token storage and a full webhook ingestion pipeline.',
+      image: null,
+      firstLetter: 'U',
+      technologies: ['Node.js', 'Socket.IO', 'Webhooks', 'OAuth', 'Real-Time Systems'],
+      status: 'Completed',
+      role: 'Full Stack Developer',
+      category: 'Full Stack',
+      icon: MessageCircle,
+      challenges: 'Normalising four divergent messaging-platform webhook formats into one real-time event stream without dropping or duplicating messages',
+      outcomes: 'Single dashboard replacing four separate inboxes, with encrypted credential storage and live Socket.IO delivery',
+      github: 'https://github.com/TemiKayode/unichat',
+      demo: null
+    },
+    {
+      id: 'sentinelci',
+      title: 'SentinelCI — Unified Security Scanner',
+      description: 'Runs Semgrep, Trivy, Gitleaks, Checkov, and Grype concurrently in CI, normalises findings into a common schema, and routes HIGH/CRITICAL issues to an LLM for exact code-level fix diffs — all within a 60-second, CI-friendly exit budget.',
+      image: null,
+      firstLetter: 'S',
+      technologies: ['Python', 'Semgrep', 'Trivy', 'Gitleaks', 'Checkov', 'Grype', 'CI/CD'],
+      status: 'Completed',
+      role: 'Security Engineer',
+      category: 'Security',
+      icon: ShieldCheck,
+      challenges: 'Running five heterogeneous scanners concurrently and reconciling their differing output schemas into one de-duplicated report under a tight CI time budget',
+      outcomes: 'Consolidated five security tools into a single sub-60-second CI gate with automated, LLM-generated fix suggestions',
+      github: 'https://github.com/TemiKayode/SentinelCI',
+      demo: null
+    },
+    {
+      id: 'infralens',
+      title: 'InfraLens — Observability Platform',
+      description: 'A horizontally scalable observability platform ingesting logs, metrics, and traces via OpenTelemetry into a custom columnar LSM storage engine, queryable with a SQL-like language and paired with an AI copilot for root-cause analysis.',
+      image: null,
+      firstLetter: 'I',
+      technologies: ['Python', 'OpenTelemetry', 'LSM Storage Engine', 'SQL', 'Distributed Systems'],
+      status: 'Completed',
+      role: 'Platform Engineer',
+      category: 'Backend',
+      icon: Gauge,
+      challenges: 'Designing a custom columnar LSM engine that stays horizontally scalable under high-cardinality metric and trace ingestion',
+      outcomes: 'Self-hosted observability stack with SQL-like querying and AI-assisted root-cause analysis, with no vendor lock-in',
+      github: 'https://github.com/TemiKayode/infralens',
+      demo: null
+    },
+    {
+      id: 'sec-rag',
+      title: 'SEC-RAG — Trustworthy Filings Q&A',
+      description: "Retrieval-augmented Q&A over SEC 10-K/10-Q filings with span-level citations, machine-verified faithfulness checks, and graceful abstention when the filings don't support an answer.",
+      image: null,
+      firstLetter: 'S',
+      technologies: ['Python', 'RAG', 'LLM', 'Vector Search', 'Financial NLP'],
+      status: 'Completed',
+      role: 'ML Engineer',
+      category: 'Backend',
+      icon: FileSearch,
+      challenges: 'Enforcing machine-verified faithfulness and citation-level grounding to prevent hallucinated answers over dense financial filings',
+      outcomes: 'Answers financial filing questions with span-level source citations and abstains rather than guessing when evidence is insufficient',
+      github: 'https://github.com/TemiKayode/sec-rag',
+      demo: null
+    },
+    {
+      id: 'ghetto-lagos',
+      title: 'Ghetto Lagos — Narrative RPG',
+      description: 'An open-world narrative RPG set across 10 seasons of Lagos life (2004–2014), built entirely in Godot 4.6 with procedural 3D geometry and no external art assets.',
+      image: null,
+      firstLetter: 'G',
+      technologies: ['Godot 4.6', 'GDScript', 'Procedural Generation', '3D Geometry'],
+      status: 'Completed',
+      role: 'Game Developer',
+      category: 'Full Stack',
+      icon: Gamepad2,
+      challenges: 'Generating an entire open-world city procedurally in 3D without any external art assets, while keeping performance stable across 10 narrative seasons',
+      outcomes: 'A fully playable, asset-free open-world RPG demonstrating procedural generation at city scale',
+      github: 'https://github.com/TemiKayode/ghetto-lagos',
+      demo: null
+    },
     {
       id: 'africa-live-eye',
       title: 'Africa Live Eye — Real-Time Satellite Monitor',
@@ -77,7 +172,7 @@ const Projects = () => {
     {
       id: 'paranoid-edition',
       title: 'Paranoid Edition – Windows Privacy Toolkit',
-      description: 'One-command Windows privacy tool for total anonymity. Bulletproof telemetry blocking, identity hardening, and network privacy — everything locked down from a single script for security-conscious users and researchers.',
+      description: 'A single-script Windows privacy hardening tool that disables telemetry, reduces identity exposure, and locks down network privacy settings for security-conscious users and researchers.',
       image: null,
       firstLetter: 'P',
       technologies: ['Python', 'Windows', 'Privacy', 'Security', 'Automation', 'PowerShell'],
@@ -86,7 +181,7 @@ const Projects = () => {
       category: 'Security',
       icon: Lock,
       challenges: 'Comprehensive telemetry removal without breaking Windows Update and core system functionality',
-      outcomes: 'Full Windows anonymisation in a single command with reversible rollback',
+      outcomes: 'Full Windows privacy hardening in a single command with reversible rollback',
       github: 'https://github.com/TemiKayode/paranoid-edition',
       demo: null
     },
@@ -166,9 +261,9 @@ const Projects = () => {
       category: 'Full Stack',
       icon: Hotel,
       challenges: 'Real-time availability management and conflict-free reservation scheduling',
-      outcomes: 'Live production platform powering hotel bookings at marsplacehotel.com',
+      outcomes: 'Booking platform with live availability calendar and admin dashboard for property management',
       github: 'https://github.com/TemiKayode/MarsPlaceHotel',
-      demo: 'https://marsplacehotel.com'
+      demo: null
     },
     {
       id: 'crypto-prediction-tool',
@@ -185,22 +280,6 @@ const Projects = () => {
       outcomes: 'Automated signal pipeline with real-time dashboard monitoring and trade execution',
       github: 'https://github.com/TemiKayode/Crypto',
       demo: null
-    },
-    {
-      id: 'pheran-clothing',
-      title: 'Pheran – Clothing Website',
-      description: 'A full-featured e-commerce fashion store with shopping cart, Paystack payments, inventory tracking, and backend CMS.',
-      image: pheranLogo,
-      isLogo: true,
-      technologies: ['React', 'Next.js', 'Node.js', 'PostgreSQL', 'Firebase', 'Paystack'],
-      status: 'Completed',
-      role: 'Full Stack Developer',
-      category: 'Full Stack',
-      icon: ShoppingCart,
-      challenges: 'Integrated complex payment flows and inventory management',
-      outcomes: 'Increased client sales by 40% with seamless checkout experience',
-      github: 'https://github.com/TemiKayode/pheran-clothing',
-      demo: 'https://pheran-clothing.vercel.app'
     },
     {
       id: 'orda-delivery',
@@ -268,8 +347,8 @@ const Projects = () => {
     },
     {
       id: 'wallet-discovery',
-      title: 'Wallet Discovery – Crypto Toolkit',
-      description: 'A comprehensive Python toolkit for discovering, analyzing, and monitoring cryptocurrency wallet addresses across multiple blockchains.',
+      title: 'Wallet Discovery – Blockchain Analytics Toolkit',
+      description: 'A Python toolkit for blockchain analytics — clustering, labelling, and monitoring wallet activity across multiple chains for compliance and research use cases.',
       image: null,
       firstLetter: 'W',
       technologies: ['Python', 'Blockchain', 'Web3', 'Data Analysis'],
@@ -277,59 +356,11 @@ const Projects = () => {
       role: 'Backend Developer',
       category: 'Backend',
       icon: Wallet,
-      challenges: 'Cross-chain wallet analysis and monitoring',
-      outcomes: 'Comprehensive toolkit for blockchain wallet discovery and analytics',
+      challenges: 'Cross-chain wallet clustering and monitoring at scale',
+      outcomes: 'Analytics toolkit for blockchain wallet clustering, labelling, and monitoring',
       github: 'https://github.com/TemiKayode/wallet-discovery',
       demo: null
     },
-    {
-      id: 'tenant-screening',
-      title: 'Tenant Screening & Rent Management',
-      description: 'Web platform to screen tenants, collect rent, and manage the complete tenancy lifecycle with KYC integration.',
-      image: null,
-      firstLetter: 'T',
-      technologies: ['Next.js', 'Tailwind CSS', 'Supabase', 'Firebase Auth', 'Flutterwave', 'VerifyMe'],
-      status: 'In Progress',
-      role: 'Full Stack Developer & Product Owner',
-      category: 'Full Stack',
-      icon: Home,
-      challenges: 'Complex KYC integration and multi-tenant architecture',
-      outcomes: 'Streamlined property management for 50+ landlords',
-      github: 'https://github.com/TemiKayode/tenant-screening',
-      demo: null
-    },
-    {
-      id: 'tuition-manager',
-      title: 'Tuition & School Fee Manager',
-      description: 'Platform used by low-cost schools for fee tracking, debt management, receipt generation, and parent notifications.',
-      image: null,
-      firstLetter: 'T',
-      technologies: ['React', 'Vue.js', 'Firebase', 'Supabase', 'Remita', 'Paystack'],
-      status: 'Completed',
-      role: 'Lead Developer',
-      category: 'Full Stack',
-      icon: GraduationCap,
-      challenges: 'Handling complex fee structures and payment schedules',
-      outcomes: 'Reduced administrative overhead by 60% for partner schools',
-      github: 'https://github.com/TemiKayode/tuition-manager',
-      demo: null
-    },
-    {
-      id: 'task-manager',
-      title: 'Real-time Task Manager',
-      description: 'Collaborative task management platform with real-time updates, team collaboration, and project tracking.',
-      image: null,
-      firstLetter: 'T',
-      technologies: ['React', 'Socket.io', 'Node.js', 'PostgreSQL', 'Redis'],
-      status: 'Completed',
-      role: 'Full Stack Developer',
-      category: 'Backend',
-      icon: Clock,
-      challenges: 'Real-time synchronization across multiple users',
-      outcomes: 'Improved team productivity by 35% for client organizations',
-      github: 'https://github.com/TemiKayode/task-manager',
-      demo: null
-    }
   ];
 
   const categories = useMemo(() => ['All', 'Full Stack', 'Backend', 'Security', 'Frontend'], []);
@@ -355,138 +386,121 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="py-20 bg-black relative overflow-hidden three-d-container">
+    <section id="projects" className="py-24 sm:py-32 bg-background relative overflow-hidden">
       <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center mb-16">
-          <div className="terminal-window max-w-2xl mx-auto mb-8">
-            <div className="terminal-prompt text-left">
-              <span className="text-green-500">temi@portfolio</span>:<span className="text-blue-400">~</span>$ <span className="terminal-command">ls projects/</span>
-            </div>
-          </div>
-          <h2 className="section-title">Featured Projects</h2>
-          <p className="text-xl text-green-300 max-w-3xl mx-auto mb-8 font-mono">
-            $ A showcase of my recent work, from biometric security pipelines to e-commerce platforms.
+        <div className="max-w-3xl mb-12">
+          <p className="section-eyebrow">Projects</p>
+          <h2 className="section-title mb-6">A showcase of shipped, production work.</h2>
+          <p className="text-lg text-muted-foreground leading-relaxed">
+            From biometric security pipelines to full-stack platforms — {allProjects.length} projects,
+            filterable by category.
           </p>
+        </div>
 
-          <div className="flex flex-col md:flex-row justify-center items-center gap-4 mb-8">
-            {/* Category Filter */}
-            <div className="flex flex-wrap justify-center gap-3">
-              {categories.map((category) => (
-                <button
-                  key={category}
-                  onClick={() => setSelectedCategory(category)}
-                  className={`px-4 py-2 rounded text-sm font-mono transition-all duration-300 three-d-card ${
-                    selectedCategory === category
-                      ? 'bg-green-500/20 text-green-400 border-2 border-green-500 shadow-lg'
-                      : 'bg-black/50 text-green-300 border border-green-500/30 hover:bg-green-500/10 hover:border-green-500/50'
-                  }`}
-                  style={{
-                    boxShadow: selectedCategory === category ? '0 0 15px rgba(0, 255, 65, 0.3)' : undefined
-                  }}
-                >
-                  $ {category}
-                </button>
-              ))}
-            </div>
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-12">
+          <div className="flex flex-wrap gap-2">
+            {categories.map((category) => (
+              <button
+                key={category}
+                onClick={() => setSelectedCategory(category)}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 border ${
+                  selectedCategory === category
+                    ? 'bg-primary text-primary-foreground border-primary'
+                    : 'bg-transparent text-muted-foreground border-border hover:border-primary/50 hover:text-foreground'
+                }`}
+              >
+                {category}
+              </button>
+            ))}
+          </div>
 
-            {/* Search Input */}
-            <div className="relative w-full max-w-sm">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-green-400" size={20} />
-              <Input
-                type="text"
-                placeholder="grep projects..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="pl-10 w-full bg-black/50 border-green-500/30 text-green-300 font-mono focus:border-green-500 focus:ring-green-500/20 placeholder:text-green-500/50"
-              />
-            </div>
+          <div className="relative w-full md:w-72">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" size={18} />
+            <Input
+              type="text"
+              placeholder="Search projects..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="pl-10 w-full"
+            />
           </div>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
-          {projectsToShow.map((project, index) => (
+        <div className="grid md:grid-cols-2 gap-6 max-w-7xl mx-auto">
+          {projectsToShow.map((project) => (
             <div
               key={project.id}
-              className="terminal-window group p-6 transition-all duration-300 flex flex-col justify-between three-d-card hover:scale-[1.02]"
-              style={{
-                transform: `perspective(1000px) translateZ(${index * 5}px)`
-              }}
+              className="card-surface-hover group p-6 sm:p-7 flex flex-col justify-between"
             >
               <div>
-                {/* Project Image/Icon - Enhanced and Prominent */}
                 <div className="mb-6">
                   {project.image ? (
                     project.isLogo ? (
-                      <div className="w-40 h-40 mx-auto mb-4 rounded-lg border-2 border-green-500/50 bg-black/50 p-5 hover:border-green-500 hover:scale-105 transition-all duration-300" style={{
-                        boxShadow: '0 0 25px rgba(0, 255, 65, 0.3), inset 0 0 25px rgba(0, 255, 65, 0.05)'
-                      }}>
+                      <div className="w-28 h-28 mx-auto mb-4 rounded-2xl border border-border bg-muted/40 p-5 group-hover:border-primary/40 transition-colors duration-300">
                         <img
                           src={project.image}
                           alt={project.title}
-                          className="w-full h-full object-contain rounded transition-transform duration-300 hover:scale-110"
+                          className="w-full h-full object-contain"
                           onError={(e) => {
-                            console.error(`Failed to load image for ${project.title}:`, project.image);
                             e.currentTarget.style.display = 'none';
                           }}
                         />
                       </div>
                     ) : (
-                      <div className="w-full h-56 mb-4 rounded-lg border-2 border-green-500/50 bg-black/50 overflow-hidden hover:border-green-500 transition-all duration-300 group-hover:scale-[1.02]" style={{
-                        boxShadow: '0 0 20px rgba(0, 255, 65, 0.2), inset 0 0 20px rgba(0, 255, 65, 0.05)'
-                      }}>
-                        <img src={project.image} alt={project.title} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110" />
+                      <div className="w-full h-52 mb-4 rounded-2xl border border-border bg-muted/40 overflow-hidden group-hover:border-primary/40 transition-colors duration-300">
+                        <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
                       </div>
                     )
                   ) : project.firstLetter ? (
-                    <div className="w-32 h-32 mx-auto mb-4 flex items-center justify-center text-6xl font-mono font-bold text-green-400 bg-green-500/10 rounded-lg border-2 border-green-500/50 hover:border-green-500 hover:scale-105 transition-all duration-300" style={{
-                      boxShadow: '0 0 20px rgba(0, 255, 65, 0.2)',
-                      textShadow: '0 0 15px rgba(0, 255, 65, 0.5)'
-                    }}>
+                    <div className="w-16 h-16 flex items-center justify-center text-2xl font-display text-primary bg-primary/10 rounded-2xl border border-border group-hover:border-primary/40 transition-colors duration-300">
                       {project.firstLetter}
                     </div>
                   ) : (
-                    <div className="w-32 h-32 mx-auto mb-4 flex items-center justify-center text-green-400 bg-green-500/10 rounded-lg border-2 border-green-500/50 hover:border-green-500 hover:scale-105 transition-all duration-300" style={{
-                      boxShadow: '0 0 20px rgba(0, 255, 65, 0.2)'
-                    }}>
-                      {project.icon && <project.icon size={56} strokeWidth={1.5} />}
+                    <div className="w-16 h-16 flex items-center justify-center text-primary bg-primary/10 rounded-2xl border border-border group-hover:border-primary/40 transition-colors duration-300">
+                      {project.icon && <project.icon size={30} strokeWidth={1.5} />}
                     </div>
                   )}
                 </div>
 
-                {/* Project Title and Status */}
-                <div className="text-center mb-4">
-                  <h3 className="text-xl font-mono font-semibold text-green-400 mb-2 hover:text-green-300 transition-colors">{project.title}</h3>
-                  <p className={`text-sm font-mono ${project.status === 'Completed' ? 'text-green-500' : 'text-yellow-400'}`}>
-                    $ {project.status} - {project.role}
+                <div className="mb-3">
+                  <h3 className="text-xl font-semibold text-foreground mb-1 group-hover:text-primary transition-colors">
+                    {project.title}
+                  </h3>
+                  <p className={`text-xs font-medium uppercase tracking-wide ${project.status === 'Completed' ? 'text-muted-foreground' : 'text-primary'}`}>
+                    {project.status} · {project.role}
                   </p>
                 </div>
-                <p className="text-green-300 mb-4 text-sm font-mono leading-relaxed text-center">{project.description}</p>
+                <p className="text-muted-foreground mb-4 text-sm leading-relaxed">{project.description}</p>
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.technologies.map(tech => (
-                    <span key={tech} className="tech-tag font-mono">
+                    <span key={tech} className="tech-tag">
                       {tech}
                     </span>
                   ))}
                 </div>
                 {project.challenges && (
-                  <p className="text-sm text-green-400 mb-2 font-mono italic">$ Challenges: {project.challenges}</p>
+                  <p className="text-sm text-muted-foreground mb-2">
+                    <span className="text-foreground font-medium">Challenges: </span>{project.challenges}
+                  </p>
                 )}
                 {project.outcomes && (
-                  <p className="text-sm text-green-400 font-mono italic">$ Outcomes: {project.outcomes}</p>
+                  <p className="text-sm text-muted-foreground">
+                    <span className="text-foreground font-medium">Outcomes: </span>{project.outcomes}
+                  </p>
                 )}
               </div>
               <div className="flex justify-end gap-3 mt-6">
                 {project.github && (
-                  <Button asChild variant="outline" size="sm" className="rounded border-green-500/30 text-green-400 hover:bg-green-500/10 font-mono bg-black/50">
+                  <Button asChild variant="outline" size="sm">
                     <a href={project.github} target="_blank" rel="noopener noreferrer" aria-label={`View ${project.title} on GitHub`}>
-                      <Github size={16} className="mr-1" /> ./github
+                      <Github size={16} className="mr-1.5" /> Code
                     </a>
                   </Button>
                 )}
                 {project.demo && (
-                  <Button asChild size="sm" className="rounded bg-green-500/20 text-green-400 hover:bg-green-500/30 border border-green-500/50 font-mono transition-transform duration-200">
+                  <Button asChild size="sm">
                     <a href={project.demo} target="_blank" rel="noopener noreferrer" aria-label={`View live demo of ${project.title}`}>
-                      $ ./demo <ExternalLink size={16} className="ml-1" />
+                      Live Demo <ExternalLink size={16} className="ml-1.5" />
                     </a>
                   </Button>
                 )}
@@ -497,15 +511,15 @@ const Projects = () => {
 
         {visibleProjects < filteredProjects.length && (
           <div className="text-center mt-12">
-            <Button onClick={handleLoadMore} size="lg" className="bg-green-500/20 text-green-400 hover:bg-green-500/30 border border-green-500/50 font-mono hover:scale-105 transition-transform duration-200 three-d-card">
-              $ load --more
+            <Button onClick={handleLoadMore} size="lg" variant="outline">
+              Load More
             </Button>
           </div>
         )}
 
         {projectsToShow.length === 0 && (
-          <div className="text-center mt-12 text-green-500 font-mono">
-            <p>$ No projects found. Try adjusting your filters.</p>
+          <div className="text-center mt-12 text-muted-foreground">
+            <p>No projects found. Try adjusting your filters.</p>
           </div>
         )}
       </div>

@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Mail, MapPin, Phone, Send, Github, Linkedin } from 'lucide-react';
+import { Mail, Send, Github, Linkedin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -27,7 +27,6 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Basic validation
     if (!formData.name.trim() || !formData.email.trim() || !formData.subject.trim() || !formData.message.trim()) {
       toast({ title: 'Error', description: 'Please fill in all fields.', variant: 'destructive' });
       return;
@@ -42,15 +41,15 @@ const Contact = () => {
     try {
       await sendEmail(formData);
       toast({
-        title: 'Message Sent!',
-        description: 'Thanks for reaching out — I\'ll get back to you within 24 hours.',
+        title: 'Message sent!',
+        description: "Thanks for reaching out — I'll get back to you within 24 hours.",
       });
       setFormData({ name: '', email: '', subject: '', message: '' });
     } catch (error: unknown) {
       const msg = error instanceof Error ? error.message : String(error);
       console.error('[Contact] Email delivery failed:', msg);
       toast({
-        title: 'Delivery Failed',
+        title: 'Delivery failed',
         description: `Could not send message (${msg}). Email me directly at Temitayokayode5@gmail.com`,
         variant: 'destructive',
       });
@@ -81,70 +80,54 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 bg-black relative overflow-hidden">
+    <section id="contact" className="py-24 sm:py-32 bg-secondary/30 relative overflow-hidden">
       <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center mb-16">
-          <div className="terminal-window max-w-2xl mx-auto mb-8">
-            <div className="terminal-prompt text-left">
-              <span className="text-green-500">temi@portfolio</span>:<span className="text-blue-400">~</span>$ <span className="terminal-command">./contact.sh</span>
-            </div>
-          </div>
-          <h2 className="section-title">Let's Work Together</h2>
-          <p className="text-xl text-green-300 max-w-3xl mx-auto font-mono">
-            $ Ready to bring your ideas to life? Let's discuss your next project.
+        <div className="max-w-3xl mb-16">
+          <p className="section-eyebrow">Contact</p>
+          <h2 className="section-title mb-6">Let's work together.</h2>
+          <p className="text-lg text-muted-foreground leading-relaxed">
+            Open to remote roles worldwide and relocation opportunities. Whether it's a full-time
+            position, consulting work, or a collaborative project — let's talk.
           </p>
         </div>
 
         <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12">
-          {/* Contact Information */}
-          <div className="space-y-8">
-            <div className="terminal-window p-6">
-              <h3 className="text-2xl font-mono font-bold mb-6 text-green-400">$ Get in Touch</h3>
-              <p className="text-green-300 leading-relaxed mb-8 font-mono">
-                $ I'm always interested in hearing about new opportunities, 
-                whether it's a full-time position, consulting work, or 
-                collaborative projects. Let's create something amazing together!
-              </p>
-            </div>
-
-            <div className="space-y-6">
+          <div className="space-y-6">
+            <div className="space-y-4">
               {contactInfo.map((info) => (
                 <a
                   key={info.label}
                   href={info.href}
                   target={info.href.startsWith('http') ? '_blank' : undefined}
                   rel={info.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                  className="terminal-window p-4 flex items-center gap-4 hover:border-green-500/60 transition-all duration-300 group three-d-card"
+                  className="card-surface-hover p-4 flex items-center gap-4 group"
                 >
-                  <div className="w-12 h-12 rounded-lg border border-green-500/50 bg-green-500/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-200" style={{
-                    boxShadow: '0 0 15px rgba(0, 255, 65, 0.2)'
-                  }}>
-                    <info.icon size={20} className="text-green-400" />
+                  <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/15 transition-colors">
+                    <info.icon size={19} className="text-primary" />
                   </div>
                   <div>
-                    <p className="font-mono font-semibold text-green-400">{info.label}</p>
-                    <p className="text-green-300 font-mono">{info.value}</p>
+                    <p className="font-medium text-foreground text-sm">{info.label}</p>
+                    <p className="text-muted-foreground text-sm">{info.value}</p>
                   </div>
                 </a>
               ))}
             </div>
 
-            <div className="terminal-window p-6 border-green-500/40">
-              <h4 className="font-mono font-semibold text-green-400 mb-3">$ Quick Response</h4>
-              <p className="text-green-300 text-sm font-mono">
-                $ I typically respond to messages within 24 hours. 
-                For urgent inquiries, feel free to reach out directly via email or LinkedIn.
+            <div className="card-surface p-6">
+              <h4 className="font-semibold text-foreground mb-2">Quick response</h4>
+              <p className="text-muted-foreground text-sm leading-relaxed">
+                I typically respond within 24 hours. For urgent inquiries, reach out directly via
+                email or LinkedIn.
               </p>
             </div>
           </div>
 
-          {/* Contact Form */}
-          <div className="terminal-window p-8">
-            <form onSubmit={handleSubmit} className="space-y-6">
+          <div className="card-surface p-6 sm:p-8">
+            <form onSubmit={handleSubmit} className="space-y-5">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-mono font-medium text-green-400 mb-2">
-                    $ Name
+                  <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
+                    Name
                   </label>
                   <Input
                     id="name"
@@ -153,13 +136,12 @@ const Contact = () => {
                     required
                     value={formData.name}
                     onChange={handleInputChange}
-                    className="bg-black/50 border-green-500/30 text-green-300 font-mono focus:border-green-500 focus:ring-green-500/20 placeholder:text-green-500/50"
-                    placeholder="your_name"
+                    placeholder="Your name"
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-mono font-medium text-green-400 mb-2">
-                    $ Email
+                  <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
+                    Email
                   </label>
                   <Input
                     id="email"
@@ -168,15 +150,14 @@ const Contact = () => {
                     required
                     value={formData.email}
                     onChange={handleInputChange}
-                    className="bg-black/50 border-green-500/30 text-green-300 font-mono focus:border-green-500 focus:ring-green-500/20 placeholder:text-green-500/50"
                     placeholder="your@email.com"
                   />
                 </div>
               </div>
 
               <div>
-                <label htmlFor="subject" className="block text-sm font-mono font-medium text-green-400 mb-2">
-                  $ Subject
+                <label htmlFor="subject" className="block text-sm font-medium text-foreground mb-2">
+                  Subject
                 </label>
                 <Input
                   id="subject"
@@ -185,14 +166,13 @@ const Contact = () => {
                   required
                   value={formData.subject}
                   onChange={handleInputChange}
-                  className="bg-black/50 border-green-500/30 text-green-300 font-mono focus:border-green-500 focus:ring-green-500/20 placeholder:text-green-500/50"
                   placeholder="Project inquiry, collaboration, etc."
                 />
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-mono font-medium text-green-400 mb-2">
-                  $ Message
+                <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
+                  Message
                 </label>
                 <Textarea
                   id="message"
@@ -201,18 +181,13 @@ const Contact = () => {
                   rows={6}
                   value={formData.message}
                   onChange={handleInputChange}
-                  className="bg-black/50 border-green-500/30 text-green-300 font-mono focus:border-green-500 focus:ring-green-500/20 placeholder:text-green-500/50 resize-none"
+                  className="resize-none"
                   placeholder="Tell me about your project or what you have in mind..."
                 />
               </div>
 
-              <Button
-                type="submit"
-                size="lg"
-                className="w-full bg-green-500/20 text-green-400 hover:bg-green-500/30 border border-green-500/50 font-mono hover:scale-105 transition-transform duration-200 three-d-card"
-                disabled={isSubmitting}
-              >
-                {isSubmitting ? '$ Sending...' : <><Send className="mr-2" size={20} />$ ./send_message</>}
+              <Button type="submit" size="lg" className="w-full" disabled={isSubmitting}>
+                {isSubmitting ? 'Sending...' : <><Send className="mr-2" size={18} />Send Message</>}
               </Button>
             </form>
           </div>

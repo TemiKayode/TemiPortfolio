@@ -1,81 +1,76 @@
 
 import React from 'react';
-import { Github, Linkedin, Mail, Heart } from 'lucide-react';
+import { Github, Linkedin, Mail } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
+  const navLinks = ['About', 'Experience', 'Projects', 'Contact'];
+
+  const socials = [
+    { icon: Github, href: 'https://github.com/TemiKayode', label: 'GitHub' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/in/temitayo-kayode/', label: 'LinkedIn' },
+    { icon: Mail, href: 'mailto:temitayokayode5@gmail.com', label: 'Email' },
+  ];
+
   return (
-    <footer className="bg-black border-t border-green-500/30 text-green-400 py-12 relative overflow-hidden">
+    <footer className="bg-background border-t border-border py-16 relative overflow-hidden">
       <div className="container mx-auto px-6 relative z-10">
-        <div className="grid md:grid-cols-3 gap-8 mb-8">
-          {/* Brand */}
-          <div className="terminal-window p-6">
-            <h3 className="text-2xl font-mono font-bold text-green-400 mb-4" style={{
-              textShadow: '0 0 10px rgba(0, 255, 65, 0.5)'
-            }}>
-              $ Temi Kayode
+        <div className="grid md:grid-cols-3 gap-10 mb-10">
+          <div>
+            <h3 className="font-display uppercase text-xl text-foreground mb-3">
+              Temitayo Kayode
             </h3>
-            <p className="text-green-300 leading-relaxed font-mono">
-              $ Full Stack Developer & Product Owner passionate about creating 
-              innovative solutions that make a difference.
+            <p className="text-muted-foreground leading-relaxed text-sm max-w-xs">
+              Python Production Engineer building event-driven, real-time distributed systems.
             </p>
           </div>
 
-          {/* Quick Links */}
-          <div className="terminal-window p-6">
-            <h4 className="text-lg font-mono font-semibold mb-4 text-green-400">$ Quick Links</h4>
+          <div>
+            <h4 className="text-sm font-semibold uppercase tracking-wider text-foreground mb-4">
+              Quick Links
+            </h4>
             <ul className="space-y-2">
-              {['About', 'Experience', 'Projects', 'Contact'].map((link) => (
+              {navLinks.map((link) => (
                 <li key={link}>
                   <a
                     href={`#${link.toLowerCase()}`}
-                    className="text-green-300 hover:text-green-400 transition-colors font-mono"
+                    className="text-muted-foreground hover:text-primary transition-colors text-sm"
                   >
-                    $ ./{link.toLowerCase()}
+                    {link}
                   </a>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Connect */}
-          <div className="terminal-window p-6">
-            <h4 className="text-lg font-mono font-semibold mb-4 text-green-400">$ Let's Connect</h4>
-            <div className="flex space-x-4">
-              <a
-                href="https://github.com/TemiKayode"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-black/50 hover:bg-green-500/10 w-10 h-10 rounded border border-green-500/30 flex items-center justify-center transition-colors hover:border-green-500"
-              >
-                <Github size={20} className="text-green-400" />
-              </a>
-              <a
-                href="https://www.linkedin.com/in/temitayo-kayode/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-black/50 hover:bg-green-500/10 w-10 h-10 rounded border border-green-500/30 flex items-center justify-center transition-colors hover:border-green-500"
-              >
-                <Linkedin size={20} className="text-green-400" />
-              </a>
-              <a
-                href="mailto:temitayokayode5@gmail.com"
-                className="bg-black/50 hover:bg-green-500/10 w-10 h-10 rounded border border-green-500/30 flex items-center justify-center transition-colors hover:border-green-500"
-              >
-                <Mail size={20} className="text-green-400" />
-              </a>
+          <div>
+            <h4 className="text-sm font-semibold uppercase tracking-wider text-foreground mb-4">
+              Let's Connect
+            </h4>
+            <div className="flex gap-3">
+              {socials.map((social) => (
+                <a
+                  key={social.label}
+                  href={social.href}
+                  target={social.href.startsWith('http') ? '_blank' : undefined}
+                  rel={social.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                  aria-label={social.label}
+                  className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/50 transition-colors"
+                >
+                  <social.icon size={18} />
+                </a>
+              ))}
             </div>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="border-t border-green-500/30 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-green-300 text-sm mb-4 md:mb-0 font-mono">
-            $ © {currentYear} Temi Kayode. All rights reserved.
+        <div className="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center gap-3">
+          <p className="text-muted-foreground text-sm">
+            © {currentYear} Temitayo Kayode. All rights reserved.
           </p>
-          <p className="text-green-300 text-sm flex items-center font-mono">
-            $ Built with <Heart size={16} className="mx-1 text-green-400" /> using React & Tailwind CSS
+          <p className="text-muted-foreground text-sm">
+            Built with React, TypeScript &amp; Tailwind CSS
           </p>
         </div>
       </div>

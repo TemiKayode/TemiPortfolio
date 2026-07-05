@@ -1,0 +1,31 @@
+<svg width="300" height="500" viewBox="0 0 300 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <ellipse cx="150" cy="478" rx="70" ry="11" fill="rgba(0,0,0,0.16)"/>
+
+  <circle cx="150" cy="192" r="80" fill="#FFFFFF" stroke="#4C4FB0" stroke-width="5"/>
+
+  <!-- branching trace graph -->
+  <line x1="150" y1="152" x2="124" y2="186" stroke="#4C4FB0" stroke-width="4"/>
+  <line x1="150" y1="152" x2="176" y2="186" stroke="#4C4FB0" stroke-width="4"/>
+  <line x1="124" y1="186" x2="110" y2="222" stroke="#4C4FB0" stroke-width="4"/>
+  <line x1="124" y1="186" x2="138" y2="222" stroke="#4C4FB0" stroke-width="4"/>
+  <line x1="176" y1="186" x2="190" y2="222" stroke="#4C4FB0" stroke-width="4"/>
+
+  <circle cx="150" cy="152" r="10" fill="#4C4FB0"/>
+  <circle cx="124" cy="186" r="9" fill="#4C4FB0"/>
+  <circle cx="176" cy="186" r="9" fill="#FFFFFF" stroke="#4C4FB0" stroke-width="4"/>
+  <circle cx="110" cy="222" r="7" fill="#4C4FB0"/>
+  <circle cx="138" cy="222" r="7" fill="#4C4FB0"/>
+  <circle cx="190" cy="222" r="7" fill="#4C4FB0"/>
+
+  <!-- pulse trace overlay -->
+  <path d="M96 236 h20 l8 -18 l10 24 l8 -14 l10 10 h32" stroke="#C0623F" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.85"/>
+
+  <!-- label plaque -->
+  <rect x="90" y="336" width="120" height="10" rx="5" fill="#FFFFFF" opacity="0.55"/>
+  <rect x="90" y="360" width="92" height="8" rx="4" fill="#FFFFFF" opacity="0.4"/>
+  <rect x="90" y="380" width="70" height="8" rx="4" fill="#FFFFFF" opacity="0.3"/>
+
+  <rect x="90" y="410" width="66" height="24" rx="12" fill="#4C4FB0"/>
+  <circle cx="105" cy="422" r="5" fill="#FFFFFF"/>
+  <path d="M115 422 l4 4 l7 -9" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+</svg>

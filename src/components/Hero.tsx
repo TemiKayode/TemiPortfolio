@@ -1,152 +1,302 @@
+import React, { useState, useEffect, useCallback } from 'react';
+import { ArrowLeft, ArrowRight } from 'lucide-react';
+import faceSentinelImg from '@/assets/hero/facesentinel.svg';
+import harbingerImg from '@/assets/hero/harbinger.svg';
+import liveGraphImg from '@/assets/hero/live-graph.svg';
+import footballImg from '@/assets/hero/football-analytics.svg';
 
-import React from 'react';
-import { ArrowDown, Download, MessageCircle } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import Typewriter from 'typewriter-effect';
+const PROJECTS = [
+  {
+    id: 'facesentinel',
+    name: 'FaceSentinel',
+    tag: 'Biometric Auth Pipeline',
+    description:
+      'Kafka-native face verification enforcing a sub-350ms SLA under concurrent load, with HMAC-signed audit trails and KEDA-autoscaled Kubernetes deployment.',
+    src: faceSentinelImg,
+    bg: '#C0623F',
+    panel: '#D9805F',
+    href: 'https://github.com/TemiKayode/FaceSentinel',
+  },
+  {
+    id: 'harbinger',
+    name: 'Harbinger',
+    tag: 'OSS Supply Chain Intelligence',
+    description:
+      'Real-time monitoring across 6 package registries — Kafka to Neo4j to Flink anomaly detection, holding CI/CD in under 15 minutes.',
+    src: harbingerImg,
+    bg: '#3E7A5D',
+    panel: '#559078',
+    href: 'https://github.com/TemiKayode/harbinger',
+  },
+  {
+    id: 'live-graph',
+    name: 'Live System Intelligence Graph',
+    tag: 'Production CI/CD Tooling',
+    description:
+      'Maps execution traces to source in real time, generating signed Change Impact Certificates in under 60 seconds on every pull request.',
+    src: liveGraphImg,
+    bg: '#4C4FB0',
+    panel: '#6669C4',
+    href: 'https://github.com/TemiKayode/live-system-intelligence-graph',
+  },
+  {
+    id: 'football-analytics',
+    name: 'Global Football Scouting',
+    tag: 'ML Analytics Platform',
+    description:
+      'Streamlit scouting platform ranking 20,000+ players across 36 leagues with per-90 statistics and ML-driven transfer recommendations.',
+    src: footballImg,
+    bg: '#2F6690',
+    panel: '#4A80AA',
+    href: 'https://github.com/TemiKayode/Global-Football-Scouting-Analytics-Platform',
+  },
+] as const;
+
+const EASE = 'cubic-bezier(0.4, 0, 0.2, 1)';
+
+type Role = 'center' | 'left' | 'right' | 'back';
 
 const Hero = () => {
-    return (
-        <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-black three-d-container">
-            {/* 3D Terminal Grid Background */}
-            <div className="absolute inset-0 overflow-hidden opacity-20">
-                <div className="absolute inset-0" style={{
-                    backgroundImage: `
-                        linear-gradient(rgba(0, 255, 65, 0.1) 1px, transparent 1px),
-                        linear-gradient(90deg, rgba(0, 255, 65, 0.1) 1px, transparent 1px)
-                    `,
-                    backgroundSize: '50px 50px',
-                    transform: 'perspective(1000px) rotateX(60deg) translateZ(-200px)',
-                    transformOrigin: 'center center'
-                }}></div>
-                <div className="absolute top-32 left-16 w-64 h-48 border border-green-500/20 rounded bg-black/30 blur-sm animate-float" style={{ transform: 'perspective(1000px) rotateY(-15deg) translateZ(-100px)' }}></div>
-                <div className="absolute bottom-32 right-20 w-72 h-56 border border-green-500/20 rounded bg-black/30 blur-sm animate-float" style={{ animationDelay: '2s', transform: 'perspective(1000px) rotateY(15deg) translateZ(-100px)' }}></div>
-                <div className="absolute top-1/2 left-1/4 w-48 h-36 border border-green-500/20 rounded bg-black/30 blur-sm animate-float" style={{ animationDelay: '4s', transform: 'perspective(1000px) rotateX(-10deg) translateZ(-150px)' }}></div>
-            </div>
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [isMobile, setIsMobile] = useState(
+    typeof window !== 'undefined' ? window.innerWidth < 640 : false
+  );
 
-            <div className="container mx-auto px-6 text-center relative z-20 three-d-container">
-                <div className="max-w-4xl mx-auto space-y-6 three-d-card">
-                    {/* Terminal Window */}
-                    <div className="terminal-window mx-auto max-w-3xl mb-8 animate-fade-in">
-                        <div className="text-left space-y-2">
-                            <div className="terminal-prompt mb-4">
-                                <span className="text-green-500">temi@portfolio</span>:<span className="text-blue-400">~</span>$ <span className="terminal-command">whoami</span>
-                            </div>
-                            <div className="text-green-300 font-mono mb-4 text-lg">
-                                <Typewriter
-                                    options={{
-                                        strings: [
-                                            'Python Backend Engineer — Kafka · ArcFace · Qdrant · Docker · Kubernetes.',
-                                            'Building intelligence-grade systems: biometric pipelines, ML platforms, security tooling.',
-                                            'Supply chain security, anomaly detection, and real-time data pipelines at production scale.',
-                                            'Open to remote roles worldwide and relocation opportunities.',
-                                        ],
-                                        autoStart: true,
-                                        loop: true,
-                                        deleteSpeed: 30,
-                                        delay: 60,
-                                    }}
-                                />
-                                <span className="terminal-cursor"></span>
-                            </div>
-                            <div className="terminal-prompt">
-                                <span className="text-green-500">temi@portfolio</span>:<span className="text-blue-400">~</span>$ <span className="text-green-400">cat experience.txt</span>
-                            </div>
-                        </div>
-                    </div>
+  useEffect(() => {
+    PROJECTS.forEach((p) => {
+      const img = new Image();
+      img.src = p.src;
+    });
+  }, []);
 
-                    {/* Profile Image */}
-                    <div className="flex flex-col items-center mb-8">
-                        <div className="relative w-32 h-32 three-d-card">
-                            <a href="#" className="block" aria-label="Profile link">
-                                <div className="w-full h-full rounded-lg border-2 border-green-500/50 bg-black/50 hover:scale-105 transition-all duration-300" style={{
-                                    boxShadow: '0 0 30px rgba(0, 255, 65, 0.3), inset 0 0 20px rgba(0, 255, 65, 0.1)',
-                                    transform: 'perspective(1000px) rotateY(-10deg)'
-                                }}>
-                                    <img
-                                        src="/images/profile.jpg"
-                                        alt="Temi Kayode Profile"
-                                        className="w-full h-full rounded-lg object-cover opacity-90"
-                                    />
-                                </div>
-                            </a>
-                        </div>
-                    </div>
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 640);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
-                    {/* Name */}
-                    <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight text-green-400 animate-glow font-mono" style={{
-                        textShadow: '0 0 20px rgba(0, 255, 65, 0.8), 0 0 40px rgba(0, 255, 65, 0.5)',
-                        transform: 'perspective(1000px) rotateX(5deg)'
-                    }}>
-                        &gt; TEMI
-                    </h1>
+  const navigate = useCallback(
+    (direction: 'next' | 'prev') => {
+      if (isAnimating) return;
+      setIsAnimating(true);
+      setActiveIndex((prev) =>
+        direction === 'next' ? (prev + 1) % 4 : (prev + 3) % 4
+      );
+      window.setTimeout(() => setIsAnimating(false), 650);
+    },
+    [isAnimating]
+  );
 
-                    {/* Role title */}
-                    <p className="text-xl md:text-2xl text-green-300 font-mono mb-2" style={{
-                        textShadow: '0 0 10px rgba(0, 255, 65, 0.4)'
-                    }}>
-                        Python Backend &amp; ML Engineer
-                    </p>
-                    <p className="text-sm text-green-500 font-mono mb-6">
-                        Remote · Open to relocation · 5+ years building production systems
-                    </p>
+  const roleFor = (index: number): Role => {
+    if (index === activeIndex) return 'center';
+    if (index === (activeIndex + 3) % 4) return 'left';
+    if (index === (activeIndex + 1) % 4) return 'right';
+    return 'back';
+  };
 
-                    {/* Skill Badges */}
-                    <div className="flex flex-wrap justify-center gap-3 mb-8">
-                        {[
-                            '$ Python',
-                            '$ Kafka',
-                            '$ Machine Learning',
-                            '$ Security Engineering',
-                            '$ Docker & K8s',
-                            '$ Qdrant / Vector DB',
-                            '$ Go & Rust',
-                            '$ Full Stack (React / Node.js)',
-                        ].map((badge) => (
-                            <div
-                                key={badge}
-                                className="bg-black/80 border border-green-500/30 text-green-400 px-5 py-2 rounded text-sm font-mono hover:scale-105 transition-transform three-d-card"
-                                style={{ boxShadow: '0 0 15px rgba(0, 255, 65, 0.2)' }}
-                            >
-                                {badge}
-                            </div>
-                        ))}
-                    </div>
+  const roleStyle = (role: Role): React.CSSProperties => {
+    switch (role) {
+      case 'center':
+        return {
+          left: '50%',
+          bottom: isMobile ? '22%' : 0,
+          height: isMobile ? '60%' : '92%',
+          transform: `translateX(-50%) scale(${isMobile ? 1.25 : 1.68})`,
+          filter: 'blur(0px)',
+          opacity: 1,
+          zIndex: 20,
+        };
+      case 'left':
+        return {
+          left: isMobile ? '20%' : '30%',
+          bottom: isMobile ? '32%' : '12%',
+          height: isMobile ? '16%' : '28%',
+          transform: 'translateX(-50%) scale(1)',
+          filter: 'blur(2px)',
+          opacity: 0.85,
+          zIndex: 10,
+        };
+      case 'right':
+        return {
+          left: isMobile ? '80%' : '70%',
+          bottom: isMobile ? '32%' : '12%',
+          height: isMobile ? '16%' : '28%',
+          transform: 'translateX(-50%) scale(1)',
+          filter: 'blur(2px)',
+          opacity: 0.85,
+          zIndex: 10,
+        };
+      case 'back':
+      default:
+        return {
+          left: '50%',
+          bottom: isMobile ? '32%' : '12%',
+          height: isMobile ? '13%' : '22%',
+          transform: 'translateX(-50%) scale(1)',
+          filter: 'blur(4px)',
+          opacity: 1,
+          zIndex: 5,
+        };
+    }
+  };
 
-                    {/* Action Buttons */}
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12 animate-fade-in">
-                        <a
-                            href="https://wa.me/2347035401659"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center bg-black/80 border-2 border-green-500/50 text-green-400 hover:bg-green-500/10 hover:border-green-500 hover:text-green-300 font-mono px-8 py-4 rounded transition-all duration-300 three-d-card"
-                            style={{ boxShadow: '0 0 20px rgba(0, 255, 65, 0.3)' }}
-                            aria-label="Contact Temi Kayode via WhatsApp"
-                        >
-                            <MessageCircle className="mr-2" size={18} />
-                            ./contact --whatsapp
-                        </a>
-                        <a
-                            href="/images/TemiCV.pdf"
-                            download
-                            className="inline-flex items-center bg-black/80 border-2 border-green-500/50 text-green-400 hover:bg-green-500/10 hover:border-green-500 hover:text-green-300 font-mono px-8 py-4 rounded transition-all duration-300 three-d-card"
-                            style={{ boxShadow: '0 0 20px rgba(0, 255, 65, 0.3)' }}
-                            aria-label="Download Temi Kayode's CV"
-                        >
-                            <Download className="mr-2" size={18} />
-                            ./download --cv
-                        </a>
-                    </div>
+  const active = PROJECTS[activeIndex];
 
-                    <div className="animate-bounce">
-                        <a href="#about" className="inline-flex flex-col items-center text-green-400 hover:text-green-300 transition-colors font-mono">
-                            <ArrowDown size={24} />
-                            <span className="text-sm mt-2">$ scroll --down</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-    );
+  return (
+    <div
+      className="relative w-full overflow-hidden"
+      style={{
+        backgroundColor: active.bg,
+        transition: `background-color 650ms ${EASE}`,
+        fontFamily: "'Inter', sans-serif",
+      }}
+    >
+      <div className="relative w-full overflow-hidden" style={{ height: '100vh' }}>
+        {/* Grain overlay */}
+        <div
+          className="absolute inset-0 pointer-events-none grain-overlay"
+          style={{ zIndex: 50, opacity: 0.4 }}
+        />
+
+        {/* Giant ghost text */}
+        <div
+          className="absolute inset-x-0 flex items-center justify-center pointer-events-none select-none"
+          style={{ zIndex: 2, top: '18%' }}
+        >
+          <span
+            style={{
+              fontFamily: "'Anton', sans-serif",
+              fontSize: 'clamp(90px, 28vw, 380px)',
+              fontWeight: 900,
+              color: '#ffffff',
+              opacity: 1,
+              lineHeight: 1,
+              textTransform: 'uppercase',
+              letterSpacing: '-0.02em',
+              whiteSpace: 'nowrap',
+            }}
+          >
+            BUILD
+          </span>
+        </div>
+
+        {/* Brand label */}
+        <div
+          className="absolute top-6 left-4 sm:left-8 text-xs font-semibold uppercase text-white"
+          style={{ zIndex: 60, opacity: 0.9, letterSpacing: '0.18em' }}
+        >
+          Temitayo Kayode
+        </div>
+
+        {/* Carousel */}
+        <div className="absolute inset-0" style={{ zIndex: 3 }}>
+          {PROJECTS.map((project, index) => {
+            const role = roleFor(index);
+            const style = roleStyle(role);
+            return (
+              <div
+                key={project.id}
+                style={{
+                  position: 'absolute',
+                  aspectRatio: '0.6 / 1',
+                  transition: `transform 650ms ${EASE}, filter 650ms ${EASE}, opacity 650ms ${EASE}, left 650ms ${EASE}`,
+                  willChange: 'transform, filter, opacity',
+                  ...style,
+                }}
+              >
+                <img
+                  src={project.src}
+                  alt={project.name}
+                  draggable={false}
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'contain',
+                    objectPosition: 'bottom center',
+                  }}
+                />
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Bottom-left text + nav buttons */}
+        <div
+          className="absolute bottom-6 left-4 sm:bottom-20 sm:left-24"
+          style={{ zIndex: 60, maxWidth: 320 }}
+        >
+          <p
+            className="font-bold uppercase tracking-widest mb-2 sm:mb-3 text-base sm:text-[22px] text-white"
+            style={{ opacity: 0.95, letterSpacing: '0.02em' }}
+          >
+            Featured Systems
+          </p>
+          <p
+            className="hidden sm:block text-xs sm:text-sm text-white mb-4 sm:mb-5"
+            style={{ opacity: 0.85, lineHeight: 1.6 }}
+          >
+            <span className="font-semibold">{active.name}</span> — {active.description}
+          </p>
+
+          <div className="flex gap-3">
+            <button
+              type="button"
+              onClick={() => navigate('prev')}
+              aria-label="Previous project"
+              className="w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center bg-transparent text-white transition-transform hover:scale-[1.08]"
+              style={{
+                border: '2px solid #ffffff',
+                transitionProperty: 'transform, background-color',
+                transitionDuration: '150ms',
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.12)')}
+              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'transparent')}
+            >
+              <ArrowLeft size={26} strokeWidth={2.25} />
+            </button>
+            <button
+              type="button"
+              onClick={() => navigate('next')}
+              aria-label="Next project"
+              className="w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center bg-transparent text-white transition-transform hover:scale-[1.08]"
+              style={{
+                border: '2px solid #ffffff',
+                transitionProperty: 'transform, background-color',
+                transitionDuration: '150ms',
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.12)')}
+              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'transparent')}
+            >
+              <ArrowRight size={26} strokeWidth={2.25} />
+            </button>
+          </div>
+        </div>
+
+        {/* Bottom-right link */}
+        <a
+          href={active.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="absolute bottom-6 right-4 sm:bottom-20 sm:right-10 flex items-center text-white no-underline uppercase transition-opacity duration-200"
+          style={{
+            zIndex: 60,
+            fontFamily: "'Anton', sans-serif",
+            fontSize: 'clamp(20px, 4vw, 56px)',
+            fontWeight: 400,
+            opacity: 0.95,
+            letterSpacing: '-0.02em',
+            lineHeight: 1,
+          }}
+          onMouseEnter={(e) => (e.currentTarget.style.opacity = '1')}
+          onMouseLeave={(e) => (e.currentTarget.style.opacity = '0.95')}
+        >
+          View Project
+          <ArrowRight className="w-5 h-5 sm:w-8 sm:h-8 ml-2" strokeWidth={2.25} />
+        </a>
+      </div>
+    </div>
+  );
 };
 
 export default Hero;

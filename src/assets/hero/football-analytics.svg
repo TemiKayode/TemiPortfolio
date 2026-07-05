@@ -1,0 +1,23 @@
+<svg width="300" height="500" viewBox="0 0 300 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <ellipse cx="150" cy="478" rx="70" ry="11" fill="rgba(0,0,0,0.16)"/>
+
+  <circle cx="150" cy="192" r="80" fill="#FFFFFF" stroke="#2F6690" stroke-width="5"/>
+
+  <!-- bar chart -->
+  <rect x="118" y="205" width="14" height="34" rx="3" fill="#2F6690" opacity="0.55"/>
+  <rect x="140" y="188" width="14" height="51" rx="3" fill="#2F6690" opacity="0.8"/>
+  <rect x="162" y="168" width="14" height="71" rx="3" fill="#2F6690"/>
+
+  <!-- ball / globe -->
+  <circle cx="169" cy="150" r="16" fill="#FFFFFF" stroke="#2F6690" stroke-width="4"/>
+  <path d="M155 150 h28 M169 136 q-8 14 0 28 M169 136 q8 14 0 28" stroke="#2F6690" stroke-width="2" fill="none"/>
+
+  <!-- label plaque -->
+  <rect x="90" y="336" width="120" height="10" rx="5" fill="#FFFFFF" opacity="0.55"/>
+  <rect x="90" y="360" width="92" height="8" rx="4" fill="#FFFFFF" opacity="0.4"/>
+  <rect x="90" y="380" width="70" height="8" rx="4" fill="#FFFFFF" opacity="0.3"/>
+
+  <rect x="90" y="410" width="66" height="24" rx="12" fill="#2F6690"/>
+  <circle cx="105" cy="422" r="5" fill="#FFFFFF"/>
+  <path d="M115 422 l4 4 l7 -9" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+</svg>
